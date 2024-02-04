@@ -1,12 +1,12 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - zubair480
+
 
 github_repos:
-  - alshedivat/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - jpswalsh/academicons
-  - mathjax/MathJax
+  - zubair480/web-dev-class
+  - zubair480/circles-animation
+  - zubair480/advent-of-code
+  - zubair480/amadeus-hackathon-proj
+  - zubair480/coq
+  - zubair480/leetcode
+  - zubair480/hackerrank

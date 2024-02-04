@@ -1,18 +1,7 @@
 ---
 layout: default
 ---
-<div class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
-      {% else %}
-        {{ site.title }}
-      {% endif %}
-    </h1>
-    <p class="desc">{{ page.subtitle }}</p>
-  </header>
+
 
   <article>
     {% if page.profile %}
@@ -37,6 +26,60 @@ layout: default
         {% endif %}
       </div>
     {% endif %}
+    <!-- Title -->
+    <div class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      {% if site.title == 'blank' %}
+        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
+        {{ site.last_name }}
+    <p class="desc">{{ page.subtitle }}</p>
+
+        <!-- Social -->
+        {% if page.social %}
+          <div class="social">
+            <div class="contact-icons">{% include social.liquid %}</div>
+
+            <div class="contact-note">{{ site.contact_note }}</div>
+          </div>
+        {% endif %}
+
+      {% else %}
+        {{ site.title }}
+      {% endif %}
+    </h1>
+    
+<div class="main_div"> 
+<!-- Title -->
+    <div class="">
+  <header class="post-">
+    <h1 class="post-">
+      {% if site.title == 'blank' %}
+        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
+        {{ site.last_name }}
+    <p class="desc">{{ page.subtitle }}</p>
+
+        <!-- Social -->
+        {% if page.social %}
+          <div class="social">
+            <div class="contact-icons">{% include social.liquid %}</div>
+
+            <div class="contact-note">{{ site.contact_note }}</div>
+          </div>
+        {% endif %}
+
+      {% else %}
+        {{ site.title }}
+      {% endif %}
+    </h1>
+Title <br>
+Subtitle <br>
+Address <br>
+email <br>
+social icons 
+</div>
+    
+  </header>
 
     <div class="clearfix">{{ content }}</div>
 
@@ -64,13 +107,6 @@ layout: default
       {% include selected_papers.liquid %}
     {% endif %}
 
-    <!-- Social -->
-    {% if page.social %}
-      <div class="social">
-        <div class="contact-icons">{% include social.liquid %}</div>
-
-        <div class="contact-note">{{ site.contact_note }}</div>
-      </div>
-    {% endif %}
+    
   </article>
 </div>

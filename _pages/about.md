@@ -1,26 +1,27 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+# subtitle: Software Engineer
 
 profile:
-  align: right
+  align: left
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
-
+    <p>Software Engineer</p>
+    <p>WordPress Engineer</p>
 news: true # includes a list of news items
 latest_posts: true # includes a list of the newest posts
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
+I am a prospective PhD candidate actively seeking opportunities for the fall/spring 2024 intake. Recently, I successfully completed a software engineering internship at Etihad Aviation Group World Headquarters, Abu Dhabi.
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+With a bachelor's degree in Computer Science from Government College University Faisalabad Sahiwal Campus, I have built a strong foundation in problem-solving. I'm proficient in a wide array of programming languages and technologies, including HTML, CSS, JavaScript, Bootstrap, React, Angular, Tailwind, and Material UI for front-end development. On the back-end, I excel in Python, Flask, Node.js, Django, and am well-versed in database management with SQLite, SQL, and MongoDB. I'm also proficient in Docker for containerization and have experience with machine learning libraries such as NumPy, Pandas, and TensorFlow.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+I've also participated in numerous hackathons, including our victory at the Amadeus Hackathon 2022 and receiving the OAK-D camera at the Transatlantic Hackathon.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+Sharing knowledge is a passion of mine. As a section leader at Stanford University's Code in Place course, I've had the pleasure of teaching Python and problem-solving to international students. In my home country, Pakistan, I've actively volunteered, teaching IELTS and Data Structures and Algorithms to underprivileged students.
+
+I'm not just a coder but also a problem solver and a mentor. My experience and diverse skill set can be a valuable asset to a research lab. As a PhD student/researcher, I'm poised to bring my technical expertise and mentoring skills to the table, contributing to innovative solutions and fostering the development of future talents.
