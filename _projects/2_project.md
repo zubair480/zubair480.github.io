@@ -1,7 +1,7 @@
 ---
 layout: page
-title: project 2
-description: a project with a background image and giscus comments
+title: Smart Saftey Management System
+description: Our project aims to create a Smart Safety Management System (SSMS) using Oak D cameras and wearable gear for manufacturing industries. It ensures worker safety, accountability, and efficiency through real-time monitoring, automated notifications, and entrance security.
 img: assets/img/3.jpg
 importance: 2
 category: work
@@ -15,6 +15,7 @@ Make your photos 1/3, 2/3, or full width.
 To give your project a background in the portfolio page, just add the img tag to the front matter like so:
 
     ---
+    I can write here anything that I want
     layout: page
     title: project
     description: a project with a background image

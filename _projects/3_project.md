@@ -1,9 +1,9 @@
 ---
 layout: page
-title: project 3
-description: a project that redirects to another website
+title: Codic
+description: In this project, we employed Python, Whisper API, and OpenAI API to create an innovative voice-activated image generation app. By leveraging OpenAI's Whisper, GPT-3, and Codex APIs, we developed a user-friendly interface using React Native and Django, enabling users to generate images from spoken descriptions.
 img: assets/img/7.jpg
-redirect: https://unsplash.com
+# redirect: https://unsplash.com
 importance: 3
 category: work
 ---
