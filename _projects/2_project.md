@@ -2,7 +2,7 @@
 layout: page
 title: Smart Saftey Management System
 description: Our project aims to create a Smart Safety Management System (SSMS) using Oak D cameras and wearable gear for manufacturing industries. It ensures worker safety, accountability, and efficiency through real-time monitoring, automated notifications, and entrance security.
-img: assets/img/3.jpg
+img: assets/img/ppe_0004.jpg
 importance: 2
 category: work
 giscus_comments: true

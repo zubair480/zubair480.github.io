@@ -2,7 +2,7 @@
 layout: page
 title: Smart CPM Parser
 description: Amadeus Hackathon Project revolutionizes cargo message processing with a robust parsing tool inspired by Grammarly. By recognizing cargo message grammars and automatically correcting errors, it significantly reduces manual effort, enhances data accuracy, and streamlines cargo handling operations.
-img: assets/img/12.jpg
+img: assets/img/solution_overview.jpg
 importance: 1
 category: work
 related_publications: false
