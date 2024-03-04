@@ -7,76 +7,16 @@ importance: 2
 category: work
 giscus_comments: true
 ---
+Imagine a bustling manufacturing facility, a symphony of machinery and human activity. While productivity is crucial, ensuring worker safety remains paramount. At the `Transatlantic AI Hackathon`, we present the Smart Safety Management System (SSMS), an AI-powered solution designed to enhance worker safety, accountability, and efficiency in manufacturing environments.
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+SSMS is created in python and `Yolo8` but it's core lies in a sophisticated camera, the Oak-D Lite. This camera is not just an ordinary camera instead it offers depth perception capabilities. Think of it as giving the system a sense of "real-world" understanding which allows it to differentiate between a worker and a stray object on the shop floor.
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+But the SSMS doesn't work alone. It seamlessly integrates with wearable safety gear like helmets and vests. It ensures that workers are properly equipped before entering potentially hazardous zones. This real-time monitoring goes beyond presence detection. The system gathers data on worker activity, attendance, and adherence to safety protocols, which creates a digital safety net that can prevent accidents before they occur.
 
-    ---
-    I can write here anything that I want
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+In a scenario where a worker forgets their safety glasses. The SSMS, acting as a vigilant observer, would instantly detect the missing gear and trigger an automated email notification to the control room, complete with a picture captured by the Oak-D Lite camera. This allows for immediate intervention, ensuring the worker's safety and preventing potential hazards.
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+But the SSMS doesn't stop at notifications. It fosters accountability by sending automated inquiries to the employee, prompting them to explain the situation. This two-pronged approach of notification and inquiry ensures swift action and encourages responsible behavior.
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+The SSMS extends its watchful gaze beyond individual workers. It monitors the facility's entrance point, capturing images of everyone entering and leaving. This enhances security and provides valuable data for record-keeping purposes.
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
-
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
-
-{% raw %}
-
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
-
-{% endraw %}
+Our journey at the Transatlantic AI Hackathon wasn't just about winning (though we were thrilled to receive the `Certificate of Achievement` and the `OAK-D Lite camera` as a reward). It was about collaboration, innovation, and the power of AI to make a real difference. We believe the SSMS, with its scalability and adaptability, has the potential to revolutionize safety standards across the manufacturing industry.
