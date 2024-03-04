@@ -1,81 +1,39 @@
 ---
 layout: page
-title: Codic
-description: In this project, we employed Python, Whisper API, and OpenAI API to create an innovative voice-activated image generation app. By leveraging OpenAI's Whisper, GPT-3, and Codex APIs, we developed a user-friendly interface using React Native and Django, enabling users to generate images from spoken descriptions.
-img: assets/img/navitutuor.png
+title: Navi Tutor
+description: NAVI is a web-based learning platform that uses AI to answer your questions on a variety of topics. It retrieves information from a vast collection of curated articles and uses powerful language models to generate informative answers. The project is still under development, but future plans include interactive quizzes and personalized learning.
 # redirect: https://unsplash.com
+img: assets/img/navitutuor.png
 importance: 3
 category: work
+
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+Imagine having a personal tutor readily available to answer your questions, no matter the subject. That's the idea behind NAVI, a web-based learning platform developed during the <a src="lablab.ai">`lablab.ai`</a> `openAI hackathon`.
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+NAVI empowers users to explore and understand a wide range of topics like a friendly guide. Whether you're curious about the intricacies of machine learning or have a burning question about history, NAVI is here to help.
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+How does it work? Think of NAVI as a powerful search engine on steroids. It leverages the cutting-edge technology of OpenAI's davinci-003 model to analyze vast amounts of information and generate informative answers to your queries.
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+But NAVI is more than just a search engine. It utilizes a process called "information retrieval," where it sifts through a massive collection of curated articles and websites, stored in a digital library called Elasticsearch. Using advanced algorithms, NAVI retrieves the most relevant information and presents it to you in a clear and concise manner.
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+This process involves several key players:
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+<ul>
+<li>Haystack: This open-source framework acts as the maestro, orchestrating the entire information retrieval and answer generation process.
+</li>
+<li>Text-embedding-ada002: This model plays a crucial role in understanding the meaning of your questions and the information stored in the library. It essentially translates both the query and the information into a numerical format, allowing for efficient comparison.
+</li>
+<li>Davinci-003: Finally, this powerful language model takes the baton, using its vast knowledge and understanding of language to generate informative and comprehensive answers to your questions.</li>
+</ul>
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
-
-{% raw %}
-
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
-
-{% endraw %}
+The project is still under development, but the team behind NAVI has ambitious plans for the future. They aim to incorporate features like:
+Interactive quizzes and exercises: These tools will help you solidify your understanding of the learned concepts.
+<ul> 
+<li>
+Personalized learning: NAVI will adapt to your individual learning style and pace, making the learning experience more engaging and effective.
+</li>
+<li>
+Speech recognition: Imagine asking NAVI a question using your voice! This feature is on the horizon, making learning even more convenient.
+</li>
+</ul>
