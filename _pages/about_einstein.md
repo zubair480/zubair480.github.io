@@ -1,4 +1,4 @@
-I am a prospective PhD candidate actively seeking opportunities for the fall/spring 2024 intake. Recently, I successfully completed a software engineering internship at Etihad Aviation Group World Headquarters, Abu Dhabi.
+I am a graduate aspirent actively seeking opportunities for the fall/spring 2024 intake. Recently, I successfully completed a software engineering internship at Etihad Aviation Group World Headquarters, Abu Dhabi.
 
 With a bachelor's degree in Computer Science from Government College University Faisalabad Sahiwal Campus, I have built a strong foundation in problem-solving. I'm proficient in a wide array of programming languages and technologies, including HTML, CSS, JavaScript, Bootstrap, React, Angular, Tailwind, and Material UI for front-end development. On the back-end, I excel in Python, Flask, Node.js, Django, and am well-versed in database management with SQLite, SQL, and MongoDB. To make applications independent of infrastructure I use Docker for containerization and creating images and have experience with machine learning libraries such as NumPy, Pandas, and TensorFlow.
 

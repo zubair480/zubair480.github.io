@@ -5,8 +5,8 @@ description: NAVI is a web-based learning platform that uses AI to answer your q
 # redirect: https://unsplash.com
 img: assets/img/navitutuor.png
 importance: 3
-category: work
-
+category: Hackathons
+giscus_comments: true
 ---
 
 Imagine having a personal tutor readily available to answer your questions, no matter the subject. That's the idea behind NAVI, a web-based learning platform developed during the <a src="lablab.ai">`lablab.ai`</a> `openAI hackathon`.

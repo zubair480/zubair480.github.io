@@ -4,7 +4,7 @@ title: Smart Saftey Management System
 description: Our project aims to create a Smart Safety Management System (SSMS) using Oak D cameras and wearable gear for manufacturing industries. It ensures worker safety, accountability, and efficiency through real-time monitoring, automated notifications, and entrance security.
 img: assets/img/ppe_0004.jpg
 importance: 2
-category: work
+category: Hackathons
 giscus_comments: true
 ---
 Imagine a bustling manufacturing facility, a symphony of machinery and human activity. While productivity is crucial, ensuring worker safety remains paramount. At the `Transatlantic AI Hackathon`, we present the Smart Safety Management System (SSMS), an AI-powered solution designed to enhance worker safety, accountability, and efficiency in manufacturing environments.

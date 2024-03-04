@@ -125,7 +125,7 @@
       "score": "10"
     }
   ],
-  "awards": [
+  "awards#": [
     {
       "title": "",
       "date": "1921-11-01",
@@ -134,7 +134,7 @@
       "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
     }
   ],
-  "certificates": [
+  "certificates#": [
     {
       "name": "Machine Learning",
       "date": "2018-01-01",
@@ -282,7 +282,7 @@
       ]
     }
   ],
-  "references": [
+  "referennces": [
     {
       "name": "Professor John Doe",
       "icon": "fa-solid fa-laptop",
@@ -294,7 +294,7 @@
       "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
     }
   ],
-  "projects": [
+  "pronjects": [
     {
       "name": "Quantum Computing",
       "summary": "Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.",

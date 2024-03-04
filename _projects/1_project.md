@@ -4,8 +4,9 @@ title: Smart CPM Parser
 description: Smart CPM Parser revolutionizes cargo message processing with a robust parsing tool inspired by Grammarly. It has specific parser based on rules which detects frequent errors and significantly reduces manual effort, enhances data accuracy, and streamlines cargo handling operations.
 img: assets/img/solution_overview.jpg
 importance: 1
-category: work
+category: Hackathons
 related_publications: false
+giscus_comments: true
 ---
 The roar of jet engines and the bustle of passengers – these are the usual sights and sounds associated with an airport. But beneath the surface lies another crucial operation: the cargo department. Here, a dedicated team of ground handlers manages a constant flow of goods, meticulously creating "Cargo Palet Messages" (CPMs) for each shipment.
 
