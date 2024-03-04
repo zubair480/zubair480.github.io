@@ -1,81 +1,51 @@
 ---
 layout: page
 title: Smart CPM Parser
-description: Amadeus Hackathon Project revolutionizes cargo message processing with a robust parsing tool inspired by Grammarly. By recognizing cargo message grammars and automatically correcting errors, it significantly reduces manual effort, enhances data accuracy, and streamlines cargo handling operations.
+description: Smart CPM Parser revolutionizes cargo message processing with a robust parsing tool inspired by Grammarly. It has specific parser based on rules which detects frequent errors and significantly reduces manual effort, enhances data accuracy, and streamlines cargo handling operations.
 img: assets/img/solution_overview.jpg
 importance: 1
 category: work
 related_publications: false
 ---
+The roar of jet engines and the bustle of passengers – these are the usual sights and sounds associated with an airport. But beneath the surface lies another crucial operation: the cargo department. Here, a dedicated team of ground handlers manages a constant flow of goods, meticulously creating "Cargo Palet Messages" (CPMs) for each shipment.
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+These CPMs are essentially digital passports for cargo which ensure smooth transfer from one airport to another. However, ensuring they adhere to the strict rules set by the International Air Transport Association (IATA) is crucial. Unfortunately, up to 70% of these CPMs are rejected due to human errors, both in syntax (grammatical mistakes) and semantics (meaning-based errors). This not only delays deliveries but also creates unnecessary work for both airlines and ground handlers.
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+In October 2022, I had the opportunity to participate in the `Amadeus hackathon`, an event where teams brainstorm and build innovative solutions within a limited timeframe. My team and I were particularly drawn to the `Etihad Green Development Challenge`, which focused on tackling a real-world issue faced by the cargo industry. The goal was to create a “Smart Parser” that could analyze these CPM files and identify any errors and mitigates them based on a specific grammar. 
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
-
+The 48-hour hackathon was a whirlwind of brainstorming, coding, and collaboration. Our team, decided to build a user-friendly parser using `Flask` for the backend and HTML, CSS, and JavaScript for the frontend.
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid path="assets/img/etihad 1.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid path="assets/img/etihad 2.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid path="assets/img/etihad 3.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
+Here are some comprehensive slides from our presentation
 </div>
+
+The heart of our creation, however, lay in its "grammar." We meticulously defined the rules based on IATA guidelines which allowing the parser to not only identify syntax errors like missing commas but also semantic errors like incorrect weight values.
+
+Our Smart CPM Parser, a `"Grammarly"` for the cargo industry! It presented errors on a user-friendly dashboard, making it easy for ground handlers to pinpoint and rectify mistakes. Our efforts paid off: we were declared the winners of the challenge! The reward was not just the prestigious title, but also the opportunity to intern at Etihad Aviation Group in Abu Dhabi. This internship provided the invaluable experience of further refining and deploying our Smart CPM Parser within a real-world environment, making a tangible impact on the cargo industry.
+
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6988125267739201536"  frameborder="0" allowfullscreen="Yes" height="500px" title="Embedded post" class="w-100  mb-5"></iframe>
     </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
 
-You can also put regular text between your rows of images, even citations {% cite einstein1950meaning %}.
-Say you wanted to write a bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
 
-{% raw %}
 
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
 
-{% endraw %}
+
+
+
+
+
+
+
