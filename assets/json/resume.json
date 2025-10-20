@@ -4,15 +4,15 @@
     "label": "Software Engineer",
     "image": "",
     "email": "zubairzafar480@gmail.com",
-    "phone": "(+92) 303 9008284",
+    "phone": "(217) 790 8056",
     "url": "https://zubair480.github.io",
     "summary": "A Software Engineer with experience of working with diverse technologies.",
     "location": {
-      "address": "Okara Pakistan",
-      "postalCode": "PK 56400",
-      "city": "Okara",
-      "countryCode": "PK",
-      "region": "Punjab"
+      "address": "Charleston IL",
+      "postalCode": "61920",
+      "city": "Charleston",
+      "countryCode": "US",
+      "region": "Illinois"
     },
     "profiles": [
       {
@@ -23,6 +23,15 @@
     ]
   },
   "work": [
+    {
+      "name": "Eastern Illinois University",
+      "position": "Graduate Web Assitant",
+      "url": "https://eiu.edu",
+      "startDate": "2024-08-01",
+      "endDate": "2026-06-01",
+      "summary": "Working as a Graduate Assitant for EIU.",
+      "highlights": ["Laravel","PHP"]
+    },
     {
       "name": "Etihad Aviation Group, Abu Dhabi",
       "position": "Software Engineering Intern",
