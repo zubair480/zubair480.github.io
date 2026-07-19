@@ -1,3 +1,8 @@
+export type ProjectCategory =
+  | "Agentic AI and research"
+  | "Products and developer tools"
+  | "Mobile vision and learning";
+
 export type Project = {
   number: string;
   title: string;
@@ -6,6 +11,7 @@ export type Project = {
   proof: string;
   stack: string[];
   href: string;
+  category: ProjectCategory;
 };
 
 export const featuredProjects: Project[] = [
@@ -18,6 +24,7 @@ export const featuredProjects: Project[] = [
     proof: "5K simulations in under 12 seconds",
     stack: ["FastAPI", "Cloudflare", "Modal", "LLMs"],
     href: "https://github.com/zubair480/EstateAgent-AI",
+    category: "Agentic AI and research",
   },
   {
     number: "02",
@@ -28,6 +35,7 @@ export const featuredProjects: Project[] = [
     proof: "Private zero internet inference on device",
     stack: ["Kotlin", "ExecuTorch", "CameraX", "QNN"],
     href: "https://github.com/zubair480/Electric-lens",
+    category: "Mobile vision and learning",
   },
   {
     number: "03",
@@ -38,6 +46,7 @@ export const featuredProjects: Project[] = [
     proof: "Async evidence pipeline from scrape to alert",
     stack: ["FastAPI", "Bright Data", "RAG", "Pydantic"],
     href: "https://github.com/andytang0220/AgenticAudit",
+    category: "Agentic AI and research",
   },
   {
     number: "04",
@@ -48,6 +57,7 @@ export const featuredProjects: Project[] = [
     proof: "MCP server with a workbench and consensus mode",
     stack: ["Python", "MCP", "W&B Weave", "Next.js"],
     href: "https://github.com/productlayers/judgeagent",
+    category: "Agentic AI and research",
   },
   {
     number: "05",
@@ -58,6 +68,7 @@ export const featuredProjects: Project[] = [
     proof: "PDF to knowledge workflow with local models",
     stack: ["FastAPI", "Ollama", "React", "Mermaid"],
     href: "https://github.com/zubair480/Research-Graph",
+    category: "Agentic AI and research",
   },
   {
     number: "06",
@@ -68,6 +79,7 @@ export const featuredProjects: Project[] = [
     proof: "GPU generation with a live scan dashboard",
     stack: ["FastAPI", "RunPod", "Bright Data", "Flux"],
     href: "https://github.com/zubair480/FlashCard",
+    category: "Products and developer tools",
   },
 ];
 
@@ -81,6 +93,7 @@ export const moreProjects: Project[] = [
     proof: "Runs as a CLI plus a Streamlit app or messaging backend",
     stack: ["Python", "Streamlit", "RocketRide", "XTrace"],
     href: "https://github.com/zubair480/agentic-ai-hackathon",
+    category: "Agentic AI and research",
   },
   {
     number: "08",
@@ -91,6 +104,7 @@ export const moreProjects: Project[] = [
     proof: "Citation grounded reports with x402 settlement",
     stack: ["Multi agent", "SAFE MCP", "ClickHouse", "x402"],
     href: "https://github.com/bishnubista/mcp-auditor",
+    category: "Agentic AI and research",
   },
   {
     number: "09",
@@ -101,6 +115,7 @@ export const moreProjects: Project[] = [
     proof: "Adaptive negotiation flow built for mobile",
     stack: ["Flutter", "Dart", "Generative UI"],
     href: "https://github.com/zubair480/micro-loan-negotiator",
+    category: "Products and developer tools",
   },
   {
     number: "10",
@@ -111,6 +126,7 @@ export const moreProjects: Project[] = [
     proof: "Local data turns community urgency into better matches",
     stack: ["FastAPI", "DigitalOcean AI", "SF 311", "React"],
     href: "https://github.com/arjun-vaidya/tenderly",
+    category: "Products and developer tools",
   },
   {
     number: "11",
@@ -121,6 +137,7 @@ export const moreProjects: Project[] = [
     proof: "Less form filling with faster event discovery",
     stack: ["Chrome Extension", "Manifest V3", "JavaScript"],
     href: "https://github.com/zubair480/luma_extension",
+    category: "Products and developer tools",
   },
   {
     number: "12",
@@ -131,6 +148,7 @@ export const moreProjects: Project[] = [
     proof: "Private structured practice available offline",
     stack: ["Kotlin", "Jetpack Compose", "SM2", "Audio"],
     href: "https://github.com/zubair480/hifz-quran-app",
+    category: "Mobile vision and learning",
   },
   {
     number: "13",
@@ -141,6 +159,7 @@ export const moreProjects: Project[] = [
     proof: "Discovery and planning in one personal itinerary",
     stack: ["Node.js", "SQLite", "Vercel", "Auth"],
     href: "https://github.com/zubair480/travel-buddy",
+    category: "Products and developer tools",
   },
   {
     number: "14",
@@ -151,6 +170,7 @@ export const moreProjects: Project[] = [
     proof: "Live PPE detection with employee aware alerts",
     stack: ["YOLOv8", "OAK D", "Python", "Flask"],
     href: "https://github.com/zubair480/UltraHack-Transatlantic",
+    category: "Mobile vision and learning",
   },
   {
     number: "15",
@@ -161,6 +181,7 @@ export const moreProjects: Project[] = [
     proof: "95% fewer entry errors and 30% less manual work",
     stack: ["Python", "Flask", "RegEx", "JavaScript"],
     href: "https://github.com/zubair480/amadeus_hackathon2",
+    category: "Products and developer tools",
   },
   {
     number: "16",
@@ -171,6 +192,7 @@ export const moreProjects: Project[] = [
     proof: "From speech to an editable creative prompt",
     stack: ["Whisper", "OpenAI API", "Django", "React Native"],
     href: "https://github.com/QU01/OpenAIHackatonApp",
+    category: "Mobile vision and learning",
   },
   {
     number: "17",
@@ -181,6 +203,7 @@ export const moreProjects: Project[] = [
     proof: "Haystack retrieval with Elasticsearch and OpenAI",
     stack: ["Python", "Haystack", "Elasticsearch", "OpenAI"],
     href: "https://github.com/zubair480/zubair480.github.io/blob/master/_projects/3_project.md",
+    category: "Mobile vision and learning",
   },
 ];
 

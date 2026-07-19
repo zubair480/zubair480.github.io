@@ -4,6 +4,27 @@ import { allProjects } from "../project-data";
 import Link from "next/link";
 import { WebGLAura } from "../experience-layer";
 
+const projectCategories = [
+  {
+    id: "agentic-ai",
+    label: "Agentic AI and research",
+    description:
+      "Autonomous agents and evidence systems built for trustworthy decisions and faster research.",
+  },
+  {
+    id: "products-and-tools",
+    label: "Products and developer tools",
+    description:
+      "Full stack products and tools that remove friction from everyday work.",
+  },
+  {
+    id: "mobile-vision-learning",
+    label: "Mobile vision and learning",
+    description:
+      "Private mobile experiences that use vision audio and structured learning.",
+  },
+] as const;
+
 export const metadata: Metadata = {
   title: "Projects | Zubair Zafar",
   description: "Explore 17 software engineering and applied AI projects built by Zubair Zafar.",
@@ -43,11 +64,48 @@ export default function ProjectsPage() {
         <section className="section projectsCatalog" id="project-catalog">
           <div className="shell">
             <div className="catalogIntro" data-reveal>
-              <p className="eyebrow">All work</p>
-              <p>Open any project to view its source and learn how it was built.</p>
+              <p className="eyebrow">Browse by category</p>
+              <p>Every project is here. Choose an area or explore the full catalog.</p>
             </div>
-            <div className="projectGrid">
-              {allProjects.map((project) => <ProjectCard project={project} key={project.title} />)}
+
+            <nav className="categoryNav" aria-label="Project categories" data-reveal>
+              {projectCategories.map((category) => {
+                const count = allProjects.filter(
+                  (project) => project.category === category.label,
+                ).length;
+
+                return (
+                  <a href={`#${category.id}`} key={category.id}>
+                    {category.label}
+                    <span>{count}</span>
+                  </a>
+                );
+              })}
+            </nav>
+
+            <div className="projectCategoryStack">
+              {projectCategories.map((category, index) => {
+                const projects = allProjects.filter(
+                  (project) => project.category === category.label,
+                );
+
+                return (
+                  <section className="projectCategory" id={category.id} key={category.id}>
+                    <div className="projectCategoryHeader" data-reveal>
+                      <p className="projectCategoryIndex">
+                        {String(index + 1).padStart(2, "0")} / {projects.length}
+                      </p>
+                      <h2>{category.label}</h2>
+                      <p>{category.description}</p>
+                    </div>
+                    <div className="projectGrid">
+                      {projects.map((project) => (
+                        <ProjectCard project={project} key={project.title} />
+                      ))}
+                    </div>
+                  </section>
+                );
+              })}
             </div>
           </div>
         </section>
