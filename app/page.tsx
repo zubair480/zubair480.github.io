@@ -139,7 +139,7 @@ export default function Home() {
             <a href="/projects">Projects</a>
             <a href="#experience">Experience</a>
             <a href="#about">About</a>
-            <a href="/Zubair-Zafar-CV.pdf" target="_blank" rel="noreferrer">CV</a>
+            <a href="/zubair_cv.pdf" target="_blank" rel="noreferrer">CV</a>
             <a href="mailto:zubairzafar480@gmail.com">Contact</a>
           </div>
         </nav>
@@ -160,7 +160,7 @@ export default function Home() {
             </p>
             <div className="heroActions">
               <a className="button buttonPrimary" href="/projects">Explore my work <span aria-hidden="true">↗</span></a>
-              <a className="button buttonGhost" href="/Zubair-Zafar-CV.pdf" target="_blank" rel="noreferrer">View my CV <span aria-hidden="true">↗</span></a>
+              <a className="button buttonGhost" href="/zubair_cv.pdf" target="_blank" rel="noreferrer">View my CV <span aria-hidden="true">↗</span></a>
               <a className="heroContact" href="mailto:zubairzafar480@gmail.com">Start a conversation <span aria-hidden="true">↗</span></a>
             </div>
           </div>
@@ -334,7 +334,7 @@ export default function Home() {
           <div>
             <a href="https://github.com/zubair480" target="_blank" rel="noreferrer">GitHub</a>
             <a href="https://linkedin.com/in/zubair480" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a href="/Zubair-Zafar-CV.pdf" target="_blank" rel="noreferrer">CV</a>
+            <a href="/zubair_cv.pdf" target="_blank" rel="noreferrer">CV</a>
             <a href="#top">Back to top ↑</a>
           </div>
         </footer>

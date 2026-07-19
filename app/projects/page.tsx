@@ -43,7 +43,7 @@ export default function ProjectsPage() {
             <Link href="/">Home</Link>
             <Link href="/#experience">Experience</Link>
             <Link href="/#about">About</Link>
-            <a href="/Zubair-Zafar-CV.pdf" target="_blank" rel="noreferrer">CV</a>
+            <a href="/zubair_cv.pdf" target="_blank" rel="noreferrer">CV</a>
             <a href="mailto:zubairzafar480@gmail.com">Contact</a>
           </div>
         </nav>
@@ -122,7 +122,7 @@ export default function ProjectsPage() {
           <div>
             <Link href="/">Home</Link>
             <a href="https://github.com/zubair480" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="/Zubair-Zafar-CV.pdf" target="_blank" rel="noreferrer">CV</a>
+            <a href="/zubair_cv.pdf" target="_blank" rel="noreferrer">CV</a>
             <a href="#top">Back to top ↑</a>
           </div>
         </footer>

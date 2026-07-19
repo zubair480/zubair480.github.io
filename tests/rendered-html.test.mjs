@@ -33,7 +33,7 @@ test("server renders the finished portfolio", async () => {
   assert.match(html, /I turn ambitious/);
   assert.match(html, /systems into/);
   assert.match(html, /useful products\./);
-  assert.match(html, /href="\/Zubair-Zafar-CV\.pdf"/);
+  assert.match(html, /href="\/zubair_cv\.pdf"/);
   assert.match(html, /href="https:\/\/leetcode\.com\/zubair480"/);
   assert.match(html, />460<\/strong>/);
   assert.match(html, /class="webglAura"/);
