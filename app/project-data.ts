@@ -45,7 +45,7 @@ export const featuredProjects: Project[] = [
       "A proactive compliance agent that scans the web and collects screenshot evidence. It flags risks across GDPR and SOC 2 plus HIPAA and PCI.",
     proof: "Async evidence pipeline from scrape to alert",
     stack: ["FastAPI", "Bright Data", "RAG", "Pydantic"],
-    href: "https://github.com/andytang0220/AgenticAudit",
+    href: "https://github.com/zubair480/AgenticAudit",
     category: "Agentic AI and research",
   },
   {
