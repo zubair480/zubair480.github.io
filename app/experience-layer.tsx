@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 
 type WebGLConnection = Navigator & {
   connection?: { saveData?: boolean };
@@ -27,6 +28,7 @@ function compileShader(
 
 export function ScrollExperience() {
   const progressRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     const root = document.documentElement;
@@ -34,6 +36,37 @@ export function ScrollExperience() {
     const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
     const revealItems = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
     const parallaxItems = Array.from(document.querySelectorAll<HTMLElement>("[data-parallax]"));
+    const textRevealTargets = [
+      "main h2",
+      "main h3",
+      "main h4",
+      "main p",
+      "main li",
+      "main figcaption",
+      "main .projectNumber",
+      "main .proofGrid strong",
+      "main .proofGrid span",
+      "main .projectsHeroFooter strong",
+      "main .projectsHeroFooter span",
+      "main .capabilityCard > span",
+      "main .recognitionGrid article > span",
+      "main .profileFacts strong",
+      "main .profileFacts span",
+      "main .credentialItem > span",
+      "main .nav a",
+      "main .button",
+      "main .heroContact",
+      "main .projectsContact a",
+      "main .footer a",
+    ].join(", ");
+    const textItems = Array.from(
+      document.querySelectorAll<HTMLElement>(textRevealTargets),
+    ).filter((item) => {
+      if (!item.textContent?.trim()) return false;
+      if (item.hasAttribute("data-reveal")) return false;
+      if (item.closest(".hero, .loadingScreen, [aria-hidden='true']")) return false;
+      return true;
+    });
     const hero = document.querySelector<HTMLElement>(".hero");
 
     root.classList.add("motionReady");
@@ -42,9 +75,27 @@ export function ScrollExperience() {
       item.style.setProperty("--reveal-delay", `${(index % 4) * 65}ms`);
     });
 
+    const sequenceIndexes = new Map<Element, number>();
+    textItems.forEach((item) => {
+      const group =
+        item.closest("[data-reveal], article, details, nav, footer, section") ??
+        item.parentElement ??
+        document.body;
+      const sequenceIndex = sequenceIndexes.get(group) ?? 0;
+
+      item.classList.add("textMotion");
+      item.style.setProperty(
+        "--text-reveal-delay",
+        `${Math.min(sequenceIndex, 6) * 58}ms`,
+      );
+      sequenceIndexes.set(group, sequenceIndex + 1);
+    });
+
     let observer: IntersectionObserver | undefined;
+    let textObserver: IntersectionObserver | undefined;
     if (reduceMotion) {
       revealItems.forEach((item) => item.classList.add("isVisible"));
+      textItems.forEach((item) => item.classList.add("isTextVisible"));
     } else {
       observer = new IntersectionObserver(
         (entries) => {
@@ -58,6 +109,19 @@ export function ScrollExperience() {
       );
 
       revealItems.forEach((item) => observer?.observe(item));
+
+      textObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("isTextVisible");
+            textObserver?.unobserve(entry.target);
+          });
+        },
+        { rootMargin: "0px 0px -7%", threshold: 0.08 },
+      );
+
+      textItems.forEach((item) => textObserver?.observe(item));
     }
 
     hero?.classList.add("heroActive");
@@ -91,11 +155,16 @@ export function ScrollExperience() {
     return () => {
       root.classList.remove("motionReady");
       observer?.disconnect();
+      textObserver?.disconnect();
+      textItems.forEach((item) => {
+        item.classList.remove("textMotion", "isTextVisible");
+        item.style.removeProperty("--text-reveal-delay");
+      });
       window.removeEventListener("scroll", requestUpdate);
       window.removeEventListener("resize", requestUpdate);
       if (frame) window.cancelAnimationFrame(frame);
     };
-  }, []);
+  }, [pathname]);
 
   return <div ref={progressRef} className="scrollProgress" aria-hidden="true" />;
 }

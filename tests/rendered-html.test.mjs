@@ -64,10 +64,14 @@ test("motion remains progressive and accessible", async () => {
   ]);
 
   assert.match(experienceLayer, /IntersectionObserver/);
+  assert.match(experienceLayer, /textRevealTargets/);
+  assert.match(experienceLayer, /isTextVisible/);
+  assert.match(experienceLayer, /usePathname/);
   assert.match(experienceLayer, /prefers-reduced-motion: reduce/);
   assert.match(experienceLayer, /saveData/);
   assert.match(experienceLayer, /powerPreference: "low-power"/);
   assert.match(css, /\.motionReady \[data-reveal\]/);
+  assert.match(css, /\.motionReady \.textMotion/);
   assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
   assert.match(css, /\.scrollProgress/);
 });
