@@ -43,6 +43,8 @@ test("server renders the finished portfolio", async () => {
   assert.doesNotMatch(html, /2023 to 2025/);
   assert.doesNotMatch(html, /3× Python Teacher/);
   assert.match(html, /hackathon wins/);
+  assert.match(html, /class="heroAward"/);
+  assert.match(html, /href="\/projects#hackathon-wins"/);
   assert.match(html, /class="webglAura"/);
   assert.match(html, /property="og:image" content="https:\/\/zubair480\.github\.io\/og\.png"/);
   assert.doesNotMatch(html, />Languages</);
@@ -58,6 +60,7 @@ test("server renders the complete project catalog", async () => {
   assert.match(html, /Twenty builds\./);
   assert.match(html, /complete project catalog/i);
   assert.match(html, /Three hackathon wins/);
+  assert.match(html, /id="hackathon-wins"/);
   assert.match(html, /CrewAI Hackathon/);
   assert.match(html, /Auth0 × Stripe Hackathon/);
   assert.match(html, /Amadeus × Etihad/);

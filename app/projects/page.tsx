@@ -92,7 +92,7 @@ export default function ProjectsPage() {
           </div>
         </header>
 
-        <section className="hackathonSpotlight" aria-labelledby="hackathon-wins-title">
+        <section className="hackathonSpotlight" id="hackathon-wins" aria-labelledby="hackathon-wins-title">
           <div className="shell">
             <div className="hackathonSpotlightHeader" data-reveal>
               <p className="eyebrow">Hackathon record</p>

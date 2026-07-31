@@ -381,6 +381,59 @@ a:focus-visible {
   display: none;
 }
 
+.heroAward {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  margin: -8px 0 24px;
+  padding: 6px 13px 6px 7px;
+  background: rgba(17, 39, 29, 0.96);
+  color: white;
+  border: 1px solid rgba(17, 39, 29, 0.12);
+  border-radius: 999px;
+  box-shadow: 0 12px 30px rgba(17, 39, 29, 0.14);
+  font-family: var(--font-geist-mono), monospace;
+  transition:
+    transform 220ms var(--ease-out),
+    box-shadow 220ms ease;
+}
+
+.heroAward strong {
+  min-width: 34px;
+  height: 34px;
+  display: inline-grid;
+  place-items: center;
+  background: var(--acid);
+  color: var(--deep);
+  border-radius: 50%;
+  font-size: 0.9rem;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.heroAward > span:not(.heroAwardArrow) {
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.heroAwardArrow {
+  color: var(--acid);
+  font-size: 0.92rem;
+  transition: transform 220ms var(--ease-out);
+}
+
+.heroAward:hover {
+  box-shadow: 0 16px 34px rgba(17, 39, 29, 0.2);
+  transform: translateY(-2px);
+}
+
+.heroAward:hover .heroAwardArrow {
+  transform: translate(2px, -2px);
+}
+
 .statusDot {
   width: 9px;
   height: 9px;
@@ -2116,6 +2169,10 @@ a:focus-visible {
 
   .heroCopy > .kicker {
     display: none;
+  }
+
+  .heroAward {
+    margin: 0 0 22px;
   }
 
   .mobileKicker {
