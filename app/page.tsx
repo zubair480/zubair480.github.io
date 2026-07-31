@@ -1,6 +1,7 @@
 import { ProjectCard } from "./project-card";
 import { allProjects, featuredProjects } from "./project-data";
 import { WebGLAura } from "./experience-layer";
+import { HeroAward } from "./hero-award";
 
 const capabilities = [
   {
@@ -149,16 +150,7 @@ export default function Home() {
           <p className="kicker mobileKicker"><span className="statusDot" /> Software engineer · AI builder · San Francisco</p>
           <div className="heroCopy">
             <p className="kicker"><span className="statusDot" /> Software engineer · AI builder · San Francisco</p>
-            <a
-              className="heroAward"
-              href="/projects#hackathon-wins"
-              aria-label="View Zubair Zafar’s three hackathon wins"
-              data-reveal
-            >
-              <strong>3×</strong>
-              <span>Hackathon winner</span>
-              <span className="heroAwardArrow" aria-hidden="true">↗</span>
-            </a>
+            <HeroAward />
             <h1>
               <span className="heroLine">I turn ambitious</span>
               <span className="heroLine">systems into</span>

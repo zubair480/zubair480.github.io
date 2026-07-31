@@ -382,6 +382,8 @@ a:focus-visible {
 }
 
 .heroAward {
+  position: relative;
+  z-index: 2;
   width: fit-content;
   display: inline-flex;
   align-items: center;
@@ -394,6 +396,7 @@ a:focus-visible {
   border-radius: 999px;
   box-shadow: 0 12px 30px rgba(17, 39, 29, 0.14);
   font-family: var(--font-geist-mono), monospace;
+  isolation: isolate;
   transition:
     transform 220ms var(--ease-out),
     box-shadow 220ms ease;
@@ -412,7 +415,7 @@ a:focus-visible {
   line-height: 1;
 }
 
-.heroAward > span:not(.heroAwardArrow) {
+.heroAwardLabel {
   font-size: 0.64rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -432,6 +435,99 @@ a:focus-visible {
 
 .heroAward:hover .heroAwardArrow {
   transform: translate(2px, -2px);
+}
+
+.heroCelebration {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.heroCongrats {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 10px);
+  padding: 7px 11px 8px;
+  background: var(--surface);
+  color: var(--deep);
+  border: 1px solid rgba(17, 39, 29, 0.16);
+  border-radius: 999px;
+  box-shadow: 0 10px 24px rgba(17, 39, 29, 0.16);
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-size: 0.96rem;
+  font-style: italic;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  opacity: 0;
+  transform: translate(-8px, -50%) scale(0.82);
+  transform-origin: left center;
+  white-space: nowrap;
+}
+
+.heroCelebration i {
+  --confetti-x: 0px;
+  --confetti-y: -44px;
+  --confetti-r: 90deg;
+  --confetti-delay: 0ms;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 10px;
+  background: var(--acid);
+  border-radius: 2px;
+  opacity: 0;
+}
+
+.heroCelebration i:nth-of-type(1) { --confetti-x: -82px; --confetti-y: -42px; --confetti-r: -150deg; }
+.heroCelebration i:nth-of-type(2) { --confetti-x: -56px; --confetti-y: -64px; --confetti-r: 120deg; --confetti-delay: 35ms; background: var(--sunset); }
+.heroCelebration i:nth-of-type(3) { --confetti-x: -22px; --confetti-y: -72px; --confetti-r: 210deg; --confetti-delay: 70ms; background: var(--blue); }
+.heroCelebration i:nth-of-type(4) { --confetti-x: 18px; --confetti-y: -68px; --confetti-r: -110deg; --confetti-delay: 20ms; }
+.heroCelebration i:nth-of-type(5) { --confetti-x: 54px; --confetti-y: -58px; --confetti-r: 170deg; --confetti-delay: 85ms; background: var(--sunset); }
+.heroCelebration i:nth-of-type(6) { --confetti-x: 84px; --confetti-y: -32px; --confetti-r: 250deg; --confetti-delay: 45ms; background: var(--blue); }
+.heroCelebration i:nth-of-type(7) { --confetti-x: -88px; --confetti-y: 20px; --confetti-r: 140deg; --confetti-delay: 65ms; background: var(--blue); }
+.heroCelebration i:nth-of-type(8) { --confetti-x: -54px; --confetti-y: 46px; --confetti-r: -190deg; --confetti-delay: 15ms; }
+.heroCelebration i:nth-of-type(9) { --confetti-x: -14px; --confetti-y: 58px; --confetti-r: 230deg; --confetti-delay: 95ms; background: var(--sunset); }
+.heroCelebration i:nth-of-type(10) { --confetti-x: 30px; --confetti-y: 54px; --confetti-r: -130deg; --confetti-delay: 50ms; background: var(--blue); }
+.heroCelebration i:nth-of-type(11) { --confetti-x: 66px; --confetti-y: 38px; --confetti-r: 190deg; --confetti-delay: 75ms; }
+.heroCelebration i:nth-of-type(12) { --confetti-x: 92px; --confetti-y: 8px; --confetti-r: -240deg; --confetti-delay: 30ms; background: var(--sunset); }
+
+.heroAward.isCelebrating .heroCongrats {
+  animation: heroCongratsPop 1100ms var(--ease-out) both;
+}
+
+.heroAward.isCelebrating .heroCelebration i {
+  animation: heroConfettiBurst 900ms var(--ease-out) var(--confetti-delay) both;
+}
+
+@keyframes heroCongratsPop {
+  0% { opacity: 0; transform: translate(-8px, -50%) scale(0.82); }
+  14%, 72% { opacity: 1; transform: translate(0, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(7px, -50%) scale(0.96); }
+}
+
+@keyframes heroConfettiBurst {
+  0% { opacity: 0; transform: translate(-50%, -50%) rotate(0deg) scale(0.45); }
+  16% { opacity: 1; }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--confetti-x)), calc(-50% + var(--confetti-y))) rotate(var(--confetti-r)) scale(1);
+  }
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .statusDot {
@@ -2591,6 +2687,10 @@ a:focus-visible {
   }
 
   .loadingScreen {
+    display: none;
+  }
+
+  .heroCelebration {
     display: none;
   }
 

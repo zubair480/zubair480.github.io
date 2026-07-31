@@ -74,8 +74,9 @@ test("server renders the complete project catalog", async () => {
 });
 
 test("motion remains progressive and accessible", async () => {
-  const [experienceLayer, css] = await Promise.all([
+  const [experienceLayer, heroAward, css] = await Promise.all([
     readFile(new URL("../app/experience-layer.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/hero-award.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
   ]);
 
@@ -86,8 +87,13 @@ test("motion remains progressive and accessible", async () => {
   assert.match(experienceLayer, /prefers-reduced-motion: reduce/);
   assert.match(experienceLayer, /saveData/);
   assert.match(experienceLayer, /powerPreference: "low-power"/);
+  assert.match(heroAward, /sessionStorage/);
+  assert.match(heroAward, /onMouseEnter=\{celebrateOnce\}/);
+  assert.match(heroAward, /onFocus=\{celebrateOnce\}/);
+  assert.match(heroAward, /Congratulations!/);
   assert.match(css, /\.motionReady \[data-reveal\]/);
   assert.match(css, /\.motionReady \.textMotion/);
   assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
   assert.match(css, /\.scrollProgress/);
+  assert.match(css, /@keyframes heroConfettiBurst/);
 });
