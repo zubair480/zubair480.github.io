@@ -27,7 +27,7 @@ const projectCategories = [
 
 export const metadata: Metadata = {
   title: "Projects | Zubair Zafar",
-  description: "Explore 17 software engineering and applied AI projects built by Zubair Zafar.",
+  description: "Explore 20 software engineering and applied AI projects built by Zubair Zafar.",
 };
 
 export default function ProjectsPage() {
@@ -51,7 +51,7 @@ export default function ProjectsPage() {
         <header className="projectsHero shell" id="top">
           <WebGLAura />
           <p className="kicker" data-reveal><span className="statusDot" /> Complete project catalog</p>
-          <h1 data-reveal>Seventeen builds. <span className="heroAccent">One habit of shipping.</span></h1>
+          <h1 data-reveal>Twenty builds. <span className="heroAccent">One habit of shipping.</span></h1>
           <div className="projectsHeroFooter" data-reveal>
             <p>Hackathon systems and research tools sit beside mobile products and developer platforms. Each project starts with a real problem and ends with working software.</p>
             <div>

@@ -86,6 +86,39 @@ export const featuredProjects: Project[] = [
 export const moreProjects: Project[] = [
   {
     number: "07",
+    title: "Clip Police",
+    eyebrow: "Second place · Auth0 × Stripe Hackathon",
+    description:
+      "An AI powered multi agent platform that finds unauthorized reposts of creator videos across the web and assembles a real time circulation report.",
+    proof: "2nd place at Okta's San Francisco headquarters",
+    stack: ["Multi agent", "Auth0", "Stripe", "Content detection"],
+    href: "https://www.linkedin.com/feed/update/urn:li:activity:7488853520134107136/",
+    category: "Agentic AI and research",
+  },
+  {
+    number: "08",
+    title: "ROOT",
+    eyebrow: "Second place · CrewAI Hackathon",
+    description:
+      "A coordinated onboarding system that reads a Zendesk request then provisions the software, hardware and access a new employee needs.",
+    proof: "14 agents turn a week of provisioning into minutes",
+    stack: ["CrewAI", "Zendesk", "Multi agent", "Full stack"],
+    href: "https://www.linkedin.com/feed/update/urn:li:activity:7487710934313013248/",
+    category: "Agentic AI and research",
+  },
+  {
+    number: "09",
+    title: "AI GTM Agent",
+    eyebrow: "Customer validation · AWS Builder Loft",
+    description:
+      "An autonomous feedback loop that listens across social channels, verifies reported product issues, fixes authorized problems and responds with evidence.",
+    proof: "A judge volunteered to become the first customer",
+    stack: ["Multi agent", "Nimble", "Kylon", "Social listening"],
+    href: "https://www.linkedin.com/feed/update/urn:li:activity:7484411388363288576/",
+    category: "Agentic AI and research",
+  },
+  {
+    number: "10",
     title: "Model Compatibility Agent",
     eyebrow: "Sponsor integration · Agentic AI Hackathon",
     description:
@@ -96,7 +129,7 @@ export const moreProjects: Project[] = [
     category: "Agentic AI and research",
   },
   {
-    number: "08",
+    number: "11",
     title: "MCP Auditor",
     eyebrow: "Contributor · Harness Engineering Hack",
     description:
@@ -107,7 +140,7 @@ export const moreProjects: Project[] = [
     category: "Agentic AI and research",
   },
   {
-    number: "09",
+    number: "12",
     title: "Micro Loan Negotiator",
     eyebrow: "Generative UI · Gen UI Hack",
     description:
@@ -118,7 +151,7 @@ export const moreProjects: Project[] = [
     category: "Products and developer tools",
   },
   {
-    number: "10",
+    number: "13",
     title: "Tenderly",
     eyebrow: "Backend contributor · AI for Social Good",
     description:
@@ -129,7 +162,7 @@ export const moreProjects: Project[] = [
     category: "Products and developer tools",
   },
   {
-    number: "11",
+    number: "14",
     title: "Luma Extension",
     eyebrow: "Browser automation · Personal project",
     description:
@@ -140,7 +173,7 @@ export const moreProjects: Project[] = [
     category: "Products and developer tools",
   },
   {
-    number: "12",
+    number: "15",
     title: "Hifz",
     eyebrow: "Offline learning · Personal project",
     description:
@@ -151,7 +184,7 @@ export const moreProjects: Project[] = [
     category: "Mobile vision and learning",
   },
   {
-    number: "13",
+    number: "16",
     title: "Signal SF",
     eyebrow: "Local discovery · Personal project",
     description:
@@ -162,7 +195,7 @@ export const moreProjects: Project[] = [
     category: "Products and developer tools",
   },
   {
-    number: "14",
+    number: "17",
     title: "Smart Safety",
     eyebrow: "Computer vision · Transatlantic AI Hackathon",
     description:
@@ -173,7 +206,7 @@ export const moreProjects: Project[] = [
     category: "Mobile vision and learning",
   },
   {
-    number: "15",
+    number: "18",
     title: "Smart CPM Parser",
     eyebrow: "First place · Etihad Green Development",
     description:
@@ -184,7 +217,7 @@ export const moreProjects: Project[] = [
     category: "Products and developer tools",
   },
   {
-    number: "16",
+    number: "19",
     title: "Codic",
     eyebrow: "Voice to image · OpenAI Hackathon",
     description:
@@ -195,7 +228,7 @@ export const moreProjects: Project[] = [
     category: "Mobile vision and learning",
   },
   {
-    number: "17",
+    number: "20",
     title: "Navi Tutor",
     eyebrow: "AI learning · lablab.ai OpenAI Hackathon",
     description:

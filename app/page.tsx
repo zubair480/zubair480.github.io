@@ -1,5 +1,5 @@
 import { ProjectCard } from "./project-card";
-import { featuredProjects } from "./project-data";
+import { allProjects, featuredProjects } from "./project-data";
 import { WebGLAura } from "./experience-layer";
 
 const capabilities = [
@@ -219,7 +219,7 @@ export default function Home() {
               {featuredProjects.map((project) => <ProjectCard project={project} key={project.title} />)}
             </div>
             <a className="allWork" href="/projects">
-              Explore all 17 projects <span aria-hidden="true">↗</span>
+              Explore all {allProjects.length} projects <span aria-hidden="true">↗</span>
             </a>
           </div>
         </section>

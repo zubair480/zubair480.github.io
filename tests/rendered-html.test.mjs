@@ -47,9 +47,12 @@ test("server renders the complete project catalog", async () => {
   assert.equal(response.status, 200);
 
   const html = await response.text();
-  assert.match(html, /Seventeen builds\./);
+  assert.match(html, /Twenty builds\./);
   assert.match(html, /Complete project catalog/);
   assert.match(html, /EstateAgent AI/);
+  assert.match(html, /Clip Police/);
+  assert.match(html, /ROOT/);
+  assert.match(html, /AI GTM Agent/);
   assert.match(html, /Smart CPM Parser/);
   assert.match(html, /class="projectCard"/);
 });
