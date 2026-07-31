@@ -1029,6 +1029,205 @@ a:focus-visible {
   text-transform: uppercase;
 }
 
+.hackathonSpotlight {
+  position: relative;
+  overflow: hidden;
+  padding-block: 104px;
+  background: var(--deep);
+  color: #fff;
+  isolation: isolate;
+}
+
+.hackathonSpotlight::before {
+  position: absolute;
+  top: -19rem;
+  right: -7rem;
+  width: 46rem;
+  height: 46rem;
+  background: radial-gradient(circle, rgba(200, 240, 120, 0.17), transparent 66%);
+  content: "";
+  pointer-events: none;
+}
+
+.hackathonSpotlightHeader {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 0.55fr 1.45fr 0.8fr;
+  gap: clamp(28px, 4vw, 64px);
+  align-items: start;
+  margin-bottom: 54px;
+}
+
+.hackathonSpotlight .eyebrow {
+  color: var(--acid);
+}
+
+.hackathonStatement {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.hackathonStatement > strong {
+  margin-top: -0.08em;
+  color: var(--acid);
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-size: clamp(5rem, 9vw, 8rem);
+  font-weight: 400;
+  letter-spacing: -0.07em;
+  line-height: 0.72;
+}
+
+.hackathonStatement h2 {
+  max-width: 640px;
+  margin: 0;
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+}
+
+.hackathonSpotlightHeader > p:last-child {
+  margin: 0;
+  color: #b9c6be;
+  line-height: 1.7;
+}
+
+.hackathonWinGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.hackathonWinCard {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.055);
+  color: #fff;
+  transition:
+    transform 280ms var(--ease-out),
+    background 280ms ease,
+    border-color 280ms ease;
+}
+
+.hackathonWinCard::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 5px;
+  background: var(--acid);
+  content: "";
+}
+
+.hackathonWinCard:nth-child(2)::before {
+  background: var(--sunset);
+}
+
+.hackathonWinCard:nth-child(3)::before {
+  background: var(--blue);
+}
+
+.hackathonWinCard:hover,
+.hackathonWinCard:focus-visible {
+  border-color: rgba(200, 240, 120, 0.55);
+  background: rgba(255, 255, 255, 0.085);
+  transform: translateY(-6px);
+}
+
+.hackathonWinTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.hackathonWinTop > span:first-child {
+  color: #8fa097;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+}
+
+.hackathonWinTop > span:last-child {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: var(--acid);
+  color: var(--deep);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.64rem;
+  font-weight: 720;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.hackathonWinCard:nth-child(2) .hackathonWinTop > span:last-child {
+  background: var(--sunset);
+}
+
+.hackathonWinCard:nth-child(3) .hackathonWinTop > span:last-child {
+  background: var(--blue);
+}
+
+.hackathonEvent {
+  margin: 68px 0 14px;
+  color: #aebdb4;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hackathonWinCard h3 {
+  margin: 0;
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.hackathonWinDescription {
+  margin: 22px 0 28px;
+  color: #c5d0c9;
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.hackathonWinProof {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: auto;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  color: #e2e9e4;
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.hackathonWinProof > span:last-child {
+  color: var(--acid);
+  font-size: 1.05rem;
+  transition: transform 220ms var(--ease-out);
+}
+
+.hackathonWinCard:hover .hackathonWinProof > span:last-child,
+.hackathonWinCard:focus-visible .hackathonWinProof > span:last-child {
+  transform: translate(3px, -3px);
+}
+
 .projectsCatalog {
   background: var(--sage);
 }
@@ -1812,6 +2011,22 @@ a:focus-visible {
     align-items: flex-start;
   }
 
+  .hackathonSpotlightHeader {
+    grid-template-columns: 1fr;
+  }
+
+  .hackathonSpotlightHeader > p:last-child {
+    max-width: 620px;
+  }
+
+  .hackathonWinGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .hackathonWinCard {
+    min-height: 340px;
+  }
+
   .catalogIntro {
     align-items: flex-start;
     flex-direction: column;
@@ -2066,6 +2281,24 @@ a:focus-visible {
   .projectsHero h1 {
     margin-bottom: 48px;
     font-size: clamp(3.8rem, 17vw, 5.6rem);
+  }
+
+  .hackathonSpotlight {
+    padding-block: 76px;
+  }
+
+  .hackathonStatement {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .hackathonStatement h2 {
+    font-size: clamp(2.7rem, 12vw, 3.8rem);
+  }
+
+  .hackathonWinCard {
+    min-height: 360px;
+    padding: 26px 22px;
   }
 
   .projectsContact .shell {

@@ -187,7 +187,7 @@ export default function Home() {
             <div data-reveal><strong>7K+</strong><span>users served</span></div>
             <div data-reveal><strong>15K+</strong><span>product installs</span></div>
             <div data-reveal><strong>97.2%</strong><span>MRI model accuracy</span></div>
-            <div data-reveal><strong>4.0</strong><span>graduate GPA</span></div>
+            <div data-reveal><strong>3×</strong><span>hackathon wins</span></div>
           </div>
         </section>
 

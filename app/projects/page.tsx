@@ -25,9 +25,40 @@ const projectCategories = [
   },
 ] as const;
 
+const hackathonWins = [
+  {
+    placement: "2nd place",
+    event: "CrewAI Hackathon",
+    project: "ROOT",
+    description:
+      "Fourteen autonomous agents coordinate employee onboarding from a single Zendesk request.",
+    proof: "A week of provisioning compressed into minutes",
+    href: "https://www.linkedin.com/feed/update/urn:li:activity:7487710934313013248/",
+  },
+  {
+    placement: "2nd place",
+    event: "Auth0 × Stripe Hackathon",
+    project: "Clip Police",
+    description:
+      "A multi-agent creator protection platform that finds unauthorized video reposts across the web.",
+    proof: "Podium finish at Okta’s San Francisco headquarters",
+    href: "https://www.linkedin.com/feed/update/urn:li:activity:7488853520134107136/",
+  },
+  {
+    placement: "1st place",
+    event: "Amadeus × Etihad",
+    project: "Smart CPM Parser",
+    description:
+      "A cargo-message parser that validates and corrects operational CPM messages before they reach production workflows.",
+    proof: "95% fewer entry errors · shipped into production",
+    href: "https://github.com/zubair480/amadeus_hackathon2",
+  },
+] as const;
+
 export const metadata: Metadata = {
   title: "Projects | Zubair Zafar",
-  description: "Explore 20 software engineering and applied AI projects built by Zubair Zafar.",
+  description:
+    "Explore 20 software engineering and applied AI projects, including three hackathon-winning builds by Zubair Zafar.",
 };
 
 export default function ProjectsPage() {
@@ -50,7 +81,7 @@ export default function ProjectsPage() {
 
         <header className="projectsHero shell" id="top">
           <WebGLAura />
-          <p className="kicker" data-reveal><span className="statusDot" /> Complete project catalog</p>
+          <p className="kicker" data-reveal><span className="statusDot" /> 3× hackathon winner · complete project catalog</p>
           <h1 data-reveal>Twenty builds. <span className="heroAccent">One habit of shipping.</span></h1>
           <div className="projectsHeroFooter" data-reveal>
             <p>Hackathon systems and research tools sit beside mobile products and developer platforms. Each project starts with a real problem and ends with working software.</p>
@@ -60,6 +91,48 @@ export default function ProjectsPage() {
             </div>
           </div>
         </header>
+
+        <section className="hackathonSpotlight" aria-labelledby="hackathon-wins-title">
+          <div className="shell">
+            <div className="hackathonSpotlightHeader" data-reveal>
+              <p className="eyebrow">Hackathon record</p>
+              <div className="hackathonStatement">
+                <strong aria-hidden="true">3×</strong>
+                <h2 id="hackathon-wins-title">Three hackathon wins. Built under pressure.</h2>
+              </div>
+              <p>
+                From autonomous agents to aviation operations, each podium finish
+                started with a working product and ended with measurable impact.
+              </p>
+            </div>
+
+            <div className="hackathonWinGrid">
+              {hackathonWins.map((win, index) => (
+                <a
+                  className="hackathonWinCard"
+                  href={win.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`View ${win.project}, ${win.placement} at ${win.event}`}
+                  data-reveal
+                  key={win.project}
+                >
+                  <div className="hackathonWinTop">
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <span>{win.placement}</span>
+                  </div>
+                  <p className="hackathonEvent">{win.event}</p>
+                  <h3>{win.project}</h3>
+                  <p className="hackathonWinDescription">{win.description}</p>
+                  <div className="hackathonWinProof">
+                    <span>{win.proof}</span>
+                    <span aria-hidden="true">↗</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
 
         <section className="section projectsCatalog" id="project-catalog">
           <div className="shell">

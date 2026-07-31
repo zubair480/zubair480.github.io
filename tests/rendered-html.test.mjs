@@ -36,6 +36,7 @@ test("server renders the finished portfolio", async () => {
   assert.match(html, /href="\/zubair_cv\.pdf"/);
   assert.match(html, /href="https:\/\/leetcode\.com\/zubair480"/);
   assert.match(html, />460<\/strong>/);
+  assert.match(html, /hackathon wins/);
   assert.match(html, /class="webglAura"/);
   assert.match(html, /property="og:image" content="https:\/\/zubair480\.github\.io\/og\.png"/);
   assert.doesNotMatch(html, />Languages</);
@@ -48,13 +49,18 @@ test("server renders the complete project catalog", async () => {
 
   const html = await response.text();
   assert.match(html, /Twenty builds\./);
-  assert.match(html, /Complete project catalog/);
+  assert.match(html, /complete project catalog/i);
+  assert.match(html, /Three hackathon wins/);
+  assert.match(html, /CrewAI Hackathon/);
+  assert.match(html, /Auth0 × Stripe Hackathon/);
+  assert.match(html, /Amadeus × Etihad/);
   assert.match(html, /EstateAgent AI/);
   assert.match(html, /Clip Police/);
   assert.match(html, /ROOT/);
   assert.match(html, /AI GTM Agent/);
   assert.match(html, /Smart CPM Parser/);
   assert.match(html, /class="projectCard"/);
+  assert.match(html, /class="hackathonWinCard"/);
 });
 
 test("motion remains progressive and accessible", async () => {
