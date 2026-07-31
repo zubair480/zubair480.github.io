@@ -36,6 +36,8 @@ test("server renders the finished portfolio", async () => {
   assert.match(html, /href="\/zubair_cv\.pdf"/);
   assert.match(html, /href="https:\/\/leetcode\.com\/zubair480"/);
   assert.match(html, />460<\/strong>/);
+  assert.match(html, /4× Python Teacher/);
+  assert.doesNotMatch(html, /3× Python Teacher/);
   assert.match(html, /hackathon wins/);
   assert.match(html, /class="webglAura"/);
   assert.match(html, /property="og:image" content="https:\/\/zubair480\.github\.io\/og\.png"/);
