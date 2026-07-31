@@ -302,7 +302,7 @@ export default function Home() {
               <article className="credentialPanel communityPanel" data-reveal>
                 <p className="panelLabel">Teaching &amp; community</p>
                 <ul>
-                  <li><strong>4× Python Teacher</strong><span>Stanford Code in Place · 2023 to 2025</span></li>
+                  <li><strong>4× Python Teacher</strong><span>Stanford Code in Place · 2023 to 2026</span></li>
                   <li><strong>DSA Instructor &amp; Senior Moderator</strong><span>ICodeGuru · since 2023</span></li>
                   <li><strong>Organizer</strong><span>WordSprint Developers Hackathon · 2024</span></li>
                   <li><strong>Business &amp; Tech Mentor</strong><span>lablab.ai · 2023 to 2024</span></li>
