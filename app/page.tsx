@@ -78,12 +78,12 @@ const experience = [
 
 const recognition = [
   {
-    result: "4th in Pakistan",
+    result: "4th place",
     title: "Google Code Jam",
     detail: "Placed 1622 worldwide in an international problem solving competition.",
   },
   {
-    result: "16th in Pakistan",
+    result: "16th place",
     title: "Meta Hacker Cup",
     detail: "Earned a national top 20 placement in 2023.",
   },

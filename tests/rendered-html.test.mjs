@@ -40,6 +40,7 @@ test("server renders the finished portfolio", async () => {
   assert.match(html, /class="webglAura"/);
   assert.match(html, /property="og:image" content="https:\/\/zubair480\.github\.io\/og\.png"/);
   assert.doesNotMatch(html, />Languages</);
+  assert.doesNotMatch(html, /Pakistan/i);
   assert.doesNotMatch(html, /codex-preview/);
 });
 
