@@ -40,6 +40,8 @@ test("server renders the finished portfolio", async () => {
   assert.doesNotMatch(html, /3× Python Teacher/);
   assert.match(html, /hackathon wins/);
   assert.match(html, /class="webglAura"/);
+  assert.match(html, /class="wordmarkMonogram"/);
+  assert.match(html, /class="wordmarkName"/);
   assert.match(html, /property="og:image" content="https:\/\/zubair480\.github\.io\/og\.png"/);
   assert.doesNotMatch(html, />Languages</);
   assert.doesNotMatch(html, /Pakistan/i);
@@ -64,6 +66,7 @@ test("server renders the complete project catalog", async () => {
   assert.match(html, /Smart CPM Parser/);
   assert.match(html, /class="projectCard"/);
   assert.match(html, /class="hackathonWinCard"/);
+  assert.match(html, /class="wordmarkMonogram"/);
 });
 
 test("motion remains progressive and accessible", async () => {

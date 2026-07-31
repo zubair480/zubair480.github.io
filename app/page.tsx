@@ -133,7 +133,13 @@ export default function Home() {
         />
         <nav className="nav shell" aria-label="Primary navigation">
           <a className="wordmark" href="#top" aria-label="Zubair Zafar home">
-            ZZ<span>.</span>
+            <span className="wordmarkMonogram" aria-hidden="true">
+              <span>Z</span><span>Z</span>
+            </span>
+            <span className="wordmarkName" aria-hidden="true">
+              <strong>Zubair Zafar</strong>
+              <small>Software Engineer</small>
+            </span>
           </a>
           <div className="navLinks">
             <a href="/projects">Projects</a>

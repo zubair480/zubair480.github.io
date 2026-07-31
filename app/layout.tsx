@@ -100,7 +100,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable}`}>
         <div className="loadingScreen" aria-hidden="true">
           <div className="loadingInner">
-            <div className="loadingMark">ZZ<span>.</span></div>
+            <div className="loadingMark"><span>Z</span><span>Z</span></div>
             <div className="loadingMeta">
               <span>Zubair Zafar</span>
               <span>Software Engineer</span>
