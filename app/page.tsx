@@ -138,7 +138,7 @@ export default function Home() {
             </span>
             <span className="wordmarkName" aria-hidden="true">
               <strong>Zubair Zafar</strong>
-              <small>Software Engineer</small>
+              <small>Engineer · AI Builder</small>
             </span>
           </a>
           <div className="navLinks">

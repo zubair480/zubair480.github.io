@@ -126,19 +126,22 @@ a:focus-visible {
 
 .loadingMark {
   position: relative;
-  width: 82px;
-  height: 82px;
+  width: 108px;
+  height: 70px;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  gap: 26px;
+  padding-inline: 18px;
   background: var(--surface);
   color: var(--deep);
-  border-radius: 24px;
+  border: 1px solid rgba(200, 240, 120, 0.54);
+  border-radius: 18px;
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.24);
   font-family: var(--font-instrument-serif), Georgia, serif;
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: 400;
-  letter-spacing: -0.16em;
+  letter-spacing: -0.04em;
   line-height: 1;
   opacity: 0;
   transform: scale(0.72) rotate(-8deg);
@@ -146,10 +149,20 @@ a:focus-visible {
   animation: loadingMarkIn 260ms var(--ease-out) 20ms forwards;
 }
 
+.loadingMark::before {
+  position: absolute;
+  top: 14px;
+  bottom: 14px;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(var(--sunset), #7ca72e);
+  content: "";
+  transform: rotate(18deg);
+}
+
 .loadingMark span:last-child {
   color: #7ca72e;
   font-style: italic;
-  transform: translateY(2px);
 }
 
 .loadingMeta {
@@ -255,44 +268,45 @@ a:focus-visible {
 
 .wordmarkMonogram {
   position: relative;
-  width: 44px;
-  height: 44px;
+  width: 62px;
+  height: 40px;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  gap: 14px;
   overflow: hidden;
-  background: var(--deep);
-  color: white;
-  border-radius: 14px;
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
-    0 8px 20px rgba(17, 39, 29, 0.18);
+  padding-inline: 11px;
+  background: rgba(255, 253, 247, 0.72);
+  color: var(--deep);
+  border: 1px solid rgba(17, 39, 29, 0.78);
+  border-radius: 11px;
+  box-shadow: 0 5px 14px rgba(17, 39, 29, 0.09);
   font-family: var(--font-instrument-serif), Georgia, serif;
-  font-size: 1.5rem;
+  font-size: 1.55rem;
   font-weight: 400;
-  letter-spacing: -0.16em;
+  letter-spacing: -0.04em;
   line-height: 1;
   transition:
     transform 260ms var(--ease-out),
+    background 220ms ease,
+    color 220ms ease,
     box-shadow 260ms ease;
 }
 
-.wordmarkMonogram::after {
+.wordmarkMonogram::before {
   position: absolute;
-  right: 5px;
-  bottom: 5px;
-  width: 6px;
-  height: 6px;
-  background: var(--acid);
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(200, 240, 120, 0.65);
+  top: 8px;
+  bottom: 8px;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(var(--sunset), #7ca72e);
   content: "";
+  transform: rotate(18deg);
 }
 
 .wordmarkMonogram > span:last-child {
-  color: var(--acid);
+  color: #7b512f;
   font-style: italic;
-  transform: translateY(1px);
 }
 
 .wordmarkName {
@@ -303,28 +317,33 @@ a:focus-visible {
 }
 
 .wordmarkName strong {
-  font-family: var(--font-instrument-serif), Georgia, serif;
-  font-size: 1.08rem;
-  font-weight: 400;
-  letter-spacing: -0.025em;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 720;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   white-space: nowrap;
 }
 
 .wordmarkName small {
   color: #6d7971;
   font-family: var(--font-geist-mono), monospace;
-  font-size: 0.5rem;
-  font-weight: 650;
-  letter-spacing: 0.09em;
+  font-size: 0.48rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;
 }
 
 .wordmark:hover .wordmarkMonogram {
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.2),
-    0 12px 28px rgba(17, 39, 29, 0.24);
-  transform: rotate(-3deg) scale(1.04);
+  background: var(--deep);
+  color: white;
+  box-shadow: 0 10px 24px rgba(17, 39, 29, 0.2);
+  transform: translateY(-1px);
+}
+
+.wordmark:hover .wordmarkMonogram > span:last-child {
+  color: var(--acid);
 }
 
 .wordmark:hover .wordmarkName strong {
@@ -2417,7 +2436,7 @@ a:focus-visible {
   }
 
   .wordmark {
-    flex: 0 0 44px;
+    flex: 0 0 62px;
   }
 
   .navLinks a:nth-child(2),
