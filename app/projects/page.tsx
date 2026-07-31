@@ -68,13 +68,7 @@ export default function ProjectsPage() {
       <main>
         <nav className="nav shell" aria-label="Primary navigation">
           <Link className="wordmark" href="/" aria-label="Zubair Zafar home">
-            <span className="wordmarkMonogram" aria-hidden="true">
-              <span>Z</span><span>Z</span>
-            </span>
-            <span className="wordmarkName" aria-hidden="true">
-              <strong>Zubair Zafar</strong>
-              <small>Engineer · AI Builder</small>
-            </span>
+            ZZ<span>.</span>
           </Link>
           <div className="navLinks">
             <Link href="/">Home</Link>
