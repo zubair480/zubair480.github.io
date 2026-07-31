@@ -72,7 +72,7 @@ export function ScrollExperience() {
     root.classList.add("motionReady");
 
     revealItems.forEach((item, index) => {
-      item.style.setProperty("--reveal-delay", `${(index % 4) * 65}ms`);
+      item.style.setProperty("--reveal-delay", `${(index % 5) * 80}ms`);
     });
 
     const sequenceIndexes = new Map<Element, number>();
@@ -86,17 +86,24 @@ export function ScrollExperience() {
       item.classList.add("textMotion");
       item.style.setProperty(
         "--text-reveal-delay",
-        `${Math.min(sequenceIndex, 6) * 58}ms`,
+        `${Math.min(sequenceIndex, 6) * 72}ms`,
       );
       sequenceIndexes.set(group, sequenceIndex + 1);
     });
 
     let observer: IntersectionObserver | undefined;
     let textObserver: IntersectionObserver | undefined;
-    if (reduceMotion) {
-      revealItems.forEach((item) => item.classList.add("isVisible"));
-      textItems.forEach((item) => item.classList.add("isTextVisible"));
-    } else {
+    let entranceTimer: number | undefined;
+
+    const activateMotion = () => {
+      hero?.classList.add("heroActive");
+
+      if (reduceMotion) {
+        revealItems.forEach((item) => item.classList.add("isVisible"));
+        textItems.forEach((item) => item.classList.add("isTextVisible"));
+        return;
+      }
+
       observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -105,7 +112,7 @@ export function ScrollExperience() {
             observer?.unobserve(entry.target);
           });
         },
-        { rootMargin: "0px 0px -10%", threshold: 0.08 },
+        { rootMargin: "0px 0px -12%", threshold: 0.12 },
       );
 
       revealItems.forEach((item) => observer?.observe(item));
@@ -118,13 +125,25 @@ export function ScrollExperience() {
             textObserver?.unobserve(entry.target);
           });
         },
-        { rootMargin: "0px 0px -7%", threshold: 0.08 },
+        { rootMargin: "0px 0px -10%", threshold: 0.12 },
       );
 
       textItems.forEach((item) => textObserver?.observe(item));
-    }
+    };
 
-    hero?.classList.add("heroActive");
+    if (reduceMotion) {
+      activateMotion();
+    } else {
+      const loadingScreen = document.querySelector<HTMLElement>(".loadingScreen");
+      const loadingIsVisible = loadingScreen
+        ? window.getComputedStyle(loadingScreen).visibility !== "hidden"
+        : false;
+
+      entranceTimer = window.setTimeout(
+        activateMotion,
+        loadingIsVisible ? 760 : 40,
+      );
+    }
 
     let frame = 0;
     const updateScroll = () => {
@@ -154,8 +173,14 @@ export function ScrollExperience() {
 
     return () => {
       root.classList.remove("motionReady");
+      if (entranceTimer !== undefined) window.clearTimeout(entranceTimer);
       observer?.disconnect();
       textObserver?.disconnect();
+      hero?.classList.remove("heroActive");
+      revealItems.forEach((item) => {
+        item.classList.remove("isVisible");
+        item.style.removeProperty("--reveal-delay");
+      });
       textItems.forEach((item) => {
         item.classList.remove("textMotion", "isTextVisible");
         item.style.removeProperty("--text-reveal-delay");

@@ -83,6 +83,8 @@ test("motion remains progressive and accessible", async () => {
   assert.match(experienceLayer, /IntersectionObserver/);
   assert.match(experienceLayer, /textRevealTargets/);
   assert.match(experienceLayer, /isTextVisible/);
+  assert.match(experienceLayer, /loadingIsVisible/);
+  assert.match(experienceLayer, /loadingIsVisible \? 760 : 40/);
   assert.match(experienceLayer, /usePathname/);
   assert.match(experienceLayer, /prefers-reduced-motion: reduce/);
   assert.match(experienceLayer, /saveData/);
