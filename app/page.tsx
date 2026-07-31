@@ -195,7 +195,7 @@ export default function Home() {
           <div className="sectionIntro" data-reveal>
             <p className="eyebrow">What I do</p>
             <h2>Engineering with a product point of view.</h2>
-            <p>I like difficult technical problems best when solving them makes someone’s day noticeably easier.</p>
+            <p>I love solving technical problems that make people’s lives easier.</p>
           </div>
           <div className="capabilityGrid">
             {capabilities.map((item) => (

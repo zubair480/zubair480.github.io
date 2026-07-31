@@ -31,6 +31,8 @@ test("server renders the finished portfolio", async () => {
   const html = await response.text();
   assert.match(html, /<title>Zubair Zafar \| Software Engineer &amp; AI Builder<\/title>/i);
   assert.match(html, /I turn ambitious/);
+  assert.match(html, /I love solving technical problems that make people’s lives easier\./);
+  assert.doesNotMatch(html, /I like difficult technical problems best/);
   assert.match(html, /systems into/);
   assert.match(html, /useful products\./);
   assert.match(html, /href="\/zubair_cv\.pdf"/);
