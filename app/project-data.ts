@@ -11,9 +11,10 @@ export type Project = {
   proof: string;
   stack: string[];
   href: string;
-  image: string;
-  imageAlt: string;
+  image?: string;
+  imageAlt?: string;
   imagePosition?: "center" | "top";
+  presentation?: "browser" | "mobile" | "audit";
   liveHref?: string;
   liveLabel?: string;
   linkLabel?: string;
@@ -32,6 +33,7 @@ export const featuredProjects: Project[] = [
     href: "https://github.com/zubair480/EstateAgent-AI",
     image: "/projects/estateagent-ai.webp",
     imageAlt: "EstateAgent AI investment analysis dashboard",
+    presentation: "browser",
     liveHref: "https://zubairzafar480--estateagent-ai-web.modal.run/",
     liveLabel: "Live demo",
     category: "Agentic AI and research",
@@ -48,6 +50,7 @@ export const featuredProjects: Project[] = [
     image: "/projects/electric-lens.webp",
     imageAlt: "Electric Lens on-device safety assistant session",
     imagePosition: "top",
+    presentation: "mobile",
     category: "Mobile vision and learning",
   },
   {
@@ -59,8 +62,7 @@ export const featuredProjects: Project[] = [
     proof: "Async evidence pipeline from scrape to alert",
     stack: ["FastAPI", "Bright Data", "RAG", "Pydantic"],
     href: "https://github.com/zubair480/AgenticAudit",
-    image: "/projects/agentic-audit.webp",
-    imageAlt: "AgenticAudit repository preview",
+    presentation: "audit",
     category: "Agentic AI and research",
   },
   {
@@ -204,21 +206,6 @@ export const moreProjects: Project[] = [
   },
   {
     number: "14",
-    title: "Luma Extension",
-    eyebrow: "Browser automation · Personal project",
-    description:
-      "A Chrome extension that saves a registration profile and scans San Francisco event listings. It helps users complete repetitive Luma registrations.",
-    proof: "Less form filling with faster event discovery",
-    stack: ["Chrome Extension", "Manifest V3", "JavaScript"],
-    href: "https://github.com/zubair480/luma_extension",
-    image: "/projects/luma-extension.webp",
-    imageAlt: "LumaFill Chrome extension preview",
-    liveHref: "https://chromewebstore.google.com/detail/lumafill/hpikhienlemchmncloefeapbponamkkd",
-    liveLabel: "Chrome Web Store",
-    category: "Products and developer tools",
-  },
-  {
-    number: "15",
     title: "Hifz",
     eyebrow: "Offline learning · Personal project",
     description:
@@ -231,7 +218,7 @@ export const moreProjects: Project[] = [
     category: "Mobile vision and learning",
   },
   {
-    number: "16",
+    number: "15",
     title: "Signal SF",
     eyebrow: "Local discovery · Personal project",
     description:
@@ -244,7 +231,7 @@ export const moreProjects: Project[] = [
     category: "Products and developer tools",
   },
   {
-    number: "17",
+    number: "16",
     title: "Smart Safety",
     eyebrow: "Computer vision · Transatlantic AI Hackathon",
     description:
@@ -257,7 +244,7 @@ export const moreProjects: Project[] = [
     category: "Mobile vision and learning",
   },
   {
-    number: "18",
+    number: "17",
     title: "Smart CPM Parser",
     eyebrow: "First place · Etihad Green Development",
     description:
@@ -271,7 +258,7 @@ export const moreProjects: Project[] = [
     category: "Products and developer tools",
   },
   {
-    number: "19",
+    number: "18",
     title: "Codic",
     eyebrow: "Voice to image · OpenAI Hackathon",
     description:
@@ -284,7 +271,7 @@ export const moreProjects: Project[] = [
     category: "Mobile vision and learning",
   },
   {
-    number: "20",
+    number: "19",
     title: "Navi Tutor",
     eyebrow: "AI learning · lablab.ai OpenAI Hackathon",
     description:

@@ -66,6 +66,14 @@ test("server renders the finished portfolio", async () => {
   assert.match(html, /alt="Meta Hacker Cup logo"/);
   assert.match(html, /alt="Advent of Code star logo"/);
   assert.match(html, /alt="CS50 Puzzle Day logo"/);
+  assert.equal((html.match(/class="communityLogo/g) ?? []).length, 4);
+  assert.match(html, /src="\/credentials\/gcuf\.png"/);
+  assert.match(html, /src="\/credentials\/code-in-place\.ico"/);
+  assert.match(html, /src="\/credentials\/icodeguru\.png"/);
+  assert.match(html, /src="\/credentials\/wordpress\.png"/);
+  assert.match(html, /src="\/credentials\/lablab\.ico"/);
+  assert.match(html, /src="\/credentials\/leetcode\.png"/);
+  assert.match(html, /Let’s make complex work feel simple\./);
   assert.match(html, /property="og:image" content="https:\/\/zubair480\.github\.io\/og\.png"/);
   assert.doesNotMatch(html, />Languages</);
   assert.doesNotMatch(html, /Pakistan/i);
@@ -79,7 +87,7 @@ test("server renders the complete project catalog", async () => {
   const html = await response.text();
   const projectMedia = (await readdir(new URL("../public/projects/", import.meta.url)))
     .filter((name) => name.endsWith(".webp"));
-  assert.match(html, /Twenty builds\./);
+  assert.match(html, /Nineteen builds\./);
   assert.match(html, /complete project catalog/i);
   assert.match(html, /Three hackathon wins/);
   assert.match(html, /id="hackathon-wins"/);
@@ -91,16 +99,23 @@ test("server renders the complete project catalog", async () => {
   assert.match(html, /ROOT/);
   assert.match(html, /AI GTM Agent/);
   assert.match(html, /Smart CPM Parser/);
-  assert.match(html, /class="projectCard"/);
-  assert.equal((html.match(/class="projectMedia"/g) ?? []).length, 20);
-  assert.equal((html.match(/src="\/projects\/[^"?]+\.webp"/g) ?? []).length, 20);
-  assert.equal(projectMedia.length, 20);
+  assert.match(html, /class="projectCard projectCard--/);
+  assert.equal((html.match(/class="projectMedia projectMedia--/g) ?? []).length, 19);
+  assert.equal((html.match(/class="projectMediaLaunch"/g) ?? []).length, 19);
+  assert.equal((html.match(/src="\/projects\/[^"?]+\.webp"/g) ?? []).length, 18);
+  assert.equal(projectMedia.length, 18);
+  assert.match(html, /class="projectBrowserStage"/);
+  assert.match(html, /class="projectMobileStage"/);
+  assert.match(html, /class="projectAuditStage"/);
+  assert.doesNotMatch(html, /class="projectLaunch"/);
   assert.match(html, /class="projectLiveBadge"/);
   assert.match(html, /https:\/\/zubairzafar480--estateagent-ai-web\.modal\.run\//);
-  assert.match(html, /chromewebstore\.google\.com\/detail\/lumafill\/hpikhienlemchmncloefeapbponamkkd/);
+  assert.doesNotMatch(html, /Luma Extension|lumafill/i);
+  assert.doesNotMatch(html, /agentic-audit\.webp/);
   assert.match(html, /Project post/);
   assert.match(html, /Source code/);
   assert.match(html, /class="hackathonWinCard"/);
+  assert.match(html, /Let’s make complex work feel simple\./);
 });
 
 test("motion remains progressive and accessible", async () => {

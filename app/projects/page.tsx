@@ -3,6 +3,7 @@ import { ProjectCard } from "../project-card";
 import { allProjects } from "../project-data";
 import Link from "next/link";
 import { WebGLAura } from "../experience-layer";
+import { SiteFooter } from "../site-footer";
 
 const projectCategories = [
   {
@@ -58,7 +59,7 @@ const hackathonWins = [
 export const metadata: Metadata = {
   title: "Projects | Zubair Zafar",
   description:
-    "Explore 20 software engineering and applied AI projects, including three hackathon-winning builds by Zubair Zafar.",
+    "Explore 19 software engineering and applied AI projects, including three hackathon-winning builds by Zubair Zafar.",
 };
 
 export default function ProjectsPage() {
@@ -83,7 +84,7 @@ export default function ProjectsPage() {
         <header className="projectsHero shell" id="top">
           <WebGLAura />
           <p className="kicker" data-reveal><span className="statusDot" /> 3× hackathon winner · complete project catalog</p>
-          <h1 data-reveal>Twenty builds. <span className="heroAccent">One habit of shipping.</span></h1>
+          <h1 data-reveal>Nineteen builds. <span className="heroAccent">One habit of shipping.</span></h1>
           <div className="projectsHeroFooter" data-reveal>
             <p>Hackathon systems and research tools sit beside mobile products and developer platforms. Each project starts with a real problem and ends with working software.</p>
             <div>
@@ -191,15 +192,7 @@ export default function ProjectsPage() {
           </div>
         </section>
 
-        <footer className="footer shell">
-          <p>© 2026 Zubair Zafar</p>
-          <div>
-            <Link href="/">Home</Link>
-            <a href="https://github.com/zubair480" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="/zubair_cv.pdf" target="_blank" rel="noreferrer">CV</a>
-            <a href="#top">Back to top ↑</a>
-          </div>
-        </footer>
+        <SiteFooter includeHome />
       </main>
     </>
   );

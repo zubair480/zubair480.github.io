@@ -1,7 +1,9 @@
+/* eslint-disable @next/next/no-img-element -- Small local brand marks keep the static GitHub Pages output simple. */
 import { ProjectCard } from "./project-card";
 import { allProjects, featuredProjects } from "./project-data";
 import { WebGLAura } from "./experience-layer";
 import { HeroAward } from "./hero-award";
+import { SiteFooter } from "./site-footer";
 
 const capabilities = [
   {
@@ -211,7 +213,6 @@ export default function Home() {
           </div>
           <aside className="heroAside" aria-label="Portrait of Zubair Zafar">
             <figure className="portraitFrame" data-parallax>
-              {/* eslint-disable-next-line @next/next/no-img-element -- Static export serves the optimized local portrait directly. */}
               <img
                 src="/zubair-zafar-golden-gate.jpeg"
                 alt="Zubair Zafar standing in front of the Golden Gate Bridge at sunset"
@@ -281,7 +282,6 @@ export default function Home() {
                   <p className="experiencePeriod">{item.period}</p>
                   <div className="experienceIdentity">
                     <span className={`experienceLogo ${item.logoClass}`}>
-                      {/* eslint-disable-next-line @next/next/no-img-element -- Optimized local brand assets preserve each organization's official mark. */}
                       <img
                         src={item.logo}
                         alt={item.logoAlt}
@@ -322,7 +322,6 @@ export default function Home() {
                 <article key={item.title} data-reveal>
                   <p className="recognitionResult">{item.result}</p>
                   <span className={`recognitionLogo ${item.logoClass}`}>
-                    {/* eslint-disable-next-line @next/next/no-img-element -- Optimized local assets preserve each competition's recognizable mark. */}
                     <img
                       src={item.logo}
                       alt={item.logoAlt}
@@ -353,24 +352,46 @@ export default function Home() {
               <article className="credentialPanel educationPanel" data-reveal>
                 <p className="panelLabel">Education</p>
                 <div className="credentialItem">
-                  <span>2024 to 2026</span>
-                  <h3>Eastern Illinois University</h3>
-                  <p>M.S. Computer &amp; Information Technology · GPA 4.0</p>
-                  <span className="scholarshipBadge">Fully funded master’s scholarship recipient</span>
+                  <span className="credentialLogo credentialLogoEiu">
+                    <img src="/experience/eastern-illinois-university.webp" alt="Eastern Illinois University logo" width="500" height="453" loading="lazy" />
+                  </span>
+                  <div className="credentialCopy">
+                    <span className="credentialPeriod">2024 to 2026</span>
+                    <h3>Eastern Illinois University</h3>
+                    <p>M.S. Computer &amp; Information Technology · GPA 4.0</p>
+                    <span className="scholarshipBadge">Fully funded master’s scholarship recipient</span>
+                  </div>
                 </div>
                 <div className="credentialItem">
-                  <span>2019 to 2023</span>
-                  <h3>Government College University Faisalabad</h3>
-                  <p>Bachelor of Computer Science</p>
+                  <span className="credentialLogo credentialLogoGcuf">
+                    <img src="/credentials/gcuf.png" alt="Government College University Faisalabad logo" width="180" height="50" loading="lazy" />
+                  </span>
+                  <div className="credentialCopy">
+                    <span className="credentialPeriod">2019 to 2023</span>
+                    <h3>Government College University Faisalabad</h3>
+                    <p>Bachelor of Computer Science</p>
+                  </div>
                 </div>
               </article>
               <article className="credentialPanel communityPanel" data-reveal>
                 <p className="panelLabel">Teaching &amp; community</p>
                 <ul>
-                  <li><strong>4× Python Teacher</strong><span>Stanford Code in Place · 2023 to 2026</span></li>
-                  <li><strong>DSA Instructor &amp; Senior Moderator</strong><span>ICodeGuru · since 2023</span></li>
-                  <li><strong>Organizer</strong><span>WordSprint Developers Hackathon · 2024</span></li>
-                  <li><strong>Business &amp; Tech Mentor</strong><span>lablab.ai · 2023 to 2024</span></li>
+                  <li>
+                    <span className="communityLogo communityLogoCodeInPlace"><img src="/credentials/code-in-place.ico" alt="Stanford Code in Place logo" width="64" height="64" loading="lazy" /></span>
+                    <div className="communityRole"><strong>4× Python Teacher</strong><span>Stanford Code in Place · 2023 to 2026</span></div>
+                  </li>
+                  <li>
+                    <span className="communityLogo"><img src="/credentials/icodeguru.png" alt="iCodeGuru logo" width="40" height="40" loading="lazy" /></span>
+                    <div className="communityRole"><strong>DSA Instructor &amp; Senior Moderator</strong><span>iCodeGuru · since 2023</span></div>
+                  </li>
+                  <li>
+                    <span className="communityLogo"><img src="/credentials/wordpress.png" alt="WordPress logo for WordSprint Developers Hackathon" width="500" height="500" loading="lazy" /></span>
+                    <div className="communityRole"><strong>Organizer</strong><span>WordSprint Developers Hackathon · 2024</span></div>
+                  </li>
+                  <li>
+                    <span className="communityLogo"><img src="/credentials/lablab.ico" alt="lablab.ai logo" width="48" height="48" loading="lazy" /></span>
+                    <div className="communityRole"><strong>Business &amp; Tech Mentor</strong><span>lablab.ai · 2023 to 2024</span></div>
+                  </li>
                 </ul>
               </article>
             </div>
@@ -384,6 +405,9 @@ export default function Home() {
                 data-reveal
               >
                 <p className="panelLabel">Problem solving</p>
+                <span className="leetcodeLogo">
+                  <img src="/credentials/leetcode.png" alt="LeetCode logo" width="512" height="512" loading="lazy" />
+                </span>
                 <strong>460</strong>
                 <span>LeetCode questions solved</span>
                 <span className="factArrow" aria-hidden="true">↗</span>
@@ -400,15 +424,7 @@ export default function Home() {
           </div>
         </section>
 
-        <footer className="footer shell">
-          <p>© 2026 Zubair Zafar</p>
-          <div>
-            <a href="https://github.com/zubair480" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="https://linkedin.com/in/zubair480" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a href="/zubair_cv.pdf" target="_blank" rel="noreferrer">CV</a>
-            <a href="#top">Back to top ↑</a>
-          </div>
-        </footer>
+        <SiteFooter />
       </main>
     </>
   );
