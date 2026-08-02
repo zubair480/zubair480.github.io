@@ -1235,13 +1235,14 @@ a:focus-visible {
 }
 
 .hackathonStatement > strong {
-  margin-top: -0.08em;
+  margin-top: 0;
+  padding-inline: 0.02em 0.08em;
   color: var(--acid);
-  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
   font-size: clamp(5rem, 9vw, 8rem);
-  font-weight: 400;
-  letter-spacing: -0.07em;
-  line-height: 0.72;
+  font-weight: 520;
+  letter-spacing: -0.09em;
+  line-height: 0.82;
 }
 
 .hackathonStatement h2 {
@@ -2012,8 +2013,9 @@ a:focus-visible {
 .motionReady [data-reveal].isVisible {
   opacity: 1;
   filter: blur(0);
-  clip-path: inset(0 0 0 0);
+  clip-path: none;
   translate: 0 0;
+  will-change: auto;
 }
 
 .motionReady .textMotion {
@@ -2039,8 +2041,9 @@ a:focus-visible {
 .motionReady .textMotion.isTextVisible {
   opacity: 1;
   filter: blur(0);
-  clip-path: inset(0 0 0 0);
+  clip-path: none;
   transform: translate3d(0, 0, 0) skewY(0);
+  will-change: auto;
 }
 
 @media (min-width: 901px) and (max-height: 720px) {

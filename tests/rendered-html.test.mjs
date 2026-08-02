@@ -97,6 +97,18 @@ test("motion remains progressive and accessible", async () => {
   assert.doesNotMatch(heroAward, /data-reveal/);
   assert.match(css, /\.motionReady \[data-reveal\]/);
   assert.match(css, /\.motionReady \.textMotion/);
+  assert.match(
+    css,
+    /\.motionReady \[data-reveal\]\.isVisible \{[\s\S]*?clip-path: none;/,
+  );
+  assert.match(
+    css,
+    /\.motionReady \.textMotion\.isTextVisible \{[\s\S]*?clip-path: none;/,
+  );
+  assert.match(
+    css,
+    /\.hackathonStatement > strong \{[\s\S]*?font-family: var\(--font-geist-sans\)/,
+  );
   assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
   assert.match(css, /\.scrollProgress/);
   assert.match(css, /@keyframes heroConfettiBurst/);
