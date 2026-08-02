@@ -90,12 +90,15 @@ test("motion remains progressive and accessible", async () => {
   assert.match(experienceLayer, /saveData/);
   assert.match(experienceLayer, /powerPreference: "low-power"/);
   assert.match(heroAward, /sessionStorage/);
+  assert.match(heroAward, /celebrated-v2/);
   assert.match(heroAward, /onMouseEnter=\{celebrateOnce\}/);
   assert.match(heroAward, /onFocus=\{celebrateOnce\}/);
   assert.match(heroAward, /Congratulations!/);
+  assert.doesNotMatch(heroAward, /data-reveal/);
   assert.match(css, /\.motionReady \[data-reveal\]/);
   assert.match(css, /\.motionReady \.textMotion/);
   assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
   assert.match(css, /\.scrollProgress/);
   assert.match(css, /@keyframes heroConfettiBurst/);
+  assert.match(css, /\.heroAwardReveal/);
 });

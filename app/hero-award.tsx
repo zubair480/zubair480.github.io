@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const celebrationKey = "zubair-hero-award-celebrated";
+const celebrationKey = "zubair-hero-award-celebrated-v2";
 
 export function HeroAward() {
   const hasCelebrated = useRef(false);
@@ -43,7 +43,6 @@ export function HeroAward() {
       aria-label="View Zubair Zafar’s three hackathon wins"
       onMouseEnter={celebrateOnce}
       onFocus={celebrateOnce}
-      data-reveal
     >
       <strong>3×</strong>
       <span className="heroAwardLabel">Hackathon winner</span>

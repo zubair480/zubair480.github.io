@@ -150,7 +150,9 @@ export default function Home() {
           <p className="kicker mobileKicker"><span className="statusDot" /> Software engineer · AI builder · San Francisco</p>
           <div className="heroCopy">
             <p className="kicker"><span className="statusDot" /> Software engineer · AI builder · San Francisco</p>
-            <HeroAward />
+            <div className="heroAwardReveal">
+              <HeroAward />
+            </div>
             <h1>
               <span className="heroLine">I turn ambitious</span>
               <span className="heroLine">systems into</span>

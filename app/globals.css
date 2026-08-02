@@ -381,6 +381,11 @@ a:focus-visible {
   display: none;
 }
 
+.heroAwardReveal {
+  width: fit-content;
+  margin: -8px 0 24px;
+}
+
 .heroAward {
   position: relative;
   z-index: 2;
@@ -388,7 +393,8 @@ a:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 11px;
-  margin: -8px 0 24px;
+  overflow: visible;
+  margin: 0;
   padding: 6px 13px 6px 7px;
   background: rgba(17, 39, 29, 0.96);
   color: white;
@@ -1176,6 +1182,16 @@ a:focus-visible {
   font-size: 0.67rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+.motionReady .hero:not(.heroActive) .heroAwardReveal {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.motionReady .hero.heroActive .heroAwardReveal {
+  will-change: opacity, transform;
+  animation: heroItemIn 460ms var(--ease-out) 150ms both;
 }
 
 .hackathonSpotlight {
@@ -2276,7 +2292,7 @@ a:focus-visible {
     display: none;
   }
 
-  .heroAward {
+  .heroAwardReveal {
     margin: 0 0 22px;
   }
 
@@ -2701,7 +2717,13 @@ a:focus-visible {
     display: none;
   }
 
-  .heroCelebration {
+  .heroAward.isCelebrating .heroCongrats {
+    opacity: 1;
+    animation: none !important;
+    transform: translate(0, -50%) scale(1);
+  }
+
+  .heroAward.isCelebrating .heroCelebration i {
     display: none;
   }
 
