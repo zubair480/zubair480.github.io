@@ -18,6 +18,114 @@ function ProjectImage({ project }: { project: Project }) {
   );
 }
 
+function ProjectConceptVisual({ project }: { project: Project }) {
+  const kind = project.visual;
+
+  return (
+    <div
+      className={`projectConceptStage projectConceptStage--${kind}`}
+      role="img"
+      aria-label={`Product interface illustration for ${project.title}`}
+    >
+      {kind === "judge" ? (
+        <>
+          <div className="conceptBar"><span>JudgeAgent / handoff 04</span><strong>Verdict ready</strong></div>
+          <div className="judgeVisual">
+            <div className="judgeScore"><strong>92</strong><span>Evidence score</span></div>
+            <div className="judgeRubric" aria-hidden="true">
+              <span><i>Goal fit</i><b>Pass</b></span>
+              <span><i>Evidence</i><b>Pass</b></span>
+              <span><i>Safety</i><b>Review</b></span>
+            </div>
+          </div>
+        </>
+      ) : null}
+
+      {kind === "research" ? (
+        <>
+          <div className="conceptBar"><span>Thread / paper 07</span><strong>Local model</strong></div>
+          <div className="researchVisual" aria-hidden="true">
+            <div className="researchPaper"><small>Methodology</small><i /><i /><i /><b>Grounded summary</b></div>
+            <div className="researchGraph">
+              <span className="graphLine graphLineOne" /><span className="graphLine graphLineTwo" />
+              <i className="graphNode graphNodeOne" /><i className="graphNode graphNodeTwo" /><i className="graphNode graphNodeThree" />
+              <strong>Knowledge<br />graph</strong>
+            </div>
+          </div>
+        </>
+      ) : null}
+
+      {kind === "flashcard" ? (
+        <>
+          <div className="conceptBar"><span>FlashCard / generated 024</span><strong>Scan ready</strong></div>
+          <div className="flashcardVisual" aria-hidden="true">
+            <div className="networkCard networkCardBack" />
+            <div className="networkCard networkCardFront">
+              <small>AI BUILDER</small><strong>ZZ</strong><span>San Francisco</span>
+              <i className="qrMark" />
+            </div>
+            <p>Profile → card → lead</p>
+          </div>
+        </>
+      ) : null}
+
+      {kind === "compatibility" ? (
+        <>
+          <div className="conceptBar"><span>Compatibility / model scan</span><strong>Supported</strong></div>
+          <div className="compatibilityVisual" aria-hidden="true">
+            <div className="compatModel"><small>INPUT</small><strong>ResNet-50</strong><span>ONNX · FP16</span></div>
+            <b>→</b>
+            <div className="compatMatrix">
+              <span><i>Conv2D</i><b>✓</b></span><span><i>BatchNorm</i><b>✓</b></span><span><i>Runtime</i><b>Ready</b></span>
+            </div>
+          </div>
+        </>
+      ) : null}
+
+      {kind === "loan" ? (
+        <>
+          <div className="conceptBar"><span>Micro Loan / live offer</span><strong>Private</strong></div>
+          <div className="loanVisual" aria-hidden="true">
+            <div className="loanOffer"><small>Your offer</small><strong>$2,400</strong><span><i /> 12 months</span></div>
+            <div className="loanTerms"><span>Monthly <b>$218</b></span><span>APR <b>8.9%</b></span><i /><em>Adjust terms</em></div>
+          </div>
+        </>
+      ) : null}
+
+      {kind === "hifz" ? (
+        <>
+          <div className="conceptBar"><span>Hifz / daily review</span><strong>Offline</strong></div>
+          <div className="hifzVisual" aria-hidden="true">
+            <div className="hifzProgress"><strong>12</strong><span>verses due</span></div>
+            <div className="hifzSession"><small>Surah progress</small><i /><i /><i /><span>Listen · Recite · Review</span></div>
+          </div>
+        </>
+      ) : null}
+
+      {kind === "signal" ? (
+        <>
+          <div className="conceptBar"><span>Signal SF / Saturday</span><strong>3 matches</strong></div>
+          <div className="signalVisual" aria-hidden="true">
+            <div className="signalMap"><i className="mapRoute" /><b className="mapPin mapPinOne" /><b className="mapPin mapPinTwo" /><b className="mapPin mapPinThree" /></div>
+            <div className="signalPlan"><span><small>10:00</small> Design meetup</span><span><small>14:30</small> AI builders</span><b>No conflicts</b></div>
+          </div>
+        </>
+      ) : null}
+
+      {kind === "creative" ? (
+        <>
+          <div className="conceptBar"><span>Codic / voice canvas</span><strong>Generating</strong></div>
+          <div className="creativeVisual" aria-hidden="true">
+            <div className="voiceWave">{Array.from({ length: 13 }, (_, index) => <i key={index} />)}</div>
+            <b>→</b>
+            <div className="creativeCanvas"><span /><span /><strong>Prompt<br />to image</strong></div>
+          </div>
+        </>
+      ) : null}
+    </div>
+  );
+}
+
 function ProjectVisual({ project }: { project: Project }) {
   if (project.presentation === "browser") {
     return (
@@ -83,6 +191,10 @@ function ProjectVisual({ project }: { project: Project }) {
     );
   }
 
+  if (project.presentation === "concept") {
+    return <ProjectConceptVisual project={project} />;
+  }
+
   return <ProjectImage project={project} />;
 }
 
@@ -116,6 +228,8 @@ export function ProjectCard({ project }: { project: Project }) {
                 ? "Mobile app"
                 : project.presentation === "audit"
                   ? "System"
+                  : project.presentation === "concept"
+                    ? "Product"
                   : "Project"}
           </span>
         </div>

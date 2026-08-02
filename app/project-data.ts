@@ -14,7 +14,16 @@ export type Project = {
   image?: string;
   imageAlt?: string;
   imagePosition?: "center" | "top";
-  presentation?: "browser" | "mobile" | "audit";
+  presentation?: "browser" | "mobile" | "audit" | "concept";
+  visual?:
+    | "judge"
+    | "research"
+    | "flashcard"
+    | "compatibility"
+    | "loan"
+    | "hifz"
+    | "signal"
+    | "creative";
   liveHref?: string;
   liveLabel?: string;
   linkLabel?: string;
@@ -74,8 +83,8 @@ export const featuredProjects: Project[] = [
     proof: "MCP server with a workbench and consensus mode",
     stack: ["Python", "MCP", "W&B Weave", "Next.js"],
     href: "https://github.com/productlayers/judgeagent",
-    image: "/projects/judgeagent.webp",
-    imageAlt: "JudgeAgent repository preview",
+    presentation: "concept",
+    visual: "judge",
     category: "Agentic AI and research",
   },
   {
@@ -87,8 +96,8 @@ export const featuredProjects: Project[] = [
     proof: "PDF to knowledge workflow with local models",
     stack: ["FastAPI", "Ollama", "React", "Mermaid"],
     href: "https://github.com/zubair480/Research-Graph",
-    image: "/projects/thread.webp",
-    imageAlt: "Thread research companion repository preview",
+    presentation: "concept",
+    visual: "research",
     category: "Agentic AI and research",
   },
   {
@@ -100,8 +109,8 @@ export const featuredProjects: Project[] = [
     proof: "GPU generation with a live scan dashboard",
     stack: ["FastAPI", "RunPod", "Bright Data", "Flux"],
     href: "https://github.com/zubair480/FlashCard",
-    image: "/projects/flashcard.webp",
-    imageAlt: "FlashCard project repository preview",
+    presentation: "concept",
+    visual: "flashcard",
     category: "Products and developer tools",
   },
 ];
@@ -159,8 +168,8 @@ export const moreProjects: Project[] = [
     proof: "Runs as a CLI plus a Streamlit app or messaging backend",
     stack: ["Python", "Streamlit", "RocketRide", "XTrace"],
     href: "https://github.com/zubair480/agentic-ai-hackathon",
-    image: "/projects/model-compatibility-agent.webp",
-    imageAlt: "Model Compatibility Agent repository preview",
+    presentation: "concept",
+    visual: "compatibility",
     category: "Agentic AI and research",
   },
   {
@@ -186,8 +195,8 @@ export const moreProjects: Project[] = [
     proof: "Adaptive negotiation flow built for mobile",
     stack: ["Flutter", "Dart", "Generative UI"],
     href: "https://github.com/zubair480/micro-loan-negotiator",
-    image: "/projects/micro-loan-negotiator.webp",
-    imageAlt: "Micro Loan Negotiator repository preview",
+    presentation: "concept",
+    visual: "loan",
     category: "Products and developer tools",
   },
   {
@@ -213,8 +222,8 @@ export const moreProjects: Project[] = [
     proof: "Private structured practice available offline",
     stack: ["Kotlin", "Jetpack Compose", "SM2", "Audio"],
     href: "https://github.com/zubair480/hifz-quran-app",
-    image: "/projects/hifz.webp",
-    imageAlt: "Hifz Qur'an companion repository preview",
+    presentation: "concept",
+    visual: "hifz",
     category: "Mobile vision and learning",
   },
   {
@@ -226,8 +235,8 @@ export const moreProjects: Project[] = [
     proof: "Discovery and planning in one personal itinerary",
     stack: ["Node.js", "SQLite", "Vercel", "Auth"],
     href: "https://github.com/zubair480/travel-buddy",
-    image: "/projects/signal-sf.webp",
-    imageAlt: "Signal SF repository preview",
+    presentation: "concept",
+    visual: "signal",
     category: "Products and developer tools",
   },
   {
@@ -266,8 +275,8 @@ export const moreProjects: Project[] = [
     proof: "From speech to an editable creative prompt",
     stack: ["Whisper", "OpenAI API", "Django", "React Native"],
     href: "https://github.com/QU01/OpenAIHackatonApp",
-    image: "/projects/codic.webp",
-    imageAlt: "Codic OpenAI hackathon repository preview",
+    presentation: "concept",
+    visual: "creative",
     category: "Mobile vision and learning",
   },
   {

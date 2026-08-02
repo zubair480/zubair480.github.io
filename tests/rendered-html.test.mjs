@@ -102,11 +102,20 @@ test("server renders the complete project catalog", async () => {
   assert.match(html, /class="projectCard projectCard--/);
   assert.equal((html.match(/class="projectMedia projectMedia--/g) ?? []).length, 19);
   assert.equal((html.match(/class="projectMediaLaunch"/g) ?? []).length, 19);
-  assert.equal((html.match(/src="\/projects\/[^"?]+\.webp"/g) ?? []).length, 18);
-  assert.equal(projectMedia.length, 18);
+  assert.equal((html.match(/class="projectImage" src="\/projects\/[^"?]+\.webp"/g) ?? []).length, 10);
+  assert.equal(projectMedia.length, 10);
   assert.match(html, /class="projectBrowserStage"/);
   assert.match(html, /class="projectMobileStage"/);
   assert.match(html, /class="projectAuditStage"/);
+  assert.equal((html.match(/class="projectConceptStage projectConceptStage--/g) ?? []).length, 8);
+  assert.match(html, /projectConceptStage--judge/);
+  assert.match(html, /projectConceptStage--research/);
+  assert.match(html, /projectConceptStage--flashcard/);
+  assert.match(html, /projectConceptStage--compatibility/);
+  assert.match(html, /projectConceptStage--loan/);
+  assert.match(html, /projectConceptStage--hifz/);
+  assert.match(html, /projectConceptStage--signal/);
+  assert.match(html, /projectConceptStage--creative/);
   assert.doesNotMatch(html, /class="projectLaunch"/);
   assert.match(html, /class="projectLiveBadge"/);
   assert.match(html, /https:\/\/zubairzafar480--estateagent-ai-web\.modal\.run\//);
@@ -115,6 +124,11 @@ test("server renders the complete project catalog", async () => {
   assert.match(html, /Project post/);
   assert.match(html, /Source code/);
   assert.match(html, /class="hackathonWinCard"/);
+  assert.equal((html.match(/class="hackathonWinMedia /g) ?? []).length, 3);
+  assert.match(html, /src="\/projects\/root\.webp"/);
+  assert.match(html, /src="\/projects\/clip-police\.webp"/);
+  assert.match(html, /src="\/projects\/smart-cpm-parser\.webp"/);
+  assert.match(html, /src="\/experience\/etihad-airways\.webp"/);
   assert.match(html, /Let’s make complex work feel simple\./);
 });
 

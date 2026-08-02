@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element -- Local project and event images are optimized for static GitHub Pages output. */
 import type { Metadata } from "next";
 import { ProjectCard } from "../project-card";
 import { allProjects } from "../project-data";
@@ -35,6 +36,10 @@ const hackathonWins = [
       "Fourteen autonomous agents coordinate employee onboarding from a single Zendesk request.",
     proof: "A week of provisioning compressed into minutes",
     href: "https://www.linkedin.com/feed/update/urn:li:activity:7487710934313013248/",
+    image: "/projects/root.webp",
+    imageAlt: "ROOT team at the CrewAI hackathon",
+    imageFit: "cover",
+    partnerLogo: null,
   },
   {
     placement: "2nd place",
@@ -44,6 +49,10 @@ const hackathonWins = [
       "A multi-agent creator protection platform that finds unauthorized video reposts across the web.",
     proof: "Podium finish at Okta’s San Francisco headquarters",
     href: "https://www.linkedin.com/feed/update/urn:li:activity:7488853520134107136/",
+    image: "/projects/clip-police.webp",
+    imageAlt: "Clip Police creator protection demo",
+    imageFit: "cover",
+    partnerLogo: null,
   },
   {
     placement: "1st place",
@@ -53,6 +62,10 @@ const hackathonWins = [
       "A cargo-message parser that validates and corrects operational CPM messages before they reach production workflows.",
     proof: "95% fewer entry errors · shipped into production",
     href: "https://github.com/zubair480/amadeus_hackathon2",
+    image: "/projects/smart-cpm-parser.webp",
+    imageAlt: "Smart CPM Parser product mark",
+    imageFit: "contain",
+    partnerLogo: "/experience/etihad-airways.webp",
   },
 ] as const;
 
@@ -123,12 +136,23 @@ export default function ProjectsPage() {
                     <span>{String(index + 1).padStart(2, "0")}</span>
                     <span>{win.placement}</span>
                   </div>
-                  <p className="hackathonEvent">{win.event}</p>
-                  <h3>{win.project}</h3>
-                  <p className="hackathonWinDescription">{win.description}</p>
-                  <div className="hackathonWinProof">
-                    <span>{win.proof}</span>
-                    <span aria-hidden="true">↗</span>
+                  <div className={`hackathonWinMedia hackathonWinMedia--${win.imageFit}`}>
+                    <img src={win.image} alt={win.imageAlt} width="1200" height="675" loading="lazy" />
+                    {win.partnerLogo ? (
+                      <span className="hackathonPartnerLogo">
+                        <img src={win.partnerLogo} alt="Etihad Airways logo" width="620" height="220" loading="lazy" />
+                      </span>
+                    ) : null}
+                    <span className="hackathonMediaLabel">Winning build</span>
+                  </div>
+                  <div className="hackathonWinContent">
+                    <p className="hackathonEvent">{win.event}</p>
+                    <h3>{win.project}</h3>
+                    <p className="hackathonWinDescription">{win.description}</p>
+                    <div className="hackathonWinProof">
+                      <span>{win.proof}</span>
+                      <span aria-hidden="true">↗</span>
+                    </div>
                   </div>
                 </a>
               ))}

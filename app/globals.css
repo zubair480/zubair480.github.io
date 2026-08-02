@@ -1185,13 +1185,15 @@ a:focus-visible {
 
 .projectMedia--browser,
 .projectMedia--mobile,
-.projectMedia--audit {
+.projectMedia--audit,
+.projectMedia--concept {
   isolation: isolate;
 }
 
 .projectMedia--browser::after,
 .projectMedia--mobile::after,
-.projectMedia--audit::after {
+.projectMedia--audit::after,
+.projectMedia--concept::after {
   background: linear-gradient(180deg, transparent 68%, rgba(8, 20, 14, 0.28));
 }
 
@@ -1514,6 +1516,456 @@ a:focus-visible {
   color: var(--acid);
   font-size: 0.58rem;
 }
+
+.projectConceptStage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 24px;
+  background: #0a1812;
+  color: white;
+}
+
+.projectConceptStage::before {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 24px 24px;
+  content: "";
+  pointer-events: none;
+}
+
+.conceptBar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  color: #93a59b;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.conceptBar strong {
+  color: var(--acid);
+  font-size: inherit;
+}
+
+.judgeVisual,
+.researchVisual,
+.flashcardVisual,
+.compatibilityVisual,
+.loanVisual,
+.hifzVisual,
+.signalVisual,
+.creativeVisual {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+.projectConceptStage--judge {
+  background:
+    radial-gradient(circle at 76% 38%, rgba(188, 243, 94, 0.15), transparent 31%),
+    #091710;
+}
+
+.judgeVisual {
+  display: grid;
+  grid-template-columns: 0.72fr 1.28fr;
+  align-items: center;
+  gap: 22px;
+  padding-top: 14px;
+}
+
+.judgeScore {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  aspect-ratio: 1;
+  background: rgba(188, 243, 94, 0.08);
+  border: 1px solid rgba(188, 243, 94, 0.34);
+  border-radius: 50%;
+  box-shadow: 0 0 0 8px rgba(188, 243, 94, 0.03);
+}
+
+.judgeScore strong {
+  color: var(--acid);
+  font-size: clamp(1.55rem, 4vw, 2.8rem);
+  letter-spacing: -0.08em;
+}
+
+.judgeScore span {
+  color: #a8b7ae;
+  font-size: 0.47rem;
+}
+
+.judgeRubric {
+  display: grid;
+  gap: 7px;
+}
+
+.judgeRubric span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 9px 10px;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 7px;
+  font-size: 0.54rem;
+}
+
+.judgeRubric i {
+  color: #aebcb4;
+  font-style: normal;
+}
+
+.judgeRubric b {
+  color: var(--acid);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.45rem;
+  text-transform: uppercase;
+}
+
+.judgeRubric span:last-child b { color: var(--sunset); }
+
+.projectConceptStage--research {
+  background:
+    radial-gradient(circle at 78% 76%, rgba(136, 200, 221, 0.2), transparent 35%),
+    #0a1718;
+}
+
+.researchVisual {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: 20px;
+  padding-top: 13px;
+}
+
+.researchPaper {
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  background: #f7f3e9;
+  border-radius: 9px;
+  box-shadow: 0 17px 35px rgba(0, 0, 0, 0.28);
+  color: var(--ink);
+  transform: rotate(-2deg);
+}
+
+.researchPaper small {
+  margin-bottom: 12px;
+  color: #6f7b73;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.44rem;
+  text-transform: uppercase;
+}
+
+.researchPaper i {
+  height: 4px;
+  margin-bottom: 6px;
+  background: #d8ddd5;
+  border-radius: 99px;
+}
+
+.researchPaper i:nth-of-type(2) { width: 78%; }
+.researchPaper i:nth-of-type(3) { width: 54%; }
+
+.researchPaper b {
+  margin-top: 12px;
+  color: #2c543e;
+  font-size: 0.54rem;
+}
+
+.researchGraph {
+  position: relative;
+  min-height: 125px;
+}
+
+.researchGraph strong {
+  position: absolute;
+  right: 4px;
+  bottom: 2px;
+  color: #c4d5cc;
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-size: clamp(0.9rem, 2vw, 1.35rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.graphNode {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: var(--blue);
+  border: 4px solid #183239;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(175, 224, 240, 0.4);
+}
+
+.graphNodeOne { top: 18px; left: 18%; }
+.graphNodeTwo { top: 50%; left: 54%; }
+.graphNodeThree { right: 12%; bottom: 18px; background: var(--acid); }
+
+.graphLine {
+  position: absolute;
+  height: 1px;
+  background: rgba(175, 224, 240, 0.5);
+  transform-origin: left;
+}
+
+.graphLineOne { top: 32px; left: 24%; width: 43%; transform: rotate(22deg); }
+.graphLineTwo { top: 65%; left: 57%; width: 31%; transform: rotate(16deg); }
+
+.projectConceptStage--flashcard {
+  background:
+    radial-gradient(circle at 24% 28%, rgba(255, 138, 102, 0.3), transparent 27%),
+    linear-gradient(135deg, #22163a, #0b1720 64%);
+}
+
+.flashcardVisual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.networkCard {
+  position: absolute;
+  width: min(68%, 230px);
+  aspect-ratio: 1.6;
+  border-radius: 13px;
+}
+
+.networkCardBack {
+  background: linear-gradient(135deg, #7f5cff, #ff8a66);
+  transform: translate(-20px, 7px) rotate(-7deg);
+  opacity: 0.58;
+}
+
+.networkCardFront {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-content: center;
+  gap: 3px 12px;
+  padding: 18px;
+  background: rgba(250, 248, 241, 0.96);
+  color: #18201c;
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.34);
+  transform: translate(9px, -2px) rotate(3deg);
+}
+
+.networkCardFront small {
+  grid-column: 1 / -1;
+  color: #7259ca;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.42rem;
+}
+
+.networkCardFront strong {
+  font-size: clamp(1.4rem, 4vw, 2.5rem);
+  letter-spacing: -0.08em;
+}
+
+.networkCardFront > span { color: #667168; font-size: 0.5rem; }
+
+.qrMark {
+  grid-column: 2;
+  grid-row: 2 / span 2;
+  width: 38px;
+  height: 38px;
+  background:
+    linear-gradient(90deg, #172019 45%, transparent 45% 58%, #172019 58%),
+    linear-gradient(#172019 45%, transparent 45% 58%, #172019 58%);
+  background-size: 11px 11px;
+}
+
+.flashcardVisual p {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  color: #9baaa2;
+  font-size: 0.5rem;
+}
+
+.projectConceptStage--compatibility {
+  background:
+    radial-gradient(circle at 25% 72%, rgba(64, 197, 163, 0.2), transparent 34%),
+    #071615;
+}
+
+.compatibilityVisual {
+  display: grid;
+  grid-template-columns: 0.8fr auto 1.2fr;
+  align-items: center;
+  gap: 11px;
+  padding-top: 12px;
+}
+
+.compatModel,
+.compatMatrix {
+  padding: 13px;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(97, 216, 184, 0.2);
+  border-radius: 10px;
+}
+
+.compatModel { display: flex; flex-direction: column; }
+.compatModel small { color: #61d8b8; font: 0.42rem var(--font-geist-mono), monospace; }
+.compatModel strong { margin: 12px 0 3px; font-size: 0.75rem; }
+.compatModel span { color: #91a69e; font-size: 0.48rem; }
+.compatibilityVisual > b { color: #61d8b8; font-weight: 400; }
+.compatMatrix { display: grid; gap: 7px; }
+.compatMatrix span { display: flex; justify-content: space-between; gap: 8px; font-size: 0.48rem; }
+.compatMatrix i { color: #a8bbb3; font-style: normal; }
+.compatMatrix b { color: #61d8b8; font-family: var(--font-geist-mono), monospace; font-size: 0.43rem; }
+
+.projectConceptStage--loan {
+  background:
+    radial-gradient(circle at 72% 24%, rgba(255, 187, 104, 0.18), transparent 28%),
+    #17140d;
+}
+
+.loanVisual {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: 15px;
+  padding-top: 12px;
+}
+
+.loanOffer,
+.loanTerms {
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 198, 117, 0.18);
+  border-radius: 10px;
+}
+
+.loanOffer small { color: #af9f82; font-size: 0.45rem; }
+.loanOffer strong { margin: 9px 0 4px; color: #ffcb7f; font-size: clamp(1.25rem, 3.6vw, 2rem); letter-spacing: -0.06em; }
+.loanOffer span { color: #a9a18f; font-size: 0.48rem; }
+.loanOffer i { width: 5px; height: 5px; display: inline-block; background: #82d99a; border-radius: 50%; }
+.loanTerms { gap: 7px; }
+.loanTerms span { display: flex; justify-content: space-between; color: #a9a18f; font-size: 0.48rem; }
+.loanTerms b { color: #fff; }
+.loanTerms > i { height: 3px; margin: 4px 0; background: linear-gradient(90deg, #ffcb7f 58%, #3c372d 58%); border-radius: 99px; }
+.loanTerms em { padding: 6px; background: #ffcb7f; color: #231c12; border-radius: 99px; font-size: 0.44rem; font-style: normal; text-align: center; }
+
+.projectConceptStage--hifz {
+  background:
+    radial-gradient(circle at 28% 48%, rgba(102, 202, 156, 0.2), transparent 31%),
+    #081812;
+}
+
+.hifzVisual {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  align-items: center;
+  gap: 18px;
+  padding-top: 12px;
+}
+
+.hifzProgress {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  aspect-ratio: 1;
+  border: 7px solid rgba(102, 202, 156, 0.14);
+  border-top-color: #66ca9c;
+  border-right-color: #66ca9c;
+  border-radius: 50%;
+  transform: rotate(-18deg);
+}
+
+.hifzProgress strong,
+.hifzProgress span { transform: rotate(18deg); }
+.hifzProgress strong { color: #7ce0af; font-size: clamp(1.4rem, 4vw, 2.2rem); }
+.hifzProgress span { color: #9aafa5; font-size: 0.43rem; }
+.hifzSession { display: flex; flex-direction: column; padding: 13px; background: rgba(255,255,255,0.05); border: 1px solid rgba(102,202,156,0.16); border-radius: 10px; }
+.hifzSession small { margin-bottom: 10px; color: #a7b9b0; font-size: 0.45rem; }
+.hifzSession i { height: 5px; margin-bottom: 7px; background: #d7e2dc; border-radius: 99px; opacity: 0.65; }
+.hifzSession i:nth-of-type(2) { width: 82%; }
+.hifzSession i:nth-of-type(3) { width: 58%; }
+.hifzSession span { margin-top: 9px; color: #66ca9c; font-size: 0.43rem; }
+
+.projectConceptStage--signal {
+  background:
+    radial-gradient(circle at 72% 70%, rgba(255, 119, 88, 0.2), transparent 32%),
+    #151512;
+}
+
+.signalVisual {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 16px;
+  align-items: center;
+  padding-top: 12px;
+}
+
+.signalMap {
+  position: relative;
+  min-height: 125px;
+  overflow: hidden;
+  background:
+    linear-gradient(28deg, transparent 44%, rgba(255,255,255,0.1) 45% 48%, transparent 49%),
+    linear-gradient(110deg, transparent 47%, rgba(255,255,255,0.08) 48% 51%, transparent 52%),
+    rgba(255,255,255,0.045);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+}
+
+.mapRoute { position: absolute; top: 25%; left: 24%; width: 55%; height: 48%; border: 2px dashed #ff7f62; border-left: 0; border-radius: 0 30px 30px 0; transform: rotate(10deg); }
+.mapPin { position: absolute; width: 13px; height: 13px; background: #ff7f62; border: 3px solid #4a241d; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); }
+.mapPinOne { top: 22%; left: 19%; }
+.mapPinTwo { top: 49%; left: 58%; }
+.mapPinThree { right: 15%; bottom: 16%; background: var(--acid); border-color: #32411b; }
+.signalPlan { display: grid; gap: 7px; }
+.signalPlan span { display: flex; flex-direction: column; padding: 9px; background: rgba(255,255,255,0.05); border-radius: 7px; color: #d5dcd8; font-size: 0.5rem; }
+.signalPlan small { margin-bottom: 3px; color: #ff987e; font: 0.42rem var(--font-geist-mono), monospace; }
+.signalPlan > b { color: var(--acid); font-size: 0.46rem; }
+
+.projectConceptStage--creative {
+  background:
+    radial-gradient(circle at 74% 36%, rgba(98, 93, 255, 0.28), transparent 30%),
+    linear-gradient(135deg, #160d24, #07141a);
+}
+
+.creativeVisual {
+  display: grid;
+  grid-template-columns: 1fr auto 0.9fr;
+  align-items: center;
+  gap: 14px;
+  padding-top: 12px;
+}
+
+.voiceWave { height: 72px; display: flex; align-items: center; justify-content: center; gap: 3px; }
+.voiceWave i { width: 3px; height: 18%; background: linear-gradient(#ff7dc8, #7f72ff); border-radius: 99px; }
+.voiceWave i:nth-child(3n + 1) { height: 55%; }
+.voiceWave i:nth-child(4n + 2) { height: 88%; }
+.voiceWave i:nth-child(5n) { height: 38%; }
+.creativeVisual > b { color: #aa9fff; font-weight: 400; }
+.creativeCanvas { position: relative; min-height: 125px; overflow: hidden; background: linear-gradient(145deg, #ff8ecb, #785cff 52%, #51b7d3); border: 1px solid rgba(255,255,255,0.28); border-radius: 12px; box-shadow: 0 18px 38px rgba(0,0,0,0.3); }
+.creativeCanvas span { position: absolute; width: 70px; height: 70px; background: rgba(255,255,255,0.23); border-radius: 50%; filter: blur(2px); }
+.creativeCanvas span:first-child { top: -22px; right: -12px; }
+.creativeCanvas span:nth-child(2) { bottom: -35px; left: -18px; background: rgba(255,216,120,0.42); }
+.creativeCanvas strong { position: absolute; right: 12px; bottom: 11px; color: white; font-family: var(--font-instrument-serif), Georgia, serif; font-size: clamp(0.9rem, 2vw, 1.35rem); font-weight: 400; line-height: 0.95; text-align: right; }
 
 .projectLiveBadge {
   position: absolute;
@@ -1856,11 +2308,11 @@ a:focus-visible {
 
 .hackathonWinCard {
   position: relative;
-  min-height: 420px;
+  min-height: 590px;
   display: flex;
   overflow: hidden;
   flex-direction: column;
-  padding: 30px;
+  padding: 0;
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.055);
@@ -1901,6 +2353,7 @@ a:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 18px;
+  padding: 26px 26px 19px;
 }
 
 .hackathonWinTop > span:first-child {
@@ -1930,8 +2383,106 @@ a:focus-visible {
   background: var(--blue);
 }
 
+.hackathonWinMedia {
+  position: relative;
+  height: 180px;
+  flex: 0 0 auto;
+  overflow: hidden;
+  background: #0a1711;
+  border-block: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.hackathonWinMedia > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.9) contrast(1.04);
+  transition: filter 360ms ease, transform 480ms var(--ease-out);
+}
+
+.hackathonWinCard:nth-child(2) .hackathonWinMedia > img {
+  object-position: center 28%;
+}
+
+.hackathonWinMedia--contain {
+  background:
+    radial-gradient(circle at 75% 35%, rgba(185, 221, 235, 0.2), transparent 31%),
+    linear-gradient(135deg, #f8f5ed, #dce8e8);
+}
+
+.hackathonWinMedia--contain > img {
+  object-fit: contain;
+  padding: 18px 28px;
+  filter: none;
+}
+
+.hackathonWinCard:hover .hackathonWinMedia > img,
+.hackathonWinCard:focus-visible .hackathonWinMedia > img {
+  filter: saturate(1.06) contrast(1.04);
+  transform: scale(1.035);
+}
+
+.hackathonWinCard:hover .hackathonWinMedia--contain > img,
+.hackathonWinCard:focus-visible .hackathonWinMedia--contain > img {
+  filter: none;
+}
+
+.hackathonWinMedia::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 48%, rgba(6, 18, 12, 0.68));
+  content: "";
+  pointer-events: none;
+}
+
+.hackathonMediaLabel {
+  position: absolute;
+  z-index: 2;
+  bottom: 13px;
+  left: 16px;
+  padding: 6px 9px;
+  background: rgba(10, 24, 18, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  color: #eef4ef;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.48rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hackathonPartnerLogo {
+  position: absolute;
+  z-index: 2;
+  right: 15px;
+  bottom: 13px;
+  width: 92px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  padding: 6px 8px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 8px;
+}
+
+.hackathonPartnerLogo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.hackathonWinContent {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 23px 26px 26px;
+}
+
 .hackathonEvent {
-  margin: 68px 0 14px;
+  margin: 0 0 14px;
   color: #aebdb4;
   font-family: var(--font-geist-mono), monospace;
   font-size: 0.68rem;
@@ -3129,7 +3680,7 @@ a:focus-visible {
   }
 
   .hackathonWinCard {
-    min-height: 340px;
+    min-height: 560px;
   }
 
   .catalogIntro {
@@ -3456,8 +4007,20 @@ a:focus-visible {
   }
 
   .hackathonWinCard {
-    min-height: 360px;
-    padding: 26px 22px;
+    min-height: 540px;
+    padding: 0;
+  }
+
+  .hackathonWinTop {
+    padding: 23px 22px 17px;
+  }
+
+  .hackathonWinMedia {
+    height: 168px;
+  }
+
+  .hackathonWinContent {
+    padding: 21px 22px 23px;
   }
 
   .projectsContact .shell {
