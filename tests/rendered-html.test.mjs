@@ -125,10 +125,12 @@ test("server renders the complete project catalog", async () => {
   assert.match(html, /Source code/);
   assert.match(html, /class="hackathonWinCard"/);
   assert.equal((html.match(/class="hackathonWinMedia /g) ?? []).length, 3);
-  assert.match(html, /src="\/projects\/root\.webp"/);
-  assert.match(html, /src="\/projects\/clip-police\.webp"/);
-  assert.match(html, /src="\/projects\/smart-cpm-parser\.webp"/);
-  assert.match(html, /src="\/experience\/etihad-airways\.webp"/);
+  assert.match(html, /src="\/hackathons\/root-team\.jpg"/);
+  assert.match(html, /src="\/hackathons\/clip-police-team\.jpg"/);
+  assert.match(html, /src="\/hackathons\/smart-cpm-team\.jpg"/);
+  assert.match(html, /alt="ROOT project team at the CrewAI hackathon"/);
+  assert.match(html, /alt="Clip Police team and organizers at the Auth0 and Stripe hackathon"/);
+  assert.match(html, /alt="Smart CPM Parser hackathon team at Etihad Corporate Academy"/);
   assert.match(html, /Let’s make complex work feel simple\./);
 });
 

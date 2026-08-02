@@ -2402,8 +2402,12 @@ a:focus-visible {
   transition: filter 360ms ease, transform 480ms var(--ease-out);
 }
 
+.hackathonWinCard:first-child .hackathonWinMedia > img {
+  object-position: center 40%;
+}
+
 .hackathonWinCard:nth-child(2) .hackathonWinMedia > img {
-  object-position: center 28%;
+  object-position: center 42%;
 }
 
 .hackathonWinMedia--contain {
