@@ -68,7 +68,8 @@ export default function ProjectsPage() {
       <main>
         <nav className="nav shell" aria-label="Primary navigation">
           <Link className="wordmark" href="/" aria-label="Zubair Zafar home">
-            ZZ<span>.</span>
+            <span className="wordmarkLetters" aria-hidden="true">ZZ</span>
+            <span className="wordmarkDot" aria-hidden="true">.</span>
           </Link>
           <div className="navLinks">
             <Link href="/">Home</Link>

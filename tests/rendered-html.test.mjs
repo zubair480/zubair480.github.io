@@ -44,6 +44,8 @@ test("server renders the finished portfolio", async () => {
   assert.doesNotMatch(html, /3× Python Teacher/);
   assert.match(html, /hackathon wins/);
   assert.match(html, /class="heroAward"/);
+  assert.match(html, /class="wordmarkLetters"/);
+  assert.match(html, /class="wordmarkDot"/);
   assert.match(html, /href="\/projects#hackathon-wins"/);
   assert.match(html, /class="webglAura"/);
   assert.match(html, /property="og:image" content="https:\/\/zubair480\.github\.io\/og\.png"/);
@@ -82,6 +84,7 @@ test("motion remains progressive and accessible", async () => {
 
   assert.match(experienceLayer, /IntersectionObserver/);
   assert.match(experienceLayer, /textRevealTargets/);
+  assert.match(experienceLayer, /item\.matches\("\.wordmark"\)/);
   assert.match(experienceLayer, /isTextVisible/);
   assert.match(experienceLayer, /loadingIsVisible/);
   assert.match(experienceLayer, /loadingIsVisible \? 760 : 40/);
@@ -112,5 +115,9 @@ test("motion remains progressive and accessible", async () => {
   assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
   assert.match(css, /\.scrollProgress/);
   assert.match(css, /@keyframes heroConfettiBurst/);
+  assert.match(css, /@keyframes wordmarkOrbit/);
+  assert.match(css, /@keyframes wordmarkRipple/);
+  assert.match(css, /@keyframes wordmarkLetterPop/);
+  assert.match(css, /@keyframes wordmarkDotPop/);
   assert.match(css, /\.heroAwardReveal/);
 });

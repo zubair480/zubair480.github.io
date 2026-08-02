@@ -241,6 +241,8 @@ a:focus-visible {
 }
 
 .wordmark {
+  position: relative;
+  isolation: isolate;
   width: 38px;
   height: 38px;
   display: inline-flex;
@@ -253,16 +255,124 @@ a:focus-visible {
   font-weight: 780;
   letter-spacing: -0.05em;
   line-height: 1;
-  transition: transform 260ms var(--ease-out);
+  box-shadow: 0 4px 12px rgba(17, 32, 25, 0.12);
+  transform: translateZ(0);
+  transition:
+    box-shadow 320ms var(--ease-out),
+    transform 320ms var(--ease-out);
 }
 
-.wordmark span {
-  display: inline;
+.wordmark::before {
+  position: absolute;
+  z-index: 0;
+  inset: 3px;
+  border: 1px solid transparent;
+  border-top-color: var(--acid);
+  border-right-color: rgba(246, 177, 128, 0.86);
+  border-radius: inherit;
+  content: "";
+  opacity: 0.72;
+  pointer-events: none;
+  animation: wordmarkOrbit 4.8s linear infinite;
+}
+
+.wordmark::after {
+  position: absolute;
+  z-index: -1;
+  inset: -4px;
+  border: 1px solid rgba(172, 225, 76, 0.7);
+  border-radius: inherit;
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.72);
+}
+
+.wordmarkLetters,
+.wordmarkDot {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  color: white;
+  transform-origin: center;
+}
+
+.wordmarkDot {
   color: var(--acid);
+  transform-origin: 50% 80%;
 }
 
-.wordmark:hover {
-  transform: rotate(-4deg) scale(1.05);
+.wordmark:is(:hover, :focus-visible, :active) {
+  box-shadow:
+    0 8px 22px rgba(17, 32, 25, 0.2),
+    0 0 0 4px rgba(172, 225, 76, 0.12);
+  transform: translateY(-2px) scale(1.08);
+}
+
+.wordmark:is(:hover, :focus-visible, :active)::before {
+  opacity: 1;
+  animation: wordmarkOrbit 720ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.wordmark:is(:hover, :focus-visible, :active)::after {
+  animation: wordmarkRipple 720ms var(--ease-out) both;
+}
+
+.wordmark:is(:hover, :focus-visible, :active) .wordmarkLetters {
+  animation: wordmarkLetterPop 720ms var(--ease-out) both;
+}
+
+.wordmark:is(:hover, :focus-visible, :active) .wordmarkDot {
+  animation: wordmarkDotPop 720ms var(--ease-out) both;
+}
+
+.wordmark:focus-visible {
+  outline: 2px solid var(--deep);
+  outline-offset: 5px;
+}
+
+@keyframes wordmarkOrbit {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes wordmarkRipple {
+  0% {
+    opacity: 0;
+    transform: scale(0.72);
+  }
+  36% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.38);
+  }
+}
+
+@keyframes wordmarkLetterPop {
+  0%, 100% {
+    transform: translateY(0) rotate(0) scale(1);
+  }
+  34% {
+    transform: translateY(-2px) rotate(-6deg) scale(1.08);
+  }
+  68% {
+    transform: translateY(1px) rotate(3deg) scale(0.97);
+  }
+}
+
+@keyframes wordmarkDotPop {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  32% {
+    transform: translate(2px, -4px) scale(1.8);
+  }
+  66% {
+    transform: translate(-1px, 1px) scale(0.82);
+  }
 }
 
 .navLinks {
@@ -2718,6 +2828,17 @@ a:focus-visible {
 
   .loadingScreen {
     display: none;
+  }
+
+  .wordmark::before,
+  .wordmark::after,
+  .wordmarkLetters,
+  .wordmarkDot {
+    animation: none !important;
+  }
+
+  .wordmark:is(:hover, :focus-visible, :active) {
+    transform: none;
   }
 
   .heroAward.isCelebrating .heroCongrats {

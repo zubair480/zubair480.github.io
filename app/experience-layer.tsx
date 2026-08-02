@@ -63,6 +63,7 @@ export function ScrollExperience() {
       document.querySelectorAll<HTMLElement>(textRevealTargets),
     ).filter((item) => {
       if (!item.textContent?.trim()) return false;
+      if (item.matches(".wordmark")) return false;
       if (item.hasAttribute("data-reveal")) return false;
       if (item.closest(".hero, .loadingScreen, [aria-hidden='true']")) return false;
       return true;
