@@ -2068,12 +2068,14 @@ a:focus-visible {
 }
 
 .recognitionGrid article {
-  min-height: 280px;
+  position: relative;
+  min-height: 340px;
   display: flex;
   flex-direction: column;
   padding: 30px 26px;
   border-right: 1px solid rgba(255,255,255,0.16);
-  transition: background 240ms ease;
+  overflow: hidden;
+  transition: background 240ms ease, transform 240ms ease;
 }
 
 .recognitionGrid article:hover {
@@ -2084,7 +2086,7 @@ a:focus-visible {
   border-right: 0;
 }
 
-.recognitionGrid article > p {
+.recognitionResult {
   margin: 0;
   color: var(--acid);
   font-family: var(--font-geist-mono), monospace;
@@ -2094,8 +2096,91 @@ a:focus-visible {
   text-transform: uppercase;
 }
 
+.recognitionLogo {
+  --recognition-logo-accent: var(--acid);
+  position: relative;
+  display: grid;
+  width: 138px;
+  height: 76px;
+  margin-top: 32px;
+  padding: 11px 13px;
+  place-items: center;
+  overflow: hidden;
+  background: #f7f6f2;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 15px;
+  box-shadow: 0 15px 34px rgba(0, 0, 0, 0.2);
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.recognitionLogo::after {
+  content: "";
+  position: absolute;
+  right: 13px;
+  bottom: 0;
+  left: 13px;
+  height: 3px;
+  background: var(--recognition-logo-accent);
+  border-radius: 999px 999px 0 0;
+  transform: scaleX(0.24);
+  transform-origin: left;
+  transition: transform 240ms ease;
+}
+
+.recognitionLogo img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 220ms ease;
+}
+
+.recognitionLogoCodeJam {
+  --recognition-logo-accent: #ef233c;
+}
+
+.recognitionLogoMeta {
+  --recognition-logo-accent: #f5b400;
+  background: #1b2c34;
+}
+
+.recognitionLogoAdvent {
+  --recognition-logo-accent: #ffff66;
+  background: #0f0f23;
+}
+
+.recognitionLogoAdvent img,
+.recognitionLogoCs50 img {
+  max-width: 54%;
+  max-height: 88%;
+}
+
+.recognitionLogoCs50 {
+  --recognition-logo-accent: #b11938;
+}
+
+.recognitionGrid article:hover .recognitionLogo {
+  transform: translateY(-4px) rotate(-0.65deg);
+  border-color: color-mix(in srgb, var(--recognition-logo-accent) 55%, transparent);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.26);
+}
+
+.recognitionGrid article:hover .recognitionLogo::after {
+  transform: scaleX(1);
+}
+
+.recognitionGrid article:hover .recognitionLogo img {
+  transform: scale(1.045);
+}
+
+.recognitionCopy {
+  margin-top: auto;
+}
+
 .recognitionGrid h3 {
-  margin: auto 0 15px;
+  margin: 0 0 15px;
   font-size: 1.4rem;
   font-family: var(--font-instrument-serif), Georgia, serif;
   font-size: 1.65rem;
@@ -2103,7 +2188,7 @@ a:focus-visible {
   letter-spacing: -0.015em;
 }
 
-.recognitionGrid span {
+.recognitionCopy > span {
   color: #b8c5bd;
   font-size: 0.82rem;
   line-height: 1.55;
@@ -2818,9 +2903,15 @@ a:focus-visible {
   }
 
   .recognitionGrid article {
-    min-height: 230px;
+    min-height: 275px;
     border-right: 0;
     border-bottom: 1px solid rgba(255,255,255,0.16);
+  }
+
+  .recognitionLogo {
+    width: 126px;
+    height: 70px;
+    margin-top: 26px;
   }
 
   .recognitionGrid article:last-child {

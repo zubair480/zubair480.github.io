@@ -101,21 +101,41 @@ const recognition = [
   {
     result: "4th place",
     title: "Google Code Jam",
+    logo: "/recognition/google-code-jam.webp",
+    logoAlt: "Google Code Jam logo",
+    logoWidth: 500,
+    logoHeight: 225,
+    logoClass: "recognitionLogoCodeJam",
     detail: "Placed 1622 worldwide in an international problem solving competition.",
   },
   {
     result: "16th place",
     title: "Meta Hacker Cup",
+    logo: "/recognition/meta-hacker-cup.webp",
+    logoAlt: "Meta Hacker Cup logo",
+    logoWidth: 600,
+    logoHeight: 93,
+    logoClass: "recognitionLogoMeta",
     detail: "Earned a national top 20 placement in 2023.",
   },
   {
     result: "25 days",
     title: "Advent of Code",
+    logo: "/recognition/advent-of-code.webp",
+    logoAlt: "Advent of Code star logo",
+    logoWidth: 128,
+    logoHeight: 128,
+    logoClass: "recognitionLogoAdvent",
     detail: "Completed the full 2022 challenge through daily algorithmic problem solving.",
   },
   {
     result: "Team lead",
     title: "CS50 Puzzle Day",
+    logo: "/recognition/cs50-puzzle-day.webp",
+    logoAlt: "CS50 Puzzle Day logo",
+    logoWidth: 400,
+    logoHeight: 400,
+    logoClass: "recognitionLogoCs50",
     detail: "Led a top performing team in Harvard CS50 Puzzle Day 2023.",
   },
 ];
@@ -300,9 +320,22 @@ export default function Home() {
             <div className="recognitionGrid">
               {recognition.map((item) => (
                 <article key={item.title} data-reveal>
-                  <p>{item.result}</p>
-                  <h3>{item.title}</h3>
-                  <span>{item.detail}</span>
+                  <p className="recognitionResult">{item.result}</p>
+                  <span className={`recognitionLogo ${item.logoClass}`}>
+                    {/* eslint-disable-next-line @next/next/no-img-element -- Optimized local assets preserve each competition's recognizable mark. */}
+                    <img
+                      src={item.logo}
+                      alt={item.logoAlt}
+                      width={item.logoWidth}
+                      height={item.logoHeight}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </span>
+                  <div className="recognitionCopy">
+                    <h3>{item.title}</h3>
+                    <span>{item.detail}</span>
+                  </div>
                 </article>
               ))}
             </div>
