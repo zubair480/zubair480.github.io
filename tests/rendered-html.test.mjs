@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 
 async function render(pathname = "/") {
@@ -59,6 +59,8 @@ test("server renders the complete project catalog", async () => {
   assert.equal(response.status, 200);
 
   const html = await response.text();
+  const projectMedia = (await readdir(new URL("../public/projects/", import.meta.url)))
+    .filter((name) => name.endsWith(".webp"));
   assert.match(html, /Twenty builds\./);
   assert.match(html, /complete project catalog/i);
   assert.match(html, /Three hackathon wins/);
@@ -72,6 +74,14 @@ test("server renders the complete project catalog", async () => {
   assert.match(html, /AI GTM Agent/);
   assert.match(html, /Smart CPM Parser/);
   assert.match(html, /class="projectCard"/);
+  assert.equal((html.match(/class="projectMedia"/g) ?? []).length, 20);
+  assert.equal((html.match(/src="\/projects\/[^"?]+\.webp"/g) ?? []).length, 20);
+  assert.equal(projectMedia.length, 20);
+  assert.match(html, /class="projectLiveBadge"/);
+  assert.match(html, /https:\/\/zubairzafar480--estateagent-ai-web\.modal\.run\//);
+  assert.match(html, /chromewebstore\.google\.com\/detail\/lumafill\/hpikhienlemchmncloefeapbponamkkd/);
+  assert.match(html, /Project post/);
+  assert.match(html, /Source code/);
   assert.match(html, /class="hackathonWinCard"/);
 });
 
@@ -119,5 +129,8 @@ test("motion remains progressive and accessible", async () => {
   assert.match(css, /@keyframes wordmarkRipple/);
   assert.match(css, /@keyframes wordmarkLetterPop/);
   assert.match(css, /@keyframes wordmarkDotPop/);
+  assert.match(css, /@keyframes projectLivePulse/);
+  assert.match(css, /\.projectMedia/);
+  assert.match(css, /\.projectActions/);
   assert.match(css, /\.heroAwardReveal/);
 });

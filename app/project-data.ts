@@ -11,6 +11,12 @@ export type Project = {
   proof: string;
   stack: string[];
   href: string;
+  image: string;
+  imageAlt: string;
+  imagePosition?: "center" | "top";
+  liveHref?: string;
+  liveLabel?: string;
+  linkLabel?: string;
   category: ProjectCategory;
 };
 
@@ -24,6 +30,10 @@ export const featuredProjects: Project[] = [
     proof: "5K simulations in under 12 seconds",
     stack: ["FastAPI", "Cloudflare", "Modal", "LLMs"],
     href: "https://github.com/zubair480/EstateAgent-AI",
+    image: "/projects/estateagent-ai.webp",
+    imageAlt: "EstateAgent AI investment analysis dashboard",
+    liveHref: "https://zubairzafar480--estateagent-ai-web.modal.run/",
+    liveLabel: "Live demo",
     category: "Agentic AI and research",
   },
   {
@@ -35,6 +45,9 @@ export const featuredProjects: Project[] = [
     proof: "Private zero internet inference on device",
     stack: ["Kotlin", "ExecuTorch", "CameraX", "QNN"],
     href: "https://github.com/zubair480/Electric-lens",
+    image: "/projects/electric-lens.webp",
+    imageAlt: "Electric Lens on-device safety assistant session",
+    imagePosition: "top",
     category: "Mobile vision and learning",
   },
   {
@@ -46,6 +59,8 @@ export const featuredProjects: Project[] = [
     proof: "Async evidence pipeline from scrape to alert",
     stack: ["FastAPI", "Bright Data", "RAG", "Pydantic"],
     href: "https://github.com/zubair480/AgenticAudit",
+    image: "/projects/agentic-audit.webp",
+    imageAlt: "AgenticAudit repository preview",
     category: "Agentic AI and research",
   },
   {
@@ -57,6 +72,8 @@ export const featuredProjects: Project[] = [
     proof: "MCP server with a workbench and consensus mode",
     stack: ["Python", "MCP", "W&B Weave", "Next.js"],
     href: "https://github.com/productlayers/judgeagent",
+    image: "/projects/judgeagent.webp",
+    imageAlt: "JudgeAgent repository preview",
     category: "Agentic AI and research",
   },
   {
@@ -68,6 +85,8 @@ export const featuredProjects: Project[] = [
     proof: "PDF to knowledge workflow with local models",
     stack: ["FastAPI", "Ollama", "React", "Mermaid"],
     href: "https://github.com/zubair480/Research-Graph",
+    image: "/projects/thread.webp",
+    imageAlt: "Thread research companion repository preview",
     category: "Agentic AI and research",
   },
   {
@@ -79,6 +98,8 @@ export const featuredProjects: Project[] = [
     proof: "GPU generation with a live scan dashboard",
     stack: ["FastAPI", "RunPod", "Bright Data", "Flux"],
     href: "https://github.com/zubair480/FlashCard",
+    image: "/projects/flashcard.webp",
+    imageAlt: "FlashCard project repository preview",
     category: "Products and developer tools",
   },
 ];
@@ -93,6 +114,10 @@ export const moreProjects: Project[] = [
     proof: "2nd place at Okta's San Francisco headquarters",
     stack: ["Multi agent", "Auth0", "Stripe", "Content detection"],
     href: "https://www.linkedin.com/feed/update/urn:li:activity:7488853520134107136/",
+    image: "/projects/clip-police.webp",
+    imageAlt: "Viral video repost that inspired Clip Police",
+    imagePosition: "top",
+    linkLabel: "Project post",
     category: "Agentic AI and research",
   },
   {
@@ -104,6 +129,9 @@ export const moreProjects: Project[] = [
     proof: "14 agents turn a week of provisioning into minutes",
     stack: ["CrewAI", "Zendesk", "Multi agent", "Full stack"],
     href: "https://www.linkedin.com/feed/update/urn:li:activity:7487710934313013248/",
+    image: "/projects/root.webp",
+    imageAlt: "ROOT team at the CrewAI hackathon",
+    linkLabel: "Project post",
     category: "Agentic AI and research",
   },
   {
@@ -115,6 +143,9 @@ export const moreProjects: Project[] = [
     proof: "A judge volunteered to become the first customer",
     stack: ["Multi agent", "Nimble", "Kylon", "Social listening"],
     href: "https://www.linkedin.com/feed/update/urn:li:activity:7484411388363288576/",
+    image: "/projects/ai-gtm-agent.webp",
+    imageAlt: "AI GTM Agent hackathon team",
+    linkLabel: "Project post",
     category: "Agentic AI and research",
   },
   {
@@ -126,6 +157,8 @@ export const moreProjects: Project[] = [
     proof: "Runs as a CLI plus a Streamlit app or messaging backend",
     stack: ["Python", "Streamlit", "RocketRide", "XTrace"],
     href: "https://github.com/zubair480/agentic-ai-hackathon",
+    image: "/projects/model-compatibility-agent.webp",
+    imageAlt: "Model Compatibility Agent repository preview",
     category: "Agentic AI and research",
   },
   {
@@ -137,6 +170,9 @@ export const moreProjects: Project[] = [
     proof: "Citation grounded reports with x402 settlement",
     stack: ["Multi agent", "SAFE MCP", "ClickHouse", "x402"],
     href: "https://github.com/bishnubista/mcp-auditor",
+    image: "/projects/mcp-auditor.webp",
+    imageAlt: "MCP Auditor security evidence dashboard",
+    imagePosition: "top",
     category: "Agentic AI and research",
   },
   {
@@ -148,6 +184,8 @@ export const moreProjects: Project[] = [
     proof: "Adaptive negotiation flow built for mobile",
     stack: ["Flutter", "Dart", "Generative UI"],
     href: "https://github.com/zubair480/micro-loan-negotiator",
+    image: "/projects/micro-loan-negotiator.webp",
+    imageAlt: "Micro Loan Negotiator repository preview",
     category: "Products and developer tools",
   },
   {
@@ -159,6 +197,9 @@ export const moreProjects: Project[] = [
     proof: "Local data turns community urgency into better matches",
     stack: ["FastAPI", "DigitalOcean AI", "SF 311", "React"],
     href: "https://github.com/arjun-vaidya/tenderly",
+    image: "/projects/tenderly.webp",
+    imageAlt: "Tenderly volunteer matching landing page",
+    imagePosition: "top",
     category: "Products and developer tools",
   },
   {
@@ -170,6 +211,10 @@ export const moreProjects: Project[] = [
     proof: "Less form filling with faster event discovery",
     stack: ["Chrome Extension", "Manifest V3", "JavaScript"],
     href: "https://github.com/zubair480/luma_extension",
+    image: "/projects/luma-extension.webp",
+    imageAlt: "LumaFill Chrome extension preview",
+    liveHref: "https://chromewebstore.google.com/detail/lumafill/hpikhienlemchmncloefeapbponamkkd",
+    liveLabel: "Chrome Web Store",
     category: "Products and developer tools",
   },
   {
@@ -181,6 +226,8 @@ export const moreProjects: Project[] = [
     proof: "Private structured practice available offline",
     stack: ["Kotlin", "Jetpack Compose", "SM2", "Audio"],
     href: "https://github.com/zubair480/hifz-quran-app",
+    image: "/projects/hifz.webp",
+    imageAlt: "Hifz Qur'an companion repository preview",
     category: "Mobile vision and learning",
   },
   {
@@ -192,6 +239,8 @@ export const moreProjects: Project[] = [
     proof: "Discovery and planning in one personal itinerary",
     stack: ["Node.js", "SQLite", "Vercel", "Auth"],
     href: "https://github.com/zubair480/travel-buddy",
+    image: "/projects/signal-sf.webp",
+    imageAlt: "Signal SF repository preview",
     category: "Products and developer tools",
   },
   {
@@ -203,6 +252,8 @@ export const moreProjects: Project[] = [
     proof: "Live PPE detection with employee aware alerts",
     stack: ["YOLOv8", "OAK D", "Python", "Flask"],
     href: "https://github.com/zubair480/UltraHack-Transatlantic",
+    image: "/projects/smart-safety.webp",
+    imageAlt: "Smart Safety workplace violation alert",
     category: "Mobile vision and learning",
   },
   {
@@ -214,6 +265,9 @@ export const moreProjects: Project[] = [
     proof: "95% fewer entry errors and 30% less manual work",
     stack: ["Python", "Flask", "RegEx", "JavaScript"],
     href: "https://github.com/zubair480/amadeus_hackathon2",
+    image: "/projects/smart-cpm-parser.webp",
+    imageAlt: "Smart CPM Parser project interface",
+    imagePosition: "top",
     category: "Products and developer tools",
   },
   {
@@ -225,6 +279,8 @@ export const moreProjects: Project[] = [
     proof: "From speech to an editable creative prompt",
     stack: ["Whisper", "OpenAI API", "Django", "React Native"],
     href: "https://github.com/QU01/OpenAIHackatonApp",
+    image: "/projects/codic.webp",
+    imageAlt: "Codic OpenAI hackathon repository preview",
     category: "Mobile vision and learning",
   },
   {
@@ -236,6 +292,9 @@ export const moreProjects: Project[] = [
     proof: "Haystack retrieval with Elasticsearch and OpenAI",
     stack: ["Python", "Haystack", "Elasticsearch", "OpenAI"],
     href: "https://github.com/zubair480/zubair480.github.io/blob/master/_projects/3_project.md",
+    image: "/projects/navi-tutor.webp",
+    imageAlt: "Navi Tutor AI learning platform",
+    linkLabel: "Project notes",
     category: "Mobile vision and learning",
   },
 ];
