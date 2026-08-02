@@ -28,6 +28,11 @@ const experience = [
   {
     period: "Since 2024",
     company: "Eastern Illinois University",
+    logo: "/experience/eastern-illinois-university.webp",
+    logoAlt: "Eastern Illinois University logo",
+    logoWidth: 500,
+    logoHeight: 453,
+    logoClass: "experienceLogoEiu",
     role: "Graduate Assistant · Software Engineer",
     detail:
       "Building and operating APIs for 7K+ active users while researching deep learning systems for medical imaging.",
@@ -41,6 +46,11 @@ const experience = [
   {
     period: "2023 to 2024",
     company: "WPBrigade",
+    logo: "/experience/wpbrigade.webp",
+    logoAlt: "WPBrigade logo",
+    logoWidth: 520,
+    logoHeight: 114,
+    logoClass: "experienceLogoWpbrigade",
     role: "Backend Software Engineer",
     detail:
       "Shipped production WordPress products with 15K+ active installations and mentored the next cohort of developers.",
@@ -53,6 +63,11 @@ const experience = [
   {
     period: "2023",
     company: "Etihad Aviation Group",
+    logo: "/experience/etihad-airways.webp",
+    logoAlt: "Etihad Airways logo",
+    logoWidth: 620,
+    logoHeight: 220,
+    logoClass: "experienceLogoEtihad",
     role: "Software Engineering Intern",
     detail:
       "Productionized a hackathon winning cargo parser that eliminated 95% of data entry errors and reduced manual processing.",
@@ -66,6 +81,11 @@ const experience = [
   {
     period: "2022 to 2023",
     company: "CarChaze",
+    logo: "/experience/carchaze.webp",
+    logoAlt: "CarChaze logo",
+    logoWidth: 400,
+    logoHeight: 400,
+    logoClass: "experienceLogoCarchaze",
     role: "Software Engineer",
     detail:
       "Built the marketplace experience and core APIs for a vehicle platform serving 2K+ monthly users.",
@@ -239,9 +259,22 @@ export default function Home() {
               <details className="experienceRow" key={item.company} data-reveal>
                 <summary className="experienceSummary">
                   <p className="experiencePeriod">{item.period}</p>
-                  <div>
-                    <h3>{item.company}</h3>
-                    <p className="experienceRole">{item.role}</p>
+                  <div className="experienceIdentity">
+                    <span className={`experienceLogo ${item.logoClass}`}>
+                      {/* eslint-disable-next-line @next/next/no-img-element -- Optimized local brand assets preserve each organization's official mark. */}
+                      <img
+                        src={item.logo}
+                        alt={item.logoAlt}
+                        width={item.logoWidth}
+                        height={item.logoHeight}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </span>
+                    <div>
+                      <h3>{item.company}</h3>
+                      <p className="experienceRole">{item.role}</p>
+                    </div>
                   </div>
                   <p className="experienceDetail">{item.detail}</p>
                   <span className="expandIcon" aria-hidden="true">+</span>

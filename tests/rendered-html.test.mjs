@@ -48,6 +48,15 @@ test("server renders the finished portfolio", async () => {
   assert.match(html, /class="wordmarkDot"/);
   assert.match(html, /href="\/projects#hackathon-wins"/);
   assert.match(html, /class="webglAura"/);
+  assert.equal((html.match(/class="experienceLogo /g) ?? []).length, 4);
+  assert.match(html, /src="\/experience\/eastern-illinois-university\.webp"/);
+  assert.match(html, /src="\/experience\/wpbrigade\.webp"/);
+  assert.match(html, /src="\/experience\/etihad-airways\.webp"/);
+  assert.match(html, /src="\/experience\/carchaze\.webp"/);
+  assert.match(html, /alt="Eastern Illinois University logo"/);
+  assert.match(html, /alt="WPBrigade logo"/);
+  assert.match(html, /alt="Etihad Airways logo"/);
+  assert.match(html, /alt="CarChaze logo"/);
   assert.match(html, /property="og:image" content="https:\/\/zubair480\.github\.io\/og\.png"/);
   assert.doesNotMatch(html, />Languages</);
   assert.doesNotMatch(html, /Pakistan/i);
@@ -133,4 +142,6 @@ test("motion remains progressive and accessible", async () => {
   assert.match(css, /\.projectMedia/);
   assert.match(css, /\.projectActions/);
   assert.match(css, /\.heroAwardReveal/);
+  assert.match(css, /\.experienceLogo/);
+  assert.match(css, /\.experienceRow:hover \.experienceLogo/);
 });
