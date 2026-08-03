@@ -262,8 +262,8 @@ export const moreProjects: Project[] = [
     stack: ["Python", "Flask", "RegEx", "JavaScript"],
     href: "https://github.com/zubair480/amadeus_hackathon2",
     image: "/projects/smart-cpm-parser.webp",
-    imageAlt: "Smart CPM Parser project interface",
-    imagePosition: "top",
+    imageAlt: "Smart CPM Parser winning team at Etihad Corporate Academy",
+    imagePosition: "center",
     category: "Products and developer tools",
   },
   {
