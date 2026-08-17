@@ -183,6 +183,7 @@ export default function Home() {
             <a href="/projects">Projects</a>
             <a href="#experience">Experience</a>
             <a href="#about">About</a>
+            <a href="/hobbies">Hobbies</a>
             <a href="/zubair_cv.pdf" target="_blank" rel="noreferrer">CV</a>
             <a href="mailto:zubairzafar480@gmail.com">Contact</a>
           </div>

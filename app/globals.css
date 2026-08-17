@@ -2534,6 +2534,300 @@ a:focus-visible {
   transform: translate(3px, -3px);
 }
 
+.hobbySpotlight {
+  position: relative;
+  overflow: hidden;
+  padding-block: 104px;
+  background: var(--deep);
+  color: #fff;
+  isolation: isolate;
+}
+
+.hobbySpotlight::before {
+  position: absolute;
+  top: -19rem;
+  right: -7rem;
+  width: 46rem;
+  height: 46rem;
+  background: radial-gradient(circle, rgba(191, 217, 230, 0.17), transparent 66%);
+  content: "";
+  pointer-events: none;
+}
+
+.hobbySpotlightHeader {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 0.55fr 1.45fr 0.8fr;
+  gap: clamp(28px, 4vw, 64px);
+  align-items: start;
+  margin-bottom: 54px;
+}
+
+.hobbySpotlight .eyebrow {
+  color: var(--acid);
+}
+
+.hobbySpotlightHeader > p:last-child {
+  margin: 0;
+  color: #b9c6be;
+  line-height: 1.7;
+}
+
+.hobbyGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.hobbyCard {
+  --hobby-accent: var(--acid);
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  overflow: hidden;
+  grid-column: span 2;
+  flex-direction: column;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.055);
+  color: #fff;
+  transition:
+    transform 280ms var(--ease-out),
+    background 280ms ease,
+    border-color 280ms ease;
+}
+
+.hobbyCard[data-accent="sunset"] {
+  --hobby-accent: var(--sunset);
+}
+
+.hobbyCard[data-accent="blue"] {
+  --hobby-accent: var(--blue);
+}
+
+.hobbyCard[data-span="3"] {
+  grid-column: span 3;
+}
+
+.hobbyCard[data-span="6"] {
+  grid-column: span 6;
+}
+
+.hobbyCard::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 5px;
+  background: var(--hobby-accent);
+  content: "";
+}
+
+.hobbyCard:hover {
+  border-color: rgba(200, 240, 120, 0.55);
+  background: rgba(255, 255, 255, 0.085);
+  transform: translateY(-6px);
+}
+
+.hobbyTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 26px 26px 19px;
+}
+
+.hobbyTop > span:first-child {
+  color: #8fa097;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+}
+
+.hobbyTop > span:last-child {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: var(--hobby-accent);
+  color: var(--deep);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.64rem;
+  font-weight: 720;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.hobbyMedia {
+  position: relative;
+  height: 190px;
+  flex: 0 0 auto;
+  overflow: hidden;
+  background: #0a1711;
+  border-block: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.hobbyMedia > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.9) contrast(1.04);
+  transition: filter 360ms ease, transform 480ms var(--ease-out);
+}
+
+.hobbyCard:hover .hobbyMedia > img {
+  filter: saturate(1.06) contrast(1.04);
+  transform: scale(1.035);
+}
+
+.hobbyMedia--empty {
+  background:
+    radial-gradient(circle at 78% 28%, rgba(200, 240, 120, 0.14), transparent 44%),
+    repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.05) 0 1px,
+      transparent 1px 13px
+    ),
+    #0d1c15;
+}
+
+.hobbyMediaPlaceholder {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.hobbyMediaPlaceholder > span:first-child {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 50%;
+  color: var(--hobby-accent);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+}
+
+.hobbyMediaPlaceholder > span:last-child {
+  color: #8fa097;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hobbyMedia::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 48%, rgba(6, 18, 12, 0.68));
+  content: "";
+  pointer-events: none;
+}
+
+.hobbyMediaInset {
+  position: absolute;
+  z-index: 2;
+  right: 15px;
+  bottom: 13px;
+  width: 88px;
+  height: 66px;
+  display: block;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(4, 12, 8, 0.45);
+}
+
+.hobbyMediaInset img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.hobbyMediaLabel {
+  position: absolute;
+  z-index: 2;
+  bottom: 13px;
+  left: 16px;
+  padding: 6px 9px;
+  background: rgba(10, 24, 18, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  color: #eef4ef;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.48rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hobbyContent {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 23px 26px 26px;
+}
+
+.hobbyCadence {
+  margin: 0 0 14px;
+  color: #aebdb4;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hobbyCard h3 {
+  margin: 0;
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.hobbyDescription {
+  margin: 22px 0 28px;
+  color: #c5d0c9;
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.hobbyNote {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: auto;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  color: #e2e9e4;
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.hobbyNote > span:last-child {
+  color: var(--hobby-accent);
+  font-size: 1.05rem;
+  transition: transform 220ms var(--ease-out);
+}
+
+.hobbyCard:hover .hobbyNote > span:last-child {
+  transform: translate(3px, -3px);
+}
+
 .projectsCatalog {
   background: var(--sage);
 }
@@ -3687,6 +3981,25 @@ a:focus-visible {
     min-height: 560px;
   }
 
+  .hobbySpotlightHeader {
+    grid-template-columns: 1fr;
+  }
+
+  .hobbySpotlightHeader > p:last-child {
+    max-width: 620px;
+  }
+
+  .hobbyGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .hobbyCard,
+  .hobbyCard[data-span="3"],
+  .hobbyCard[data-span="6"] {
+    min-height: 500px;
+    grid-column: auto;
+  }
+
   .catalogIntro {
     align-items: flex-start;
     flex-direction: column;
@@ -4023,7 +4336,30 @@ a:focus-visible {
     height: 168px;
   }
 
+  .hobbySpotlight {
+    padding-block: 76px;
+  }
+
+  .hobbyCard,
+  .hobbyCard[data-span="3"],
+  .hobbyCard[data-span="6"] {
+    min-height: 480px;
+    padding: 0;
+  }
+
+  .hobbyTop {
+    padding: 23px 22px 17px;
+  }
+
+  .hobbyMedia {
+    height: 168px;
+  }
+
   .hackathonWinContent {
+    padding: 21px 22px 23px;
+  }
+
+  .hobbyContent {
     padding: 21px 22px 23px;
   }
 

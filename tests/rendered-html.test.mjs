@@ -134,6 +134,53 @@ test("server renders the complete project catalog", async () => {
   assert.match(html, /Let’s make complex work feel simple\./);
 });
 
+test("server renders the hobbies page", async () => {
+  const response = await render("/hobbies");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /<title>Hobbies \| Zubair Zafar<\/title>/i);
+  assert.match(html, /Off the clock\./);
+  assert.match(html, /Things I do when I am not shipping\./);
+  assert.match(html, /Swimming/);
+  assert.match(html, /Cooking/);
+  assert.match(html, /Skateboarding/);
+  assert.match(html, /Driving/);
+  assert.match(html, /Hiking/);
+  assert.match(html, /Badminton/);
+  assert.match(html, /Pickleball/);
+  assert.match(html, /Lifting/);
+  assert.equal((html.match(/class="hobbyCard"/g) ?? []).length, 8);
+  assert.equal((html.match(/class="hobbyMediaLabel"/g) ?? []).length, 8);
+  assert.match(html, /src="\/hobbies\/cooking\.jpg"/);
+  assert.match(html, /src="\/hobbies\/hiking\.jpg"/);
+  assert.match(html, /src="\/hobbies\/gym\.jpg"/);
+  assert.match(html, /src="\/hobbies\/skateboarding\.jpg"/);
+  assert.match(html, /src="\/hobbies\/pickleball\.jpg"/);
+  assert.match(html, /alt="A spread of home-cooked dishes/);
+  assert.equal((html.match(/class="hobbyMediaInset"/g) ?? []).length, 2);
+  assert.match(html, /src="\/hobbies\/cooking-prep\.jpg"/);
+  assert.match(html, /src="\/hobbies\/skateboarding-face\.jpg"/);
+  assert.equal((html.match(/data-span="3"/g) ?? []).length, 2);
+  assert.equal((html.match(/class="hobbyMediaPlaceholder"/g) ?? []).length, 3);
+  assert.match(html, /data-accent="blue"/);
+  assert.match(html, /data-accent="sunset"/);
+  assert.match(html, /data-accent="acid"/);
+  assert.match(html, /class="webglAura"/);
+  assert.match(html, /href="\/projects"/);
+  assert.match(html, /Let’s make complex work feel simple\./);
+});
+
+test("home and projects link to the hobbies page", async () => {
+  const [home, projects] = await Promise.all([
+    render().then((response) => response.text()),
+    render("/projects").then((response) => response.text()),
+  ]);
+
+  assert.match(home, /href="\/hobbies"/);
+  assert.match(projects, /href="\/hobbies"/);
+});
+
 test("motion remains progressive and accessible", async () => {
   const [experienceLayer, heroAward, css] = await Promise.all([
     readFile(new URL("../app/experience-layer.tsx", import.meta.url), "utf8"),

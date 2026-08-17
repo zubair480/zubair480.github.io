@@ -23,6 +23,22 @@ npm run dev
 
 The local site opens at `http://localhost:3000`.
 
+## Hobby photos
+
+The `/hobbies` page is driven by `app/hobby-data.ts`. Each entry starts with
+`image: null` and renders a styled placeholder. To add a real photo:
+
+1. Put the file in `public/hobbies/`, for example `public/hobbies/hiking.jpg`.
+2. Set that hobby's `image` to `/hobbies/hiking.jpg` and update `imageAlt`.
+
+Landscape crops around 1200px wide work best. The card crops the image to a
+190px tall band, so keep the subject near the center. Two optional fields help
+when a photo needs it:
+
+- `imagePosition` sets the CSS `object-position` for the crop, for example
+  `"center 12%"` to hold the top of the frame.
+- `insetImage` adds a second photo as a small thumbnail on the card media.
+
 ## Validate
 
 ```bash

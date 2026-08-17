@@ -89,6 +89,7 @@ export default function ProjectsPage() {
             <Link href="/">Home</Link>
             <Link href="/#experience">Experience</Link>
             <Link href="/#about">About</Link>
+            <Link href="/hobbies">Hobbies</Link>
             <a href="/zubair_cv.pdf" target="_blank" rel="noreferrer">CV</a>
             <a href="mailto:zubairzafar480@gmail.com">Contact</a>
           </div>
