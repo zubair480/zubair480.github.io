@@ -27,6 +27,38 @@ function ProjectConceptVisual({ project }: { project: Project }) {
       role="img"
       aria-label={`Product interface illustration for ${project.title}`}
     >
+      {kind === "attest" ? (
+        <>
+          <div className="conceptBar"><span>Attest / control AC-2</span><strong>Escalated</strong></div>
+          <div className="attestVisual" aria-hidden="true">
+            <div className="attestExchange">
+              <span className="attestAgent"><small>Bank agent</small><b>Asks for proof</b></span>
+              <i className="attestLink" />
+              <span className="attestAgent"><small>Vendor agent</small><b>Attaches evidence</b></span>
+            </div>
+            <div className="attestGates">
+              <span><i>Severity gate</i><b>Block</b></span>
+              <span><i>Relevance judge</i><b>Pass</b></span>
+            </div>
+            <p className="attestReceipt">receipt · sha256 9f3c…a71b · human review</p>
+          </div>
+        </>
+      ) : null}
+
+      {kind === "crampon" ? (
+        <>
+          <div className="conceptBar"><span>crampon / Unitree G1</span><strong>462 Hz on CPU</strong></div>
+          <div className="cramponVisual" aria-hidden="true">
+            <div className="cramponSurvival"><strong>6.6×</strong><span>longer upright</span></div>
+            <div className="cramponReadout">
+              <span><i>Ice friction</i><b>μ 0.01</b></span>
+              <span><i>Altitude wind</i><b>200 km/h</b></span>
+              <span><i>Normal ground</i><b>No regression</b></span>
+            </div>
+          </div>
+        </>
+      ) : null}
+
       {kind === "judge" ? (
         <>
           <div className="conceptBar"><span>JudgeAgent / handoff 04</span><strong>Verdict ready</strong></div>

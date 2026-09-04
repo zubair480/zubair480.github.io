@@ -67,12 +67,25 @@ const hackathonWins = [
     imageFit: "cover",
     partnerLogo: null,
   },
+  {
+    placement: "2nd place",
+    event: "Agent Native Builders Hackathon",
+    project: "Attest",
+    description:
+      "Two agents exchange verifiable evidence instead of compliance questionnaires, and a doubled gate escalates any disagreement to a human.",
+    proof: "Solo build at Cloudflare’s San Francisco HQ",
+    href: "https://github.com/zubair480/attest",
+    image: "/hackathons/attest-team.jpg",
+    imageAlt: "Zubair Zafar with builders at the Agent Native Builders Hackathon at Cloudflare’s San Francisco HQ",
+    imageFit: "cover",
+    partnerLogo: null,
+  },
 ] as const;
 
 export const metadata: Metadata = {
   title: "Projects | Zubair Zafar",
   description:
-    "Explore 19 software engineering and applied AI projects, including three hackathon-winning builds by Zubair Zafar.",
+    "Explore 21 software engineering and applied AI projects, including four hackathon-winning builds by Zubair Zafar.",
 };
 
 export default function ProjectsPage() {
@@ -97,8 +110,8 @@ export default function ProjectsPage() {
 
         <header className="projectsHero shell" id="top">
           <WebGLAura />
-          <p className="kicker" data-reveal><span className="statusDot" /> 3× hackathon winner · complete project catalog</p>
-          <h1 data-reveal>Nineteen builds. <span className="heroAccent">One habit of shipping.</span></h1>
+          <p className="kicker" data-reveal><span className="statusDot" /> 4× hackathon winner · complete project catalog</p>
+          <h1 data-reveal>Twenty-one builds. <span className="heroAccent">One habit of shipping.</span></h1>
           <div className="projectsHeroFooter" data-reveal>
             <p>Hackathon systems and research tools sit beside mobile products and developer platforms. Each project starts with a real problem and ends with working software.</p>
             <div>
@@ -113,8 +126,8 @@ export default function ProjectsPage() {
             <div className="hackathonSpotlightHeader" data-reveal>
               <p className="eyebrow">Hackathon record</p>
               <div className="hackathonStatement">
-                <strong aria-hidden="true">3×</strong>
-                <h2 id="hackathon-wins-title">Three hackathon wins. Built under pressure.</h2>
+                <strong aria-hidden="true">4×</strong>
+                <h2 id="hackathon-wins-title">Four hackathon wins. Built under pressure.</h2>
               </div>
               <p>
                 From autonomous agents to aviation operations, each podium finish
