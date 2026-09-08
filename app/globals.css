@@ -4827,3 +4827,635 @@ a:focus-visible {
     display: none;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Scholarship guidance (unlisted page, shared via /g)
+
+   Reading order is the design: watch, study, write. Each step owns a full
+   band so only one action is ever competing for attention.
+--------------------------------------------------------------------------- */
+
+.guidanceHero {
+  position: relative;
+  padding-block: 66px 60px;
+}
+
+.guidanceGreeting {
+  margin: 26px 0 0;
+  color: var(--muted);
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.85rem);
+  font-style: italic;
+}
+
+.guidanceGreeting[data-personal="true"] {
+  color: var(--ink);
+}
+
+.guidanceGreetingName {
+  padding-bottom: 0.08em;
+  border-bottom: 2px solid var(--acid);
+  color: var(--ink);
+  font-style: normal;
+}
+
+.guidanceHero h1 {
+  max-width: 900px;
+  margin: 8px 0 0;
+  overflow: hidden;
+  padding-bottom: 0.26em;
+  font-size: clamp(2.8rem, 5.8vw, 5.2rem);
+  font-weight: 660;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.guidanceLede {
+  max-width: 620px;
+  margin: 26px 0 0;
+  color: var(--muted);
+  font-size: 1.04rem;
+  line-height: 1.72;
+}
+
+.guidanceReassure {
+  padding-block: 8px 70px;
+}
+
+.guidanceReassureInner {
+  max-width: 780px;
+  padding: 34px 38px;
+  background: var(--deep);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  color: #e8efe9;
+}
+
+.guidanceReassureInner h2 {
+  margin: 0 0 14px;
+  color: white;
+  font-size: clamp(1.4rem, 2.6vw, 1.85rem);
+  font-weight: 620;
+  letter-spacing: -0.03em;
+}
+
+.guidanceReassureInner p {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+
+.guidanceReassureInner strong {
+  color: var(--acid);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Step bands ------------------------------------------------------------- */
+
+.guidanceStepSection {
+  padding-block: 46px 62px;
+}
+
+.guidanceStepSectionAlt {
+  background: linear-gradient(rgba(223, 232, 220, 0.5), rgba(223, 232, 220, 0.16));
+}
+
+.stepTag {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.stepTag > span {
+  padding: 5px 10px;
+  background: var(--acid);
+  border-radius: 999px;
+  color: var(--ink);
+}
+
+.stepTitle {
+  max-width: 15ch;
+  margin: 0;
+  font-size: clamp(2rem, 4.2vw, 3rem);
+  font-weight: 660;
+  letter-spacing: -0.05em;
+  line-height: 1.04;
+}
+
+.stepLede {
+  max-width: 60ch;
+  margin: 16px 0 30px;
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.72;
+}
+
+/* Step 01: webinar ------------------------------------------------------- */
+
+/* The poster is drawn, not photographed. The only frame Facebook exposes is a
+   mid screen share full of unrelated UI, so a designed cover reads better and
+   costs no request. Nothing loads from Facebook until play is pressed. */
+
+.webinarStage {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  max-height: 560px;
+  background: var(--deep);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+}
+
+.webinarStage > iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+
+.webinarPlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(24px, 4vw, 48px);
+  background: none;
+  border: 0;
+  color: white;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.webinarPoster {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 78% 22%, rgba(188, 243, 94, 0.22), transparent 46%),
+    radial-gradient(circle at 12% 88%, rgba(237, 140, 104, 0.16), transparent 42%),
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px) 0 0 / 34px 34px,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px) 0 0 / 34px 34px,
+    #091710;
+  transition: transform 700ms var(--ease-out);
+}
+
+.webinarPlay:hover .webinarPoster,
+.webinarPlay:focus-visible .webinarPoster {
+  transform: scale(1.03);
+}
+
+.webinarPlayCopy {
+  position: relative;
+  /* Width lives here in percent, not ch: a ch max-width would resolve against
+     this box's inherited 16px, not the display size of the headline inside. */
+  max-width: min(64%, 660px);
+}
+
+.webinarEyebrow {
+  display: block;
+  margin-bottom: 14px;
+  white-space: nowrap;
+  color: var(--acid);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.webinarPlayCopy strong {
+  display: block;
+  font-size: clamp(1.35rem, 3.4vw, 2.6rem);
+  font-weight: 620;
+  letter-spacing: -0.04em;
+  line-height: 1.06;
+}
+
+.webinarCue {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 22px;
+  color: rgba(255, 255, 255, 0.82);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.webinarPlayIcon {
+  position: relative;
+  flex: 0 0 auto;
+  width: 54px;
+  height: 54px;
+  background: var(--acid);
+  border-radius: 50%;
+  box-shadow: 0 10px 30px rgba(6, 18, 12, 0.45);
+  transition: transform 260ms var(--ease-out);
+}
+
+.webinarPlayIcon::after {
+  position: absolute;
+  top: 50%;
+  left: 54%;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 15px solid var(--ink);
+  content: "";
+  transform: translate(-50%, -50%);
+}
+
+.webinarPlay:hover .webinarPlayIcon,
+.webinarPlay:focus-visible .webinarPlayIcon {
+  transform: scale(1.1);
+}
+
+.webinarFallback {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  color: white;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.07em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.webinarFallback:hover,
+.webinarFallback:focus-visible {
+  background: var(--acid);
+  color: var(--ink);
+}
+
+/* Step 02: tabbed material ----------------------------------------------- */
+
+.materialTabList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.materialTab {
+  flex: 1 1 240px;
+  padding: 15px 20px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition: background 220ms ease, border-color 220ms ease, transform 220ms var(--ease-out);
+}
+
+.materialTab strong {
+  display: block;
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 580;
+}
+
+.materialTab small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.materialTab:hover {
+  transform: translateY(-2px);
+}
+
+.materialTab[aria-selected="true"] {
+  background: var(--deep);
+  border-color: var(--deep);
+}
+
+.materialTab[aria-selected="true"] strong {
+  color: white;
+}
+
+.materialTab[aria-selected="true"] small {
+  color: var(--acid);
+}
+
+.cvPanel,
+.emailPanel {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  align-items: start;
+  gap: 24px;
+}
+
+.cvPreview {
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.cvPreview > iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+
+.panelAside {
+  padding: 26px 28px;
+  background: var(--deep);
+  border-radius: 20px;
+  color: #e8efe9;
+}
+
+.panelAside > p {
+  margin: 0;
+  color: rgba(232, 239, 233, 0.82);
+  font-size: 0.96rem;
+  line-height: 1.7;
+}
+
+.panelAsideLabel {
+  margin: 0 0 18px !important;
+  color: var(--acid) !important;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.62rem !important;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.panelAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 11px 18px;
+  background: var(--acid);
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 560;
+  text-decoration: none;
+}
+
+.noteList {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 18px;
+  list-style: none;
+}
+
+.noteList strong {
+  display: block;
+  margin-bottom: 5px;
+  color: white;
+  font-size: 0.94rem;
+  font-weight: 580;
+}
+
+.noteList span {
+  color: rgba(232, 239, 233, 0.72);
+  font-size: 0.87rem;
+  line-height: 1.65;
+}
+
+/* The letter ------------------------------------------------------------- */
+
+.letter {
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.letterHeader {
+  padding: 22px 26px;
+  background: var(--sage);
+  border-bottom: 1px solid var(--line);
+}
+
+.letterField {
+  display: grid;
+  grid-template-columns: 62px 1fr;
+  gap: 12px;
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.letterField + .letterField {
+  margin-top: 10px;
+}
+
+.letterField > span {
+  padding-top: 3px;
+  color: var(--muted);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.letterField em {
+  color: var(--muted);
+}
+
+.letterBody {
+  padding: 26px;
+  font-size: 0.96rem;
+  line-height: 1.75;
+}
+
+.letterBody p {
+  margin: 0 0 15px;
+}
+
+.letterBody ul {
+  margin: 0 0 17px;
+  padding-left: 20px;
+  display: grid;
+  gap: 9px;
+  color: var(--muted);
+}
+
+.letterBody li::marker {
+  color: var(--acid);
+}
+
+.letterAttachment {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.7rem;
+}
+
+.letterSignoff {
+  display: grid;
+  gap: 3px;
+  margin: 18px 0 0 !important;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.copyRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px 26px 22px;
+  border-top: 1px solid var(--line);
+}
+
+.copyButton {
+  padding: 11px 20px;
+  background: var(--ink);
+  border: 0;
+  border-radius: 999px;
+  color: white;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 560;
+  transition: background 200ms ease;
+}
+
+.copyButton:hover,
+.copyButton:focus-visible {
+  background: var(--deep);
+}
+
+.copyHint {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+/* Step 03: the message --------------------------------------------------- */
+
+.guidanceTalkInner {
+  max-width: 760px;
+}
+
+.guidanceChecklist {
+  margin: 0;
+  padding: 24px 26px;
+  display: grid;
+  gap: 11px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  list-style: none;
+}
+
+.guidanceChecklist li {
+  position: relative;
+  padding-left: 28px;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.guidanceChecklist li::before {
+  position: absolute;
+  top: 0.44em;
+  left: 4px;
+  width: 8px;
+  height: 8px;
+  background: var(--acid);
+  border-radius: 50%;
+  content: "";
+}
+
+.guidanceTalkActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.guidanceTalkNote {
+  max-width: 56ch;
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-size: 1.04rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .cvPanel,
+  .emailPanel {
+    grid-template-columns: 1fr;
+  }
+
+  .cvPreview {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+@media (max-width: 620px) {
+  .guidanceHero {
+    padding-block: 42px 44px;
+  }
+
+  .guidanceStepSection {
+    padding-block: 36px 48px;
+  }
+
+  .guidanceReassureInner {
+    padding: 24px 22px;
+  }
+
+  .stepTitle {
+    max-width: none;
+  }
+
+  .webinarPlayCopy {
+    max-width: none;
+  }
+
+  .webinarPlayIcon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .letterHeader,
+  .letterBody,
+  .panelAside {
+    padding: 20px;
+  }
+
+  .copyRow {
+    padding: 14px 20px 20px;
+  }
+
+  .letterField {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+}
