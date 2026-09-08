@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
-2:I[89177,["/_next/static/chunks/0m7m4epa.8nhj.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0ka051yepewro.js"],"ScrollExperience"]
+2:I[89177,["/_next/static/chunks/0m7m4epa.8nhj.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0kqq2kr9aplz5.js"],"ScrollExperience"]
 3:I[39756,["/_next/static/chunks/0m7m4epa.8nhj.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
 4:I[37457,["/_next/static/chunks/0m7m4epa.8nhj.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
 :HL["/_next/static/chunks/0jh5qsv~ez50j.css","style"]
