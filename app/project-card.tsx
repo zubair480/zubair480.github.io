@@ -27,6 +27,14 @@ function ProjectConceptVisual({ project }: { project: Project }) {
       role="img"
       aria-label={`Product interface illustration for ${project.title}`}
     >
+      {kind === "brief" ? (
+        <div className="briefVisual" aria-hidden="true">
+          <span className="briefEyebrow">{project.eyebrow}</span>
+          <strong>{project.title}</strong>
+          <span className="briefProof">{project.proof}</span>
+        </div>
+      ) : null}
+
       {kind === "attest" ? (
         <>
           <div className="conceptBar"><span>Attest / control AC-2</span><strong>Escalated</strong></div>

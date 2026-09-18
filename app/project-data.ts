@@ -16,6 +16,7 @@ export type Project = {
   imagePosition?: "center" | "top";
   presentation?: "browser" | "mobile" | "audit" | "concept";
   visual?:
+    | "brief"
     | "attest"
     | "crampon"
     | "judge"
@@ -320,6 +321,86 @@ export const moreProjects: Project[] = [
     imageAlt: "Navi Tutor AI learning platform",
     linkLabel: "Project notes",
     category: "Mobile vision and learning",
+  },
+  {
+    number: "22",
+    title: "PEMA",
+    eyebrow: "Physical AI · AI Infra Summit",
+    description:
+      "An on device environmental memory for low vision and memory impaired users. It remembers where objects were last seen and speaks up unprompted when something moves.",
+    proof: "Runs on the Snapdragon NPU with no cloud and no face data",
+    stack: ["Qualcomm GenieX", "Snapdragon NPU", "STM32", "Physical AI"],
+    href: "https://www.linkedin.com/feed/update/urn:li:activity:7506819057237684224/",
+    presentation: "concept",
+    visual: "brief",
+    linkLabel: "Project post",
+    category: "Mobile vision and learning",
+  },
+  {
+    number: "23",
+    title: "S0101",
+    eyebrow: "Robot manipulation · Intel Labs track",
+    description:
+      "Robot manipulation and anomaly detection built on Intel Labs Physical AI Studio, from dataset collection through to evaluation.",
+    proof: "Two ACT models plus SmolVLA with an Anomalib safety net",
+    stack: ["ACT", "SmolVLA", "Anomalib", "Physical AI Studio"],
+    href: "https://www.linkedin.com/feed/update/urn:li:activity:7506819057237684224/",
+    presentation: "concept",
+    visual: "brief",
+    linkLabel: "Project post",
+    category: "Agentic AI and research",
+  },
+  {
+    number: "24",
+    title: "RecallRadius",
+    eyebrow: "Second place · B.E.L.L.E x Qoder x Neo4j",
+    description:
+      "A vehicle part traceability workspace. It connects supplier lots, affected vehicles, distributors and previous repairs into one graph an engineer can actually follow.",
+    proof: "2nd place in both the Qoder and Neo4j tracks",
+    stack: ["Next.js", "TypeScript", "Neo4j", "Graph"],
+    href: "https://github.com/zubair480/belle-hackathon",
+    presentation: "concept",
+    visual: "brief",
+    category: "Products and developer tools",
+  },
+  {
+    number: "25",
+    title: "PayeeLock",
+    eyebrow: "Payment security · AI Security Hackathon SF",
+    description:
+      "A payment control desk for AI agents. Agent written code runs inside a Wasmer sandbox with the network switched off, so a business email compromise attempt cannot reach anything.",
+    proof: "Legit invoice paid, spoofed vendor blocked, bank change parked",
+    stack: ["Node.js", "Wasmer", "AgentMail", "Express"],
+    href: "https://github.com/zubair480/ai-security-hackathon-sf-2026",
+    presentation: "concept",
+    visual: "brief",
+    category: "Agentic AI and research",
+  },
+  {
+    number: "26",
+    title: "PLVA",
+    eyebrow: "Privacy boundary · GPT-6 Astra Hackathon",
+    description:
+      "Private AI assistance for client work. The assistant plans against protected screenshots and opaque references while the real client values stay behind a local boundary.",
+    proof: "Receipts show exactly what reached the provider",
+    stack: ["Python", "Astra", "Browser agent", "Local inference"],
+    href: "https://github.com/zubair480/gpt-6-astra-hackathon",
+    presentation: "concept",
+    visual: "brief",
+    category: "Agentic AI and research",
+  },
+  {
+    number: "27",
+    title: "Party Line",
+    eyebrow: "Spatial Intelligence and Generative 3D Hackathon",
+    description:
+      "Two players stand in the same kitchen twenty eight years apart. What the 1998 player does rewrites the 2026 player’s world while they are standing in it.",
+    proof: "One Convex transaction writes both timelines at once",
+    stack: ["Convex", "Three.js", "TypeScript", "Tripo"],
+    href: "https://github.com/zubair480/Spatial-Intelligence-hackathon",
+    presentation: "concept",
+    visual: "brief",
+    category: "Products and developer tools",
   },
 ];
 

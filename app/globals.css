@@ -2461,9 +2461,13 @@ a:focus-visible {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 16px;
 }
+
+.hackathonWinCard { grid-column: span 2; }
+.hackathonWinCard[data-span="3"] { grid-column: span 3; }
+.hackathonWinCard[data-span="6"] { grid-column: span 6; }
 
 .hackathonWinCard {
   position: relative;
@@ -4038,6 +4042,12 @@ a:focus-visible {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .hackathonWinCard,
+  .hackathonWinCard[data-span="3"],
+  .hackathonWinCard[data-span="6"] {
+    grid-column: auto;
+  }
+
   .hackathonWinCard h3 {
     font-size: clamp(2.2rem, 4.4vw, 3rem);
   }
@@ -5458,4 +5468,86 @@ a:focus-visible {
     grid-template-columns: 1fr;
     gap: 3px;
   }
+}
+
+/* Generic concept card: used by the September 2026 hackathon builds, which
+   have no screenshot of their own. One layout instead of six bespoke ones. */
+
+.projectConceptStage--brief {
+  background:
+    radial-gradient(circle at 80% 18%, rgba(188, 243, 94, 0.16), transparent 42%),
+    radial-gradient(circle at 12% 86%, rgba(237, 140, 104, 0.12), transparent 40%),
+    #091710;
+}
+
+.briefVisual {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+
+.briefEyebrow {
+  color: var(--acid);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.briefVisual strong {
+  color: white;
+  font-size: clamp(1.4rem, 3.2vw, 2.1rem);
+  font-weight: 620;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.briefProof {
+  max-width: 30ch;
+  color: rgba(232, 239, 233, 0.72);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+/* A win with no photo of its own still gets a real card. */
+
+.hackathonWinFallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 24% 28%, rgba(188, 243, 94, 0.16), transparent 38%),
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px) 0 0 / 24px 24px,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px) 0 0 / 24px 24px,
+    #091710;
+  text-align: center;
+}
+
+.hackathonWinFallback b {
+  color: white;
+  font-size: clamp(1.2rem, 3vw, 1.9rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.hackathonWinFallback i {
+  max-width: 30ch;
+  color: var(--acid);
+  font: 0.58rem var(--font-geist-mono), monospace;
+  font-style: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hackathonWinCard:nth-child(5) .hackathonWinMedia > img {
+  object-position: center 46%;
 }
