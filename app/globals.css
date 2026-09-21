@@ -5513,41 +5513,10 @@ a:focus-visible {
   line-height: 1.55;
 }
 
-/* A win with no photo of its own still gets a real card. */
-
-.hackathonWinFallback {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  gap: 8px;
-  padding: 24px;
-  background:
-    radial-gradient(circle at 24% 28%, rgba(188, 243, 94, 0.16), transparent 38%),
-    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px) 0 0 / 24px 24px,
-    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px) 0 0 / 24px 24px,
-    #091710;
-  text-align: center;
-}
-
-.hackathonWinFallback b {
-  color: white;
-  font-size: clamp(1.2rem, 3vw, 1.9rem);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-}
-
-.hackathonWinFallback i {
-  max-width: 30ch;
-  color: var(--acid);
-  font: 0.58rem var(--font-geist-mono), monospace;
-  font-style: normal;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
 .hackathonWinCard:nth-child(5) .hackathonWinMedia > img {
-  object-position: center 46%;
+  object-position: center 20%;
+}
+
+.hackathonWinCard:nth-child(6) .hackathonWinMedia > img {
+  object-position: center 20%;
 }

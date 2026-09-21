@@ -353,14 +353,14 @@ export const moreProjects: Project[] = [
   {
     number: "24",
     title: "RecallRadius",
-    eyebrow: "Second place · B.E.L.L.E x Qoder x Neo4j",
+    eyebrow: "Neo4j and Qoder prizes · B.E.L.L.E hackathon",
     description:
       "A vehicle part traceability workspace. It connects supplier lots, affected vehicles, distributors and previous repairs into one graph an engineer can actually follow.",
-    proof: "2nd place in both the Qoder and Neo4j tracks",
+    proof: "Won the Neo4j prize and the Qoder prize, second in each track",
     stack: ["Next.js", "TypeScript", "Neo4j", "Graph"],
     href: "https://github.com/zubair480/belle-hackathon",
-    presentation: "concept",
-    visual: "brief",
+    image: "/hackathons/recallradius-award.jpg",
+    imageAlt: "Zubair Zafar receiving the Quest Mode award for RecallRadius at the B.E.L.L.E x Qoder x Neo4j hackathon",
     category: "Products and developer tools",
   },
   {
@@ -401,6 +401,20 @@ export const moreProjects: Project[] = [
     presentation: "concept",
     visual: "brief",
     category: "Products and developer tools",
+  },
+  {
+    number: "28",
+    title: "RefundGuard",
+    eyebrow: "Runner-up · The Executable World",
+    description:
+      "A financial stress test for AI agents that hold a wallet. Scam persona customers attack a refund bot, then a ledger replay and an LLM judge decide whether money or promises leaked.",
+    proof: "Took the bot from $310 leaked to zero breaches in three rounds",
+    stack: ["Node.js", "LLM judge", "Ledger replay", "SSE"],
+    href: "https://github.com/zubair480/refundguard",
+    image: "/hackathons/refundguard-prize.jpg",
+    imageAlt: "Zubair Zafar receiving the runner-up prize from a judge at The Executable World",
+    imagePosition: "top",
+    category: "Agentic AI and research",
   },
 ];
 
