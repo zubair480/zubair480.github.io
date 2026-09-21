@@ -111,7 +111,7 @@ const hackathonWins = [
 export const metadata: Metadata = {
   title: "Projects | Zubair Zafar",
   description:
-    "Explore 28 software engineering and applied AI projects, including seven hackathon wins by Zubair Zafar.",
+    "Explore 28 software engineering and applied AI projects, including six hackathon-winning builds by Zubair Zafar.",
 };
 
 // Wins run three to a row on a six column grid. Whatever is left over on the
@@ -142,7 +142,7 @@ export default function ProjectsPage() {
 
         <header className="projectsHero shell" id="top">
           <WebGLAura />
-          <p className="kicker" data-reveal><span className="statusDot" /> 7× hackathon winner · complete project catalog</p>
+          <p className="kicker" data-reveal><span className="statusDot" /> 6× hackathon winner · complete project catalog</p>
           <h1 data-reveal>Twenty-eight builds. <span className="heroAccent">One habit of shipping.</span></h1>
           <div className="projectsHeroFooter" data-reveal>
             <p>Hackathon systems and research tools sit beside mobile products and developer platforms. Each project starts with a real problem and ends with working software.</p>
@@ -158,8 +158,8 @@ export default function ProjectsPage() {
             <div className="hackathonSpotlightHeader" data-reveal>
               <p className="eyebrow">Hackathon record</p>
               <div className="hackathonStatement">
-                <strong aria-hidden="true">7×</strong>
-                <h2 id="hackathon-wins-title">Seven hackathon wins. Built under pressure.</h2>
+                <strong aria-hidden="true">6×</strong>
+                <h2 id="hackathon-wins-title">Six hackathon wins. Built under pressure.</h2>
               </div>
               <p>
                 From autonomous agents to aviation operations, each podium finish

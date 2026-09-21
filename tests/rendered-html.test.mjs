@@ -89,7 +89,7 @@ test("server renders the complete project catalog", async () => {
     .filter((name) => name.endsWith(".webp"));
   assert.match(html, /Twenty-eight builds\./);
   assert.match(html, /complete project catalog/i);
-  assert.match(html, /Seven hackathon wins/);
+  assert.match(html, /Six hackathon wins/);
   assert.match(html, /id="hackathon-wins"/);
   assert.match(html, /CrewAI Hackathon/);
   assert.match(html, /Auth0 × Stripe Hackathon/);

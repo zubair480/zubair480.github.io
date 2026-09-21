@@ -40,11 +40,11 @@ export function HeroAward() {
     <a
       className={`heroAward${isCelebrating ? " isCelebrating" : ""}`}
       href="/projects#hackathon-wins"
-      aria-label="View Zubair Zafar’s seven hackathon wins"
+      aria-label="View Zubair Zafar’s six hackathon wins"
       onMouseEnter={celebrateOnce}
       onFocus={celebrateOnce}
     >
-      <strong>7×</strong>
+      <strong>6×</strong>
       <span className="heroAwardLabel">Hackathon winner</span>
       <span className="heroAwardArrow" aria-hidden="true">↗</span>
       <span className="heroCelebration" aria-hidden="true">
@@ -52,7 +52,7 @@ export function HeroAward() {
         {Array.from({ length: 12 }, (_, index) => <i key={index} />)}
       </span>
       <span className="srOnly" aria-live="polite">
-        {isCelebrating ? "Congratulations on seven hackathon wins!" : ""}
+        {isCelebrating ? "Congratulations on six hackathon wins!" : ""}
       </span>
     </a>
   );
