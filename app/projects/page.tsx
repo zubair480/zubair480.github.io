@@ -1,0 +1,270 @@
+/* eslint-disable @next/next/no-img-element -- Local project and event images are optimized for static GitHub Pages output. */
+import type { Metadata } from "next";
+import { ProjectCard } from "../project-card";
+import { allProjects } from "../project-data";
+import Link from "next/link";
+import { WebGLAura } from "../experience-layer";
+import { SiteFooter } from "../site-footer";
+
+const projectCategories = [
+  {
+    id: "agentic-ai",
+    label: "Agentic AI and research",
+    description:
+      "Autonomous agents and evidence systems built for trustworthy decisions and faster research.",
+  },
+  {
+    id: "products-and-tools",
+    label: "Products and developer tools",
+    description:
+      "Full stack products and tools that remove friction from everyday work.",
+  },
+  {
+    id: "mobile-vision-learning",
+    label: "Mobile vision and learning",
+    description:
+      "Private mobile experiences that use vision audio and structured learning.",
+  },
+] as const;
+
+const hackathonWins = [
+  {
+    placement: "2nd place",
+    event: "CrewAI Hackathon",
+    project: "ROOT",
+    description:
+      "Fourteen autonomous agents coordinate employee onboarding from a single Zendesk request.",
+    proof: "A week of provisioning compressed into minutes",
+    href: "https://www.linkedin.com/feed/update/urn:li:activity:7487710934313013248/",
+    image: "/hackathons/root-team.jpg",
+    imageAlt: "ROOT project team at the CrewAI hackathon",
+    imageFit: "cover",
+    partnerLogo: null,
+  },
+  {
+    placement: "2nd place",
+    event: "Auth0 × Stripe Hackathon",
+    project: "Clip Police",
+    description:
+      "A multi-agent creator protection platform that finds unauthorized video reposts across the web.",
+    proof: "Podium finish at Okta’s San Francisco headquarters",
+    href: "https://www.linkedin.com/feed/update/urn:li:activity:7488853520134107136/",
+    image: "/hackathons/clip-police-team.jpg",
+    imageAlt: "Clip Police team and organizers at the Auth0 and Stripe hackathon",
+    imageFit: "cover",
+    partnerLogo: null,
+  },
+  {
+    placement: "1st place",
+    event: "Amadeus × Etihad",
+    project: "Smart CPM Parser",
+    description:
+      "A cargo-message parser that validates and corrects operational CPM messages before they reach production workflows.",
+    proof: "95% fewer entry errors · shipped into production",
+    href: "https://github.com/zubair480/amadeus_hackathon2",
+    image: "/hackathons/smart-cpm-team.jpg",
+    imageAlt: "Smart CPM Parser hackathon team at Etihad Corporate Academy",
+    imageFit: "cover",
+    partnerLogo: null,
+  },
+  {
+    placement: "2nd place",
+    event: "Agent Native Builders Hackathon",
+    project: "Attest",
+    description:
+      "Two agents exchange verifiable evidence instead of compliance questionnaires, and a doubled gate escalates any disagreement to a human.",
+    proof: "Solo build at Cloudflare’s San Francisco HQ",
+    href: "https://github.com/zubair480/attest",
+    image: "/hackathons/attest-team.jpg",
+    imageAlt: "Zubair Zafar with builders at the Agent Native Builders Hackathon at Cloudflare’s San Francisco HQ",
+    imageFit: "cover",
+    partnerLogo: null,
+  },
+  {
+    placement: "Neo4j + Qoder prizes",
+    event: "B.E.L.L.E x Qoder x Neo4j",
+    project: "RecallRadius",
+    description:
+      "A vehicle part traceability workspace connecting supplier lots, affected vehicles, distributors and previous repairs into one graph.",
+    proof: "Won the Neo4j prize and the Qoder prize, second in each track",
+    href: "https://github.com/zubair480/belle-hackathon",
+    image: "/hackathons/recallradius-award.jpg",
+    imageAlt: "Zubair Zafar receiving the Quest Mode award for RecallRadius at the B.E.L.L.E x Qoder x Neo4j hackathon",
+    imageFit: "cover",
+    partnerLogo: null,
+  },
+  {
+    placement: "Runner-up",
+    event: "The Executable World",
+    project: "RefundGuard",
+    description:
+      "A financial stress test for AI agents that hold a wallet: scam persona customers attack a refund bot while a ledger replay and an LLM judge score every leak.",
+    proof: "From $310 leaked to zero breaches in three rounds",
+    href: "https://github.com/zubair480/refundguard",
+    image: "/hackathons/refundguard-prize.jpg",
+    imageAlt: "Zubair Zafar receiving the runner-up prize from a judge at The Executable World",
+    imageFit: "cover",
+    partnerLogo: null,
+  },
+] as const;
+
+export const metadata: Metadata = {
+  title: "Projects | Zubair Zafar",
+  description:
+    "Explore 28 software engineering and applied AI projects, including six hackathon-winning builds by Zubair Zafar.",
+};
+
+// Wins run three to a row on a six column grid. Whatever is left over on the
+// final row stretches to fill it, so a fifth win never sits alone.
+const winRemainder = hackathonWins.length % 3;
+const firstWideWin = hackathonWins.length - winRemainder;
+const wideWinSpan = winRemainder === 1 ? "6" : "3";
+
+export default function ProjectsPage() {
+  return (
+    <>
+      <a className="skipLink" href="#project-catalog">Skip to project catalog</a>
+      <main>
+        <nav className="nav shell" aria-label="Primary navigation">
+          <Link className="wordmark" href="/" aria-label="Zubair Zafar home">
+            <span className="wordmarkLetters" aria-hidden="true">ZZ</span>
+            <span className="wordmarkDot" aria-hidden="true">.</span>
+          </Link>
+          <div className="navLinks">
+            <Link href="/">Home</Link>
+            <Link href="/#experience">Experience</Link>
+            <Link href="/#about">About</Link>
+            <Link href="/hobbies">Hobbies</Link>
+            <a href="/zubair_cv.pdf" target="_blank" rel="noreferrer">CV</a>
+            <a href="mailto:zubairzafar480@gmail.com">Contact</a>
+          </div>
+        </nav>
+
+        <header className="projectsHero shell" id="top">
+          <WebGLAura />
+          <p className="kicker" data-reveal><span className="statusDot" /> 6× hackathon winner · complete project catalog</p>
+          <h1 data-reveal>Twenty-eight builds. <span className="heroAccent">One habit of shipping.</span></h1>
+          <div className="projectsHeroFooter" data-reveal>
+            <p>Hackathon systems and research tools sit beside mobile products and developer platforms. Each project starts with a real problem and ends with working software.</p>
+            <div>
+              <strong>{allProjects.length}</strong>
+              <span>projects</span>
+            </div>
+          </div>
+        </header>
+
+        <section className="hackathonSpotlight" id="hackathon-wins" aria-labelledby="hackathon-wins-title">
+          <div className="shell">
+            <div className="hackathonSpotlightHeader" data-reveal>
+              <p className="eyebrow">Hackathon record</p>
+              <div className="hackathonStatement">
+                <strong aria-hidden="true">6×</strong>
+                <h2 id="hackathon-wins-title">Six hackathon wins. Built under pressure.</h2>
+              </div>
+              <p>
+                From autonomous agents to aviation operations, each podium finish
+                started with a working product and ended with measurable impact.
+              </p>
+            </div>
+
+            <div className="hackathonWinGrid">
+              {hackathonWins.map((win, index) => (
+                <a
+                  className="hackathonWinCard"
+                  href={win.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`View ${win.project}, ${win.placement} at ${win.event}`}
+                  data-span={winRemainder && index >= firstWideWin ? wideWinSpan : "2"}
+                  data-reveal
+                  key={win.project}
+                >
+                  <div className="hackathonWinTop">
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <span>{win.placement}</span>
+                  </div>
+                  <div className={`hackathonWinMedia hackathonWinMedia--${win.imageFit}`}>
+                    <img src={win.image} alt={win.imageAlt} width="1200" height="675" loading="lazy" />
+                    {win.partnerLogo ? (
+                      <span className="hackathonPartnerLogo">
+                        <img src={win.partnerLogo} alt="Etihad Airways logo" width="620" height="220" loading="lazy" />
+                      </span>
+                    ) : null}
+                    <span className="hackathonMediaLabel">Winning build</span>
+                  </div>
+                  <div className="hackathonWinContent">
+                    <p className="hackathonEvent">{win.event}</p>
+                    <h3>{win.project}</h3>
+                    <p className="hackathonWinDescription">{win.description}</p>
+                    <div className="hackathonWinProof">
+                      <span>{win.proof}</span>
+                      <span aria-hidden="true">↗</span>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section projectsCatalog" id="project-catalog">
+          <div className="shell">
+            <div className="catalogIntro" data-reveal>
+              <p className="eyebrow">Browse by category</p>
+              <p>Every project is here. Choose an area or explore the full catalog.</p>
+            </div>
+
+            <nav className="categoryNav" aria-label="Project categories" data-reveal>
+              {projectCategories.map((category) => {
+                const count = allProjects.filter(
+                  (project) => project.category === category.label,
+                ).length;
+
+                return (
+                  <a href={`#${category.id}`} key={category.id}>
+                    {category.label}
+                    <span>{count}</span>
+                  </a>
+                );
+              })}
+            </nav>
+
+            <div className="projectCategoryStack">
+              {projectCategories.map((category, index) => {
+                const projects = allProjects.filter(
+                  (project) => project.category === category.label,
+                );
+
+                return (
+                  <section className="projectCategory" id={category.id} key={category.id}>
+                    <div className="projectCategoryHeader" data-reveal>
+                      <p className="projectCategoryIndex">
+                        {String(index + 1).padStart(2, "0")} / {projects.length}
+                      </p>
+                      <h2>{category.label}</h2>
+                      <p>{category.description}</p>
+                    </div>
+                    <div className="projectGrid">
+                      {projects.map((project) => (
+                        <ProjectCard project={project} key={project.title} />
+                      ))}
+                    </div>
+                  </section>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <section className="projectsContact">
+          <div className="shell" data-reveal>
+            <p>Have a project in mind?</p>
+            <a href="mailto:zubairzafar480@gmail.com">Let’s talk <span aria-hidden="true">↗</span></a>
+          </div>
+        </section>
+
+        <SiteFooter includeHome />
+      </main>
+    </>
+  );
+}

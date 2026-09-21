@@ -1,29 +1,57 @@
-# zubair480.github.io
+# Zubair Zafar Portfolio
 
-My personal site, live at [zubair480.github.io](https://zubair480.github.io).
+The source for [zubair480.github.io](https://zubair480.github.io/).
 
-## How this repository is arranged
+This portfolio presents Zubair Zafar's software engineering experience, applied AI work, education, community involvement and complete project catalog.
 
-The site is a Next.js app that is exported to static files and served from
-GitHub Pages. Three branches each do a different job:
+## Stack
 
-| Branch | Contents |
-| --- | --- |
-| `portfolio-source` | The Next.js source for the site that is currently live |
-| `gh-pages` | The built static export that GitHub Pages serves |
-| `master` | An earlier version of the site built on the al-folio Jekyll theme, kept for reference |
+- Next.js 16 and React 19
+- TypeScript
+- Vinext and Vite for the local development build
+- Static export for GitHub Pages
+- CSS motion with progressive WebGL enhancement
 
-`master` is the default branch, so it is what you land on here, but it is no
-longer what is deployed. The live site is built from `portfolio-source`.
+## Run locally
 
-## Deploying
+Node.js 22.13 or newer is required.
 
-The static export is copied onto `gh-pages` by hand rather than by an action.
-`gh-pages` carries a `.nojekyll` file so GitHub Pages serves the exported
-`_next` assets untouched instead of running Jekyll over them.
+```bash
+npm ci
+npm run dev
+```
 
-## Credit
+The local site opens at `http://localhost:3000`.
 
-The `master` branch is based on
-[al-folio](https://github.com/alshedivat/al-folio) by Maruan Al-Shedivat, MIT
-licensed.
+## Hobby photos
+
+The `/hobbies` page is driven by `app/hobby-data.ts`. Each entry starts with
+`image: null` and renders a styled placeholder. To add a real photo:
+
+1. Put the file in `public/hobbies/`, for example `public/hobbies/hiking.jpg`.
+2. Set that hobby's `image` to `/hobbies/hiking.jpg` and update `imageAlt`.
+
+Landscape crops around 1200px wide work best. The card crops the image to a
+190px tall band, so keep the subject near the center. Two optional fields help
+when a photo needs it:
+
+- `imagePosition` sets the CSS `object-position` for the crop, for example
+  `"center 12%"` to hold the top of the frame.
+- `insetImage` adds a second photo as a small thumbnail on the card media.
+
+## Validate
+
+```bash
+npm run lint
+npm test
+npm run build:pages
+```
+
+The GitHub Pages build is written to `out/`.
+
+## Repository branches
+
+- `portfolio-source` contains the editable portfolio source
+- `gh-pages` contains the generated production website
+- `master` preserves the previous archived Jekyll portfolio
+
