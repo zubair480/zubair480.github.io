@@ -325,7 +325,7 @@ export const moreProjects: Project[] = [
   {
     number: "22",
     title: "PEMA",
-    eyebrow: "Physical AI · AI Infra Summit",
+    eyebrow: "Qualcomm special prize · AI Infra Summit",
     description:
       "An on device environmental memory for low vision and memory impaired users. It remembers where objects were last seen and speaks up unprompted when something moves.",
     proof: "Runs on the Snapdragon NPU with no cloud and no face data",

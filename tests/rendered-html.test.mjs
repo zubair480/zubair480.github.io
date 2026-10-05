@@ -89,7 +89,7 @@ test("server renders the complete project catalog", async () => {
     .filter((name) => name.endsWith(".webp"));
   assert.match(html, /Thirty builds\./);
   assert.match(html, /complete project catalog/i);
-  assert.match(html, /Six hackathon wins/);
+  assert.match(html, /Seven hackathon wins/);
   assert.match(html, /id="hackathon-wins"/);
   assert.match(html, /CrewAI Hackathon/);
   assert.match(html, /Auth0 × Stripe Hackathon/);
@@ -134,7 +134,8 @@ test("server renders the complete project catalog", async () => {
   assert.match(html, /Project post/);
   assert.match(html, /Source code/);
   assert.match(html, /class="hackathonWinCard"/);
-  assert.equal((html.match(/class="hackathonWinMedia /g) ?? []).length, 6);
+  assert.equal((html.match(/class="hackathonWinMedia /g) ?? []).length, 7);
+  assert.equal((html.match(/class="hackathonWinFallback"/g) ?? []).length, 1);
   assert.match(html, /src="\/hackathons\/root-team\.jpg"/);
   assert.match(html, /src="\/hackathons\/clip-police-team\.jpg"/);
   assert.match(html, /src="\/hackathons\/smart-cpm-team\.jpg"/);
