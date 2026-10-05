@@ -108,14 +108,14 @@ const hackathonWins = [
   },
   {
     placement: "1st place",
-    event: "Crusoe Hackathon",
+    event: "Crusoe × The AI Conference",
     project: "Thermal Crusoe",
     description:
       "A 3D thermal twin of a motor control center room. Click a bucket to zoom from line up to contactor, where a seeded simulation drives per phase current and terminal temperatures and one joint runs hot.",
-    proof: "Finds the overheating joint and writes the inspection report",
+    proof: "$5,000 first prize at the San Francisco hack day",
     href: "https://github.com/zubair480/crusoe-hackathon",
-    image: null,
-    imageAlt: null,
+    image: "/hackathons/thermal-crusoe-win.jpg",
+    imageAlt: "Zubair Zafar and team holding the $5,000 first prize cheque at the Crusoe and AI Conference hack day",
     imageFit: "cover",
     partnerLogo: null,
   },
@@ -198,18 +198,7 @@ export default function ProjectsPage() {
                     <span>{win.placement}</span>
                   </div>
                   <div className={`hackathonWinMedia hackathonWinMedia--${win.imageFit}`}>
-                    {win.image ? (
-                      <img src={win.image} alt={win.imageAlt ?? ""} width="1200" height="675" loading="lazy" />
-                    ) : (
-                      <span
-                        className="hackathonWinFallback"
-                        role="img"
-                        aria-label={`${win.project} at the ${win.event}`}
-                      >
-                        <b>{win.project}</b>
-                        <i>{win.event}</i>
-                      </span>
-                    )}
+                    <img src={win.image} alt={win.imageAlt} width="1200" height="675" loading="lazy" />
                     {win.partnerLogo ? (
                       <span className="hackathonPartnerLogo">
                         <img src={win.partnerLogo} alt="Etihad Airways logo" width="620" height="220" loading="lazy" />

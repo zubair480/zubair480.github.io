@@ -447,7 +447,7 @@ export const moreProjects: Project[] = [
   {
     number: "31",
     title: "Thermal Crusoe",
-    eyebrow: "First place · Crusoe Hackathon",
+    eyebrow: "First place · Crusoe × The AI Conference",
     description:
       "A 3D thermal twin of a motor control center room in the browser. Click a bucket and the door swings open to a contactor close up, with an ironbow thermal view over a live simulation.",
     proof: "Finds the overheating joint and writes the inspection report",

@@ -99,6 +99,8 @@ test("server renders the complete project catalog", async () => {
   assert.match(html, /RecallRadius/);
   assert.match(html, /PayeeLock/);
   assert.match(html, /The Executable World/);
+  assert.match(html, /Thermal Crusoe/);
+  assert.match(html, /src="\/hackathons\/thermal-crusoe-win\.jpg"/);
   assert.match(html, /src="\/hackathons\/recallradius-award\.jpg"/);
   assert.match(html, /src="\/hackathons\/refundguard-prize\.jpg"/);
   assert.match(html, /projectConceptStage--brief/);
@@ -135,7 +137,6 @@ test("server renders the complete project catalog", async () => {
   assert.match(html, /Source code/);
   assert.match(html, /class="hackathonWinCard"/);
   assert.equal((html.match(/class="hackathonWinMedia /g) ?? []).length, 7);
-  assert.equal((html.match(/class="hackathonWinFallback"/g) ?? []).length, 1);
   assert.match(html, /src="\/hackathons\/root-team\.jpg"/);
   assert.match(html, /src="\/hackathons\/clip-police-team\.jpg"/);
   assert.match(html, /src="\/hackathons\/smart-cpm-team\.jpg"/);
