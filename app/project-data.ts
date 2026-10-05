@@ -325,7 +325,7 @@ export const moreProjects: Project[] = [
   {
     number: "22",
     title: "PEMA",
-    eyebrow: "Qualcomm special prize · AI Infra Summit",
+    eyebrow: "Physical AI · AI Infra Summit",
     description:
       "An on device environmental memory for low vision and memory impaired users. It remembers where objects were last seen and speaks up unprompted when something moves.",
     proof: "Runs on the Snapdragon NPU with no cloud and no face data",
@@ -405,14 +405,14 @@ export const moreProjects: Project[] = [
   {
     number: "28",
     title: "RefundGuard",
-    eyebrow: "Second place · The Executable World",
+    eyebrow: "First place · The Executable World",
     description:
       "A financial stress test for AI agents that hold a wallet. Scam persona customers attack a refund bot, then a ledger replay and an LLM judge decide whether money or promises leaked.",
     proof: "Took the bot from $310 leaked to zero breaches in three rounds",
     stack: ["Node.js", "LLM judge", "Ledger replay", "SSE"],
     href: "https://github.com/zubair480/refundguard",
     image: "/hackathons/refundguard-prize.jpg",
-    imageAlt: "Zubair Zafar receiving the second place prize at The Executable World hackathon",
+    imageAlt: "Zubair Zafar receiving the first place prize at The Executable World hackathon",
     imagePosition: "top",
     category: "Agentic AI and research",
   },
@@ -443,6 +443,19 @@ export const moreProjects: Project[] = [
     presentation: "concept",
     visual: "brief",
     category: "Mobile vision and learning",
+  },
+  {
+    number: "31",
+    title: "Thermal Crusoe",
+    eyebrow: "First place · Crusoe Hackathon",
+    description:
+      "A 3D thermal twin of a motor control center room in the browser. Click a bucket and the door swings open to a contactor close up, with an ironbow thermal view over a live simulation.",
+    proof: "Finds the overheating joint and writes the inspection report",
+    stack: ["three.js", "Crusoe", "Plaud", "JavaScript"],
+    href: "https://github.com/zubair480/crusoe-hackathon",
+    presentation: "concept",
+    visual: "brief",
+    category: "Products and developer tools",
   },
 ];
 

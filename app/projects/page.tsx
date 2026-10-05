@@ -94,7 +94,7 @@ const hackathonWins = [
     partnerLogo: null,
   },
   {
-    placement: "2nd place",
+    placement: "1st place",
     event: "The Executable World",
     project: "RefundGuard",
     description:
@@ -102,18 +102,18 @@ const hackathonWins = [
     proof: "From $310 leaked to zero breaches in three rounds",
     href: "https://github.com/zubair480/refundguard",
     image: "/hackathons/refundguard-prize.jpg",
-    imageAlt: "Zubair Zafar receiving the second place prize at The Executable World hackathon",
+    imageAlt: "Zubair Zafar receiving the first place prize at The Executable World hackathon",
     imageFit: "cover",
     partnerLogo: null,
   },
   {
-    placement: "Qualcomm special prize",
-    event: "AI Infra Summit",
-    project: "PEMA",
+    placement: "1st place",
+    event: "Crusoe Hackathon",
+    project: "Thermal Crusoe",
     description:
-      "On device environmental memory for low vision and memory impaired users, running on the Snapdragon NPU with an STM32 confirming every physical action before it is claimed done.",
-    proof: "Team of four · no cloud and no face data",
-    href: "https://www.linkedin.com/feed/update/urn:li:activity:7506819057237684224/",
+      "A 3D thermal twin of a motor control center room. Click a bucket to zoom from line up to contactor, where a seeded simulation drives per phase current and terminal temperatures and one joint runs hot.",
+    proof: "Finds the overheating joint and writes the inspection report",
+    href: "https://github.com/zubair480/crusoe-hackathon",
     image: null,
     imageAlt: null,
     imageFit: "cover",
@@ -124,7 +124,7 @@ const hackathonWins = [
 export const metadata: Metadata = {
   title: "Projects | Zubair Zafar",
   description:
-    "Explore 30 software engineering and applied AI projects, including seven hackathon wins by Zubair Zafar.",
+    "Explore 31 software engineering and applied AI projects, including seven hackathon wins by Zubair Zafar.",
 };
 
 // Wins run three to a row on a six column grid. Whatever is left over on the
@@ -157,7 +157,7 @@ export default function ProjectsPage() {
         <header className="projectsHero shell" id="top">
           <WebGLAura />
           <p className="kicker" data-reveal><span className="statusDot" /> 7× hackathon winner · complete project catalog</p>
-          <h1 data-reveal>Thirty builds. <span className="heroAccent">One habit of shipping.</span></h1>
+          <h1 data-reveal>Thirty-one builds. <span className="heroAccent">One habit of shipping.</span></h1>
           <div className="projectsHeroFooter" data-reveal>
             <p>Hackathon systems and research tools sit beside mobile products and developer platforms. Each project starts with a real problem and ends with working software.</p>
             <div>

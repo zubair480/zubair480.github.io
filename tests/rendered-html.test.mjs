@@ -87,7 +87,7 @@ test("server renders the complete project catalog", async () => {
   const html = await response.text();
   const projectMedia = (await readdir(new URL("../public/projects/", import.meta.url)))
     .filter((name) => name.endsWith(".webp"));
-  assert.match(html, /Thirty builds\./);
+  assert.match(html, /Thirty-one builds\./);
   assert.match(html, /complete project catalog/i);
   assert.match(html, /Seven hackathon wins/);
   assert.match(html, /id="hackathon-wins"/);
@@ -108,14 +108,14 @@ test("server renders the complete project catalog", async () => {
   assert.match(html, /AI GTM Agent/);
   assert.match(html, /Smart CPM Parser/);
   assert.match(html, /class="projectCard projectCard--/);
-  assert.equal((html.match(/class="projectMedia projectMedia--/g) ?? []).length, 30);
-  assert.equal((html.match(/class="projectMediaLaunch"/g) ?? []).length, 30);
+  assert.equal((html.match(/class="projectMedia projectMedia--/g) ?? []).length, 31);
+  assert.equal((html.match(/class="projectMediaLaunch"/g) ?? []).length, 31);
   assert.equal((html.match(/class="projectImage" src="\/projects\/[^"?]+\.webp"/g) ?? []).length, 10);
   assert.equal(projectMedia.length, 10);
   assert.match(html, /class="projectBrowserStage"/);
   assert.match(html, /class="projectMobileStage"/);
   assert.match(html, /class="projectAuditStage"/);
-  assert.equal((html.match(/class="projectConceptStage projectConceptStage--/g) ?? []).length, 17);
+  assert.equal((html.match(/class="projectConceptStage projectConceptStage--/g) ?? []).length, 18);
   assert.match(html, /projectConceptStage--attest/);
   assert.match(html, /projectConceptStage--crampon/);
   assert.match(html, /projectConceptStage--judge/);
