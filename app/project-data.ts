@@ -369,7 +369,7 @@ export const moreProjects: Project[] = [
     eyebrow: "Payment security · AI Security Hackathon SF",
     description:
       "A payment control desk for AI agents. Agent written code runs inside a Wasmer sandbox with the network switched off, so a business email compromise attempt cannot reach anything.",
-    proof: "Legit invoice paid, spoofed vendor blocked, bank change parked",
+    proof: "Paid a real $48,250 invoice and blocked the spoofed one",
     stack: ["Node.js", "Wasmer", "AgentMail", "Express"],
     href: "https://github.com/zubair480/ai-security-hackathon-sf-2026",
     presentation: "concept",
@@ -405,16 +405,44 @@ export const moreProjects: Project[] = [
   {
     number: "28",
     title: "RefundGuard",
-    eyebrow: "Runner-up · The Executable World",
+    eyebrow: "Second place · The Executable World",
     description:
       "A financial stress test for AI agents that hold a wallet. Scam persona customers attack a refund bot, then a ledger replay and an LLM judge decide whether money or promises leaked.",
     proof: "Took the bot from $310 leaked to zero breaches in three rounds",
     stack: ["Node.js", "LLM judge", "Ledger replay", "SSE"],
     href: "https://github.com/zubair480/refundguard",
     image: "/hackathons/refundguard-prize.jpg",
-    imageAlt: "Zubair Zafar receiving the runner-up prize from a judge at The Executable World",
+    imageAlt: "Zubair Zafar receiving the second place prize at The Executable World hackathon",
     imagePosition: "top",
     category: "Agentic AI and research",
+  },
+  {
+    number: "29",
+    title: "Faceplate",
+    eyebrow: "Own Your Intelligence · YC",
+    description:
+      "An AI copilot for industrial HMI screens. Click a pump or an alarm table on a live Ignition screen, say what you want in plain English, and it proposes the change in your team’s house style.",
+    proof: "A model the plant owns, grounded in the team’s own memory",
+    stack: ["Qwen LoRA", "River", "GBrain", "TypeScript"],
+    href: "https://github.com/zubair480/bring-your-own-intelligence-yc-26",
+    presentation: "concept",
+    visual: "brief",
+    liveHref: "https://faceplate-demo.pages.dev",
+    liveLabel: "Live demo",
+    category: "Agentic AI and research",
+  },
+  {
+    number: "30",
+    title: "Postcard",
+    eyebrow: "Bitrig Hacks · iPhone Duo at YC",
+    description:
+      "A photo and a handwritten feeling note sent to one person. Unfold the device to open the card, fold it to seal, and sending stays a separate tap so folding can never send anything.",
+    proof: "The hinge is the interaction, not a gimmick",
+    stack: ["SwiftUI", "Swift Packages", "Supabase", "iOS"],
+    href: "https://github.com/zubair/yc-hacks-sep-2026",
+    presentation: "concept",
+    visual: "brief",
+    category: "Mobile vision and learning",
   },
 ];
 

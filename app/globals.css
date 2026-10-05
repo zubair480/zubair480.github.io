@@ -5520,3 +5520,19 @@ a:focus-visible {
 .hackathonWinCard:nth-child(6) .hackathonWinMedia > img {
   object-position: center 20%;
 }
+
+/* A stealth employer has no logo to show, so the card uses a wordmark. */
+
+.experienceMonogram {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  background: var(--deep);
+  border-radius: 14px;
+  color: var(--acid);
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-size: 1.5rem;
+  line-height: 1;
+}

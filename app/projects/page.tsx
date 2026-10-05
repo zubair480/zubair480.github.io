@@ -94,7 +94,7 @@ const hackathonWins = [
     partnerLogo: null,
   },
   {
-    placement: "Runner-up",
+    placement: "2nd place",
     event: "The Executable World",
     project: "RefundGuard",
     description:
@@ -102,7 +102,7 @@ const hackathonWins = [
     proof: "From $310 leaked to zero breaches in three rounds",
     href: "https://github.com/zubair480/refundguard",
     image: "/hackathons/refundguard-prize.jpg",
-    imageAlt: "Zubair Zafar receiving the runner-up prize from a judge at The Executable World",
+    imageAlt: "Zubair Zafar receiving the second place prize at The Executable World hackathon",
     imageFit: "cover",
     partnerLogo: null,
   },
@@ -111,7 +111,7 @@ const hackathonWins = [
 export const metadata: Metadata = {
   title: "Projects | Zubair Zafar",
   description:
-    "Explore 28 software engineering and applied AI projects, including six hackathon-winning builds by Zubair Zafar.",
+    "Explore 30 software engineering and applied AI projects, including six hackathon-winning builds by Zubair Zafar.",
 };
 
 // Wins run three to a row on a six column grid. Whatever is left over on the
@@ -143,7 +143,7 @@ export default function ProjectsPage() {
         <header className="projectsHero shell" id="top">
           <WebGLAura />
           <p className="kicker" data-reveal><span className="statusDot" /> 6× hackathon winner · complete project catalog</p>
-          <h1 data-reveal>Twenty-eight builds. <span className="heroAccent">One habit of shipping.</span></h1>
+          <h1 data-reveal>Thirty builds. <span className="heroAccent">One habit of shipping.</span></h1>
           <div className="projectsHeroFooter" data-reveal>
             <p>Hackathon systems and research tools sit beside mobile products and developer platforms. Each project starts with a real problem and ends with working software.</p>
             <div>

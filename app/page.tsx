@@ -28,12 +28,31 @@ const capabilities = [
 
 const experience = [
   {
+    period: "Since 2026",
+    company: "Andever AI",
+    logo: null,
+    logoAlt: null,
+    logoWidth: 0,
+    logoHeight: 0,
+    monogram: "A",
+    logoClass: "experienceLogoAndever",
+    role: "Founding Engineer · Stealth",
+    detail:
+      "Sole engineer at a longevity AI startup, working directly with the founder, investors and prospective customers.",
+    highlights: [
+      "Built the core loop in Python. An agent proposes interventions and an eval harness scores each one against 12 published epigenetic clocks, holding 3 clocks out of the reward on alternating rounds to catch reward gaming.",
+      "Put two agents behind one interface. An LLM agent with structured output and the full scored history in context, and an offline optimizer that assigns credit by ridge regression, so the loop improves with or without an API key.",
+      "Cut the scoring service from 803MB to 88MB and an eight iteration run from 9.5s to 0.08s by precomputing the clock panel at build time, so it fits a 512MB instance.",
+    ],
+  },
+  {
     period: "Since 2024",
     company: "Eastern Illinois University",
     logo: "/experience/eastern-illinois-university.webp",
     logoAlt: "Eastern Illinois University logo",
     logoWidth: 500,
     logoHeight: 453,
+    monogram: null,
     logoClass: "experienceLogoEiu",
     role: "Graduate Assistant · Software Engineer",
     detail:
@@ -42,6 +61,7 @@ const experience = [
       "Architected REST APIs with role based access for 7K+ active users. Query optimization and database indexing cut response time by 65%.",
       "Integrated Twilio SMS and automated workflows. This reduced manual data entry by 40% and request processing time by 25%.",
       "Containerized services with Docker and partnered with systems teams on dependable CI/CD deployments.",
+      "Rewrote a 2006 era PHP application from the ground up in Laravel. Reliability rose 35% after the migration.",
       "Trained YOLOv8 and PyTorch models on 80K+ MRI scans. The system reached 97.2% test accuracy and a 95.8% F1 score.",
     ],
   },
@@ -52,6 +72,7 @@ const experience = [
     logoAlt: "WPBrigade logo",
     logoWidth: 520,
     logoHeight: 114,
+    monogram: null,
     logoClass: "experienceLogoWpbrigade",
     role: "Backend Software Engineer",
     detail:
@@ -69,6 +90,7 @@ const experience = [
     logoAlt: "Etihad Airways logo",
     logoWidth: 620,
     logoHeight: 220,
+    monogram: null,
     logoClass: "experienceLogoEtihad",
     role: "Software Engineering Intern",
     detail:
@@ -87,6 +109,7 @@ const experience = [
     logoAlt: "CarChaze logo",
     logoWidth: 400,
     logoHeight: 400,
+    monogram: null,
     logoClass: "experienceLogoCarchaze",
     role: "Software Engineer",
     detail:
@@ -282,16 +305,22 @@ export default function Home() {
                 <summary className="experienceSummary">
                   <p className="experiencePeriod">{item.period}</p>
                   <div className="experienceIdentity">
-                    <span className={`experienceLogo ${item.logoClass}`}>
-                      <img
-                        src={item.logo}
-                        alt={item.logoAlt}
-                        width={item.logoWidth}
-                        height={item.logoHeight}
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </span>
+                    {item.logo ? (
+                      <span className={`experienceLogo ${item.logoClass}`}>
+                        <img
+                          src={item.logo}
+                          alt={item.logoAlt ?? ""}
+                          width={item.logoWidth}
+                          height={item.logoHeight}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </span>
+                    ) : (
+                      <span className="experienceMonogram" aria-hidden="true">
+                        {item.monogram}
+                      </span>
+                    )}
                     <div>
                       <h3>{item.company}</h3>
                       <p className="experienceRole">{item.role}</p>
