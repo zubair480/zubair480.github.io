@@ -457,6 +457,32 @@ export const moreProjects: Project[] = [
     visual: "brief",
     category: "Products and developer tools",
   },
+  {
+    number: "32",
+    title: "PlantAPI",
+    eyebrow: "Third place · Build an Agent Hackathon",
+    description:
+      "An AI maintenance team for an industrial plant. Eleven agents on Agent37 diagnose a failure from one photo, source the part, plan the outage, book a technician and verify the repair before closing the work order.",
+    proof: "Photo to closed work order in 11 minutes for $0.13",
+    stack: ["Agent37", "OpenAI", "Supabase", "Next.js"],
+    href: "https://github.com/ali-amjad52114/plantAPI",
+    presentation: "concept",
+    visual: "brief",
+    category: "Agentic AI and research",
+  },
+  {
+    number: "33",
+    title: "MongoMation",
+    eyebrow: "First place · MongoDB Harness Engineering Hackathon",
+    description:
+      "Describe the machine and it engineers the control system. An agent writes IEC 61131-3 PLC code, deploys it to OpenPLC and tests it against a live Factory I/O plant while hidden tests drive a repair loop.",
+    proof: "8 of 8 requirements and 14 of 14 tests passed after one repair",
+    stack: ["MongoDB Atlas", "Claude", "OpenPLC", "TypeScript"],
+    href: "https://github.com/zubair480/MongoMation",
+    presentation: "concept",
+    visual: "brief",
+    category: "Agentic AI and research",
+  },
 ];
 
 export const allProjects = [...featuredProjects, ...moreProjects];

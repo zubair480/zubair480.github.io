@@ -119,12 +119,38 @@ const hackathonWins = [
     imageFit: "cover",
     partnerLogo: null,
   },
+  {
+    placement: "3rd place",
+    event: "Build an Agent Hackathon",
+    project: "PlantAPI",
+    description:
+      "An eleven agent maintenance team for an industrial plant. An operator uploads a photo of a failure and the agents diagnose it, source the part, book a technician and close the work order after one human approval.",
+    proof: "Failure photo to closed work order in 11 minutes for $0.13",
+    href: "https://github.com/ali-amjad52114/plantAPI",
+    image: null,
+    imageAlt: null,
+    imageFit: "cover",
+    partnerLogo: null,
+  },
+  {
+    placement: "1st place",
+    event: "MongoDB Harness Engineering Hackathon",
+    project: "MongoMation",
+    description:
+      "A self improving PLC engineer. It turns a plain English machine spec into a PLC program, deploys it to a real OpenPLC runtime and tests it against a live Factory I/O plant, with MongoDB Atlas as its memory.",
+    proof: "A repeat spec went from 290 s to 1 s by recalling a proven program",
+    href: "https://github.com/zubair480/MongoMation",
+    image: null,
+    imageAlt: null,
+    imageFit: "cover",
+    partnerLogo: null,
+  },
 ] as const;
 
 export const metadata: Metadata = {
   title: "Projects | Zubair Zafar",
   description:
-    "Explore 31 software engineering and applied AI projects, including seven hackathon wins by Zubair Zafar.",
+    "Explore 33 software engineering and applied AI projects, including nine hackathon wins by Zubair Zafar.",
 };
 
 // Wins run three to a row on a six column grid. Whatever is left over on the
@@ -156,8 +182,8 @@ export default function ProjectsPage() {
 
         <header className="projectsHero shell" id="top">
           <WebGLAura />
-          <p className="kicker" data-reveal><span className="statusDot" /> 7× hackathon winner · complete project catalog</p>
-          <h1 data-reveal>Thirty-one builds. <span className="heroAccent">One habit of shipping.</span></h1>
+          <p className="kicker" data-reveal><span className="statusDot" /> 9× hackathon winner · complete project catalog</p>
+          <h1 data-reveal>Thirty-three builds. <span className="heroAccent">One habit of shipping.</span></h1>
           <div className="projectsHeroFooter" data-reveal>
             <p>Hackathon systems and research tools sit beside mobile products and developer platforms. Each project starts with a real problem and ends with working software.</p>
             <div>
@@ -172,8 +198,8 @@ export default function ProjectsPage() {
             <div className="hackathonSpotlightHeader" data-reveal>
               <p className="eyebrow">Hackathon record</p>
               <div className="hackathonStatement">
-                <strong aria-hidden="true">7×</strong>
-                <h2 id="hackathon-wins-title">Seven hackathon wins. Built under pressure.</h2>
+                <strong aria-hidden="true">9×</strong>
+                <h2 id="hackathon-wins-title">Nine hackathon wins. Built under pressure.</h2>
               </div>
               <p>
                 From autonomous agents to aviation operations, each podium finish
@@ -198,7 +224,18 @@ export default function ProjectsPage() {
                     <span>{win.placement}</span>
                   </div>
                   <div className={`hackathonWinMedia hackathonWinMedia--${win.imageFit}`}>
-                    <img src={win.image} alt={win.imageAlt} width="1200" height="675" loading="lazy" />
+                    {win.image ? (
+                      <img src={win.image} alt={win.imageAlt ?? ""} width="1200" height="675" loading="lazy" />
+                    ) : (
+                      <span
+                        className="hackathonWinFallback"
+                        role="img"
+                        aria-label={`${win.project} at the ${win.event}`}
+                      >
+                        <b>{win.project}</b>
+                        <i>{win.event}</i>
+                      </span>
+                    )}
                     {win.partnerLogo ? (
                       <span className="hackathonPartnerLogo">
                         <img src={win.partnerLogo} alt="Etihad Airways logo" width="620" height="220" loading="lazy" />
