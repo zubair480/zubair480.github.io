@@ -81,7 +81,7 @@ const hackathonWins = [
     partnerLogo: null,
   },
   {
-    placement: "Neo4j + Qoder prizes",
+    placement: "2nd place + 2 tracks",
     event: "B.E.L.L.E x Qoder x Neo4j",
     project: "RecallRadius",
     description:
@@ -145,12 +145,25 @@ const hackathonWins = [
     imageFit: "cover",
     partnerLogo: null,
   },
+  {
+    placement: "1st place",
+    event: "YC Haunted Hacks",
+    project: "ActorRelay",
+    description:
+      "An agentic control layer for a simulated two plant process unit. Every machine has a durable actor and its own agent, and a setpoint changes only if every connected machine votes yes, citing past runs.",
+    proof: "One no blocks the change · a rule learned in one plant holds in the other",
+    href: "https://events.ycombinator.com/haunted-hacks-2026",
+    image: null,
+    imageAlt: null,
+    imageFit: "cover",
+    partnerLogo: null,
+  },
 ] as const;
 
 export const metadata: Metadata = {
   title: "Projects | Zubair Zafar",
   description:
-    "Explore 33 software engineering and applied AI projects, including nine hackathon wins by Zubair Zafar.",
+    "Explore 34 software engineering and applied AI projects, including ten hackathon wins by Zubair Zafar.",
 };
 
 // Wins run three to a row on a six column grid. Whatever is left over on the
@@ -182,8 +195,8 @@ export default function ProjectsPage() {
 
         <header className="projectsHero shell" id="top">
           <WebGLAura />
-          <p className="kicker" data-reveal><span className="statusDot" /> 9× hackathon winner · complete project catalog</p>
-          <h1 data-reveal>Thirty-three builds. <span className="heroAccent">One habit of shipping.</span></h1>
+          <p className="kicker" data-reveal><span className="statusDot" /> 10× hackathon winner · complete project catalog</p>
+          <h1 data-reveal>Thirty-four builds. <span className="heroAccent">One habit of shipping.</span></h1>
           <div className="projectsHeroFooter" data-reveal>
             <p>Hackathon systems and research tools sit beside mobile products and developer platforms. Each project starts with a real problem and ends with working software.</p>
             <div>
@@ -198,8 +211,8 @@ export default function ProjectsPage() {
             <div className="hackathonSpotlightHeader" data-reveal>
               <p className="eyebrow">Hackathon record</p>
               <div className="hackathonStatement">
-                <strong aria-hidden="true">9×</strong>
-                <h2 id="hackathon-wins-title">Nine hackathon wins. Built under pressure.</h2>
+                <strong aria-hidden="true">10×</strong>
+                <h2 id="hackathon-wins-title">Ten hackathon wins. Built under pressure.</h2>
               </div>
               <p>
                 From autonomous agents to aviation operations, each podium finish

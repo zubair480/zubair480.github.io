@@ -87,9 +87,9 @@ test("server renders the complete project catalog", async () => {
   const html = await response.text();
   const projectMedia = (await readdir(new URL("../public/projects/", import.meta.url)))
     .filter((name) => name.endsWith(".webp"));
-  assert.match(html, /Thirty-three builds\./);
+  assert.match(html, /Thirty-four builds\./);
   assert.match(html, /complete project catalog/i);
-  assert.match(html, /Nine hackathon wins/);
+  assert.match(html, /Ten hackathon wins/);
   assert.match(html, /id="hackathon-wins"/);
   assert.match(html, /CrewAI Hackathon/);
   assert.match(html, /Auth0 × Stripe Hackathon/);
@@ -102,6 +102,8 @@ test("server renders the complete project catalog", async () => {
   assert.match(html, /Thermal Crusoe/);
   assert.match(html, /PlantAPI/);
   assert.match(html, /MongoMation/);
+  assert.match(html, /ActorRelay/);
+  assert.match(html, /YC Haunted Hacks/);
   assert.match(html, /class="hackathonWinFallback"/);
   assert.match(html, /src="\/hackathons\/thermal-crusoe-win\.jpg"/);
   assert.match(html, /src="\/hackathons\/recallradius-award\.jpg"/);
@@ -113,14 +115,14 @@ test("server renders the complete project catalog", async () => {
   assert.match(html, /AI GTM Agent/);
   assert.match(html, /Smart CPM Parser/);
   assert.match(html, /class="projectCard projectCard--/);
-  assert.equal((html.match(/class="projectMedia projectMedia--/g) ?? []).length, 33);
-  assert.equal((html.match(/class="projectMediaLaunch"/g) ?? []).length, 33);
+  assert.equal((html.match(/class="projectMedia projectMedia--/g) ?? []).length, 34);
+  assert.equal((html.match(/class="projectMediaLaunch"/g) ?? []).length, 34);
   assert.equal((html.match(/class="projectImage" src="\/projects\/[^"?]+\.webp"/g) ?? []).length, 10);
   assert.equal(projectMedia.length, 10);
   assert.match(html, /class="projectBrowserStage"/);
   assert.match(html, /class="projectMobileStage"/);
   assert.match(html, /class="projectAuditStage"/);
-  assert.equal((html.match(/class="projectConceptStage projectConceptStage--/g) ?? []).length, 20);
+  assert.equal((html.match(/class="projectConceptStage projectConceptStage--/g) ?? []).length, 21);
   assert.match(html, /projectConceptStage--attest/);
   assert.match(html, /projectConceptStage--crampon/);
   assert.match(html, /projectConceptStage--judge/);
@@ -139,7 +141,7 @@ test("server renders the complete project catalog", async () => {
   assert.match(html, /Project post/);
   assert.match(html, /Source code/);
   assert.match(html, /class="hackathonWinCard"/);
-  assert.equal((html.match(/class="hackathonWinMedia /g) ?? []).length, 9);
+  assert.equal((html.match(/class="hackathonWinMedia /g) ?? []).length, 10);
   assert.match(html, /src="\/hackathons\/root-team\.jpg"/);
   assert.match(html, /src="\/hackathons\/clip-police-team\.jpg"/);
   assert.match(html, /src="\/hackathons\/smart-cpm-team\.jpg"/);

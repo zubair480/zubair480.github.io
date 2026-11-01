@@ -353,7 +353,7 @@ export const moreProjects: Project[] = [
   {
     number: "24",
     title: "RecallRadius",
-    eyebrow: "Neo4j and Qoder prizes · B.E.L.L.E hackathon",
+    eyebrow: "Second place + two tracks · B.E.L.L.E hackathon",
     description:
       "A vehicle part traceability workspace. It connects supplier lots, affected vehicles, distributors and previous repairs into one graph an engineer can actually follow.",
     proof: "Won the Neo4j prize and the Qoder prize, second in each track",
@@ -479,6 +479,20 @@ export const moreProjects: Project[] = [
     proof: "8 of 8 requirements and 14 of 14 tests passed after one repair",
     stack: ["MongoDB Atlas", "Claude", "OpenPLC", "TypeScript"],
     href: "https://github.com/zubair480/MongoMation",
+    presentation: "concept",
+    visual: "brief",
+    category: "Agentic AI and research",
+  },
+  {
+    number: "34",
+    title: "ActorRelay",
+    eyebrow: "First place · YC Haunted Hacks",
+    description:
+      "Digital twins predict. ActorRelay makes the components negotiate, remember and refuse. On a simulated two plant unit each machine has a durable actor and an agent, and one cited no blocks a setpoint change.",
+    proof: "26 of 26 end to end checks on real actors, relay and models",
+    stack: ["Durable actors", "Agent Relay", "OpenAI", "TypeScript"],
+    href: "https://events.ycombinator.com/haunted-hacks-2026",
+    linkLabel: "Event page",
     presentation: "concept",
     visual: "brief",
     category: "Agentic AI and research",
