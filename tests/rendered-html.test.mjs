@@ -37,7 +37,7 @@ test("server renders the finished portfolio", async () => {
   assert.match(html, /useful products\./);
   assert.match(html, /href="\/zubair_cv\.pdf"/);
   assert.match(html, /href="https:\/\/leetcode\.com\/zubair480"/);
-  assert.match(html, />460<\/strong>/);
+  assert.match(html, />469<\/strong>/);
   assert.match(html, /4× Python Teacher/);
   assert.match(html, /Stanford Code in Place · 2023 to 2026/);
   assert.doesNotMatch(html, /2023 to 2025/);
