@@ -23,7 +23,7 @@ export function SiteFooter({ includeHome = false }: { includeHome?: boolean }) {
           <a href="https://linkedin.com/in/zubair480" target="_blank" rel="noreferrer">LinkedIn</a>
           <a href="https://leetcode.com/zubair480" target="_blank" rel="noreferrer">LeetCode</a>
           <a href="/zubair_cv.pdf" target="_blank" rel="noreferrer">CV</a>
-          <a href="/acv/">Academic CV</a>
+          <a href="/zubair_acv.pdf" target="_blank" rel="noreferrer">Academic CV</a>
           <a href="#top">Back to top ↑</a>
         </nav>
         <p className="siteFooterCopyright">© 2026 Zubair Zafar</p>
