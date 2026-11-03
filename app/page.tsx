@@ -438,7 +438,7 @@ export default function Home() {
                 <span className="leetcodeLogo">
                   <img src="/credentials/leetcode.png" alt="LeetCode logo" width="512" height="512" loading="lazy" />
                 </span>
-                <strong>460</strong>
+                <strong>469</strong>
                 <span>LeetCode questions solved</span>
                 <span className="factArrow" aria-hidden="true">↗</span>
               </a>
