@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>YC Question Map + Perfect Answers</title>
 <script>
 (function(){var t=null;try{t=localStorage.getItem('ycmap-theme')}catch(e){}
@@ -67,6 +67,9 @@ input[type=search]:focus{border-color:var(--accent)}
 #hint{position:fixed;right:12px;bottom:12px;color:var(--muted);font-size:12px;background:var(--glass);border:1px solid var(--line);border-radius:10px;padding:7px 10px;z-index:5}
 #themeBtn{font-size:16px;line-height:1;padding:7px 10px}
 #tipClose{display:none}
+.q.sel{outline:3px solid var(--accent);outline-offset:2px}
+#tip .shTop,#tip .shNav,#tip .qh{display:none}
+#tapHint{display:none}
 @media (max-width:640px){
   #hint{display:none}
   #bar{top:8px;left:8px;right:8px;gap:6px}
@@ -78,8 +81,21 @@ input[type=search]:focus{border-color:var(--accent)}
   #matchInfo{order:11;font-size:12px;padding:6px 9px}
   #legend{left:8px;bottom:8px;padding:10px 12px;font-size:12px;max-height:55vh;overflow:auto}
   #legend .grid{grid-template-columns:auto auto}
-  #tip{left:8px!important;right:8px;top:auto!important;bottom:8px;width:auto;max-height:62vh!important;font-size:15px!important;padding:1em;border-radius:16px;box-shadow:0 -6px 30px rgba(0,0,0,.35)}
-  #tipClose{display:block;position:sticky;top:0;float:right;z-index:2;margin:-.3em -.3em .3em .5em;width:2.1em;height:2.1em;border-radius:50%;border:1px solid #555;background:#3a3f46;color:#fff;font-size:16px;cursor:pointer}
+  #tip{left:0!important;right:0;top:auto!important;bottom:0;width:auto;max-height:64vh!important;max-height:64dvh!important;font-size:16px!important;padding:0 1em;border-radius:18px 18px 0 0;border-bottom:0;box-shadow:0 -8px 30px rgba(0,0,0,.35);touch-action:pan-y;animation:up .22s ease-out}
+  @keyframes up{from{transform:translateY(40%);opacity:.4}to{transform:none;opacity:1}}
+  #tip .shTop{display:flex;align-items:center;justify-content:center;position:sticky;top:0;z-index:3;background:var(--tipbg);margin:0 -1em;padding:.5em 1em .35em;cursor:grab}
+  #tip .grab{width:42px;height:5px;border-radius:3px;background:#5a6068}
+  #tipClose{display:flex;align-items:center;justify-content:center;position:absolute;right:.6em;top:.45em;width:36px;height:36px;border-radius:50%;border:0;background:#3a3f46;color:#fff;font-size:16px;cursor:pointer}
+  #tip .qh{display:block;padding:.2em 2.4em .8em 0}
+  #tip .qmeta{display:flex;align-items:center;gap:.45em;font-size:.74em;text-transform:uppercase;letter-spacing:.07em;color:#a9aeb4;font-weight:700;margin-bottom:.3em}
+  #tip .qdot{width:.75em;height:.75em;border-radius:50%;background:var(--c)}
+  #tip .qtitle{font-size:1.12em;font-weight:750;line-height:1.35;color:#fff}
+  #tip .shNav{display:flex;align-items:center;gap:8px;position:sticky;bottom:0;z-index:3;background:var(--tipbg);margin:1em -1em 0;padding:.6em 1em calc(.6em + env(safe-area-inset-bottom));border-top:1px solid var(--tipline)}
+  #tip .shNav button{flex:1;min-height:44px;font:inherit;font-weight:700;font-size:15px;border-radius:12px;border:1px solid #444a52;background:#2a2f35;color:#fff;cursor:pointer}
+  #tip .shNav button:disabled{opacity:.35}
+  #tip .shNav .pos{flex:none;min-width:4.5em;text-align:center;color:#a9aeb4;font-size:13px;font-variant-numeric:tabular-nums}
+  #tapHint{display:block;position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:6;background:var(--accent);color:#fff;font-weight:700;font-size:14px;border-radius:999px;padding:10px 16px;box-shadow:0 6px 18px rgba(0,0,0,.25);white-space:nowrap;pointer-events:none}
+  #legend{bottom:calc(66px + env(safe-area-inset-bottom))}
 }
 .q.has-ans{cursor:help}
 .q .ab{float:right;margin:0 0 4px 8px;background:var(--badge);color:var(--badgeink);font-size:10.5px;font-weight:800;border-radius:5px;padding:1px 6px;letter-spacing:.03em}
@@ -136,7 +152,8 @@ input[type=search]:focus{border-color:var(--accent)}
     <div>Click an area to collapse or expand it</div>
   </div>
 </div>
-<div id="tip" class="hidden"></div>
+<div id="tip" class="hidden" role="dialog" aria-label="Answer"></div>
+<div id="tapHint">Tap any question to see its answer</div>
 <div id="hint">Scroll / pinch to zoom · drag to pan</div>
 
 <script>
@@ -264,6 +281,9 @@ vp.addEventListener('wheel', e => {
 }, { passive: false });
 
 const ptrs = new Map();
+const PHONE = () => innerWidth <= 640;
+const tapSlop = () => lastPtr === 'touch' ? 14 : 5;
+let lastPtr = 'mouse';
 let moved = 0, pinch = null;
 vp.addEventListener('pointerdown', e => {
   ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY });
@@ -293,7 +313,7 @@ addEventListener('pointerup', up); addEventListener('pointercancel', up);
 
 // click an area header (but not after a drag) to collapse / expand
 vp.addEventListener('click', e => {
-  if (moved > 5) return;
+  if (moved > tapSlop()) return;
   const a = e.target.closest('.area');
   if (!a) return;
   const name = areas[+a.dataset.idx].name;
@@ -363,9 +383,29 @@ const tip = $('tip');
 $('ansCount').textContent = DATA.filter(d => d.best).length + ' perfect answers · ' + DATA.filter(d => d.ans).length + ' answered in mocks';
 let tipFor = null, hideT = null;
 const one = x => `<div class="one"><div class="src">${esc(SRC[x.s] || x.s)}</div>${esc(x.a)}${x.n ? `<div class="note">${esc(x.n)}</div>` : ''}</div>`;
+function visibleCards(){ return areas.flatMap(a => a.cards.filter(c => !c.el.classList.contains('hidden') && c.el.classList.contains('has-ans')).map(c => c.el)); }
+let sheetPushed = false;
+function revealCard(card){
+  // keep the tapped question visible above the sheet
+  // measure from the view maths, not the DOM, so it stays right while the map is still sliding
+  const L = view.x + parseFloat(card.style.left) * view.k, T = view.y + parseFloat(card.style.top) * view.k;
+  const r = { left: L, top: T, right: L + card.offsetWidth * view.k, bottom: T + card.offsetHeight * view.k };
+  const topLim = $('bar').getBoundingClientRect().bottom + 10;
+  const sheetTop = innerHeight - tip.offsetHeight;
+  let dy = 0, dx = 0;
+  if (r.top < topLim || r.bottom > sheetTop - 10) dy = topLim - r.top;
+  if (r.left < 8 || r.right > innerWidth - 8) dx = 10 - r.left;
+  if (!dx && !dy) return;
+  view.x += dx; view.y += dy;
+  world.style.transition = 'transform .3s ease'; apply();
+  setTimeout(() => world.style.transition = '', 320);
+}
 function showTip(card){
   clearTimeout(hideT);
+  if (tipFor) tipFor.classList.remove('sel');
   tipFor = card;
+  card.classList.add('sel');
+  document.getElementById('tapHint')?.remove();
   const d = card._d;
   let h = '';
   if (d.best) h += '<div class="best"><h5>★ Perfect answer</h5>' + esc(d.best).replace(/\[\[(.+?)\]\]/g, '<span class="cf">$1</span>') + '</div><div class="mock">What we said in mocks ↓</div>';
@@ -373,10 +413,18 @@ function showTip(card){
   if (d.rel) h += `<div class="sec"><h5>Similar answers we gave · ${esc(d.topics.join(', '))}</h5>` +
     d.rel.map(j => `<div class="one sim"><div class="rq">${esc(DATA[j].q)}</div>${DATA[j].ans.map(one).join('')}</div>`).join('') + '</div>';
   tip.style.fontSize = Math.round(Math.min(26, Math.max(15, 15 * view.k))) + 'px';
-  tip.innerHTML = '<button id="tipClose" aria-label="Close">✕</button>' + h;
+  if (PHONE()) {
+    const color = areas.find(a => a.name === d.cat).color, list = visibleCards(), i = list.indexOf(card);
+    h = `<div class="shTop"><span class="grab"></span><button id="tipClose" aria-label="Close">✕</button></div>`
+      + `<div class="qh" style="--c:${color}"><div class="qmeta"><span class="qdot"></span>${esc(d.cat)}${d.ess ? ' · ★ essential ' + d.ess : ''}</div><div class="qtitle">${esc(d.q)}</div></div>`
+      + h
+      + `<div class="shNav"><button data-nav="-1"${i <= 0 ? ' disabled' : ''}>‹ Prev</button><span class="pos">${i + 1} / ${list.length}</span><button data-nav="1"${i >= list.length - 1 ? ' disabled' : ''}>Next ›</button></div>`;
+    if (!sheetPushed) { try { history.pushState({ ycSheet: 1 }, ''); sheetPushed = true; } catch(e){} }
+  }
+  tip.innerHTML = h;
   tip.scrollTop = 0;
   tip.classList.remove('hidden');
-  if (innerWidth <= 640) { tip.style.left = tip.style.top = ''; return; }
+  if (PHONE()) { tip.style.left = tip.style.top = ''; revealCard(card); return; }
   const r = card.getBoundingClientRect(), t = tip.getBoundingClientRect(), m = 12;
   let x = r.right + m;
   if (x + t.width > innerWidth - m) x = r.left - t.width - m;
@@ -384,29 +432,56 @@ function showTip(card){
   const y = Math.min(Math.max(m, r.top), innerHeight - t.height - m);
   tip.style.left = x + 'px'; tip.style.top = y + 'px';
 }
-function hideTip(){ tip.classList.add('hidden'); tipFor = null; }
-let lastPtr = 'mouse';
+function hideTip(fromHistory){
+  if (tipFor) tipFor.classList.remove('sel');
+  tip.classList.add('hidden'); tipFor = null;
+  if (sheetPushed && fromHistory !== true) { sheetPushed = false; history.back(); }
+}
+// phone back button closes the answer sheet instead of leaving the page
+addEventListener('popstate', () => { if (sheetPushed) { sheetPushed = false; hideTip(true); } });
+function navTip(step){
+  if (!tipFor) return;
+  const list = visibleCards(), i = list.indexOf(tipFor), n = list[i + step];
+  if (n) showTip(n);
+}
+addEventListener('keydown', e => {
+  if (!tipFor || e.target.tagName === 'INPUT') return;
+  if (e.key === 'Escape') hideTip();
+  else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); navTip(1); }
+  else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); navTip(-1); }
+});
+tip.addEventListener('click', e => { const b = e.target.closest('[data-nav]'); if (b && !b.disabled) navTip(+b.dataset.nav); });
+// swipe the sheet: down on the handle closes, left / right moves between questions
+let sw = null;
+tip.addEventListener('touchstart', e => { const t = e.touches[0]; sw = { x: t.clientX, y: t.clientY, top: tip.scrollTop, handle: !!e.target.closest('.shTop') }; }, { passive: true });
+tip.addEventListener('touchend', e => {
+  if (!sw) return;
+  const t = e.changedTouches[0], dx = t.clientX - sw.x, dy = t.clientY - sw.y;
+  if (dy > 70 && Math.abs(dy) > Math.abs(dx) * 1.5 && (sw.handle || sw.top <= 0)) hideTip();
+  else if (Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 1.8) navTip(dx < 0 ? 1 : -1);
+  sw = null;
+}, { passive: true });
 addEventListener('pointerdown', e => lastPtr = e.pointerType, true);
-tip.addEventListener('click', e => { if (e.target.id === 'tipClose') hideTip(); });
+tip.addEventListener('click', e => { if (e.target.closest('#tipClose')) hideTip(); });
 world.addEventListener('mouseover', e => {
-  if (ptrs.size || lastPtr === 'touch') return;
+  if (ptrs.size || lastPtr === 'touch' || PHONE()) return;
   const c = e.target.closest('.q.has-ans');
   if (c && c !== tipFor) showTip(c);
 });
-world.addEventListener('mouseout', e => {
+world.addEventListener('mouseout', e => { if (lastPtr === 'touch' || PHONE()) return;
   const c = e.target.closest('.q.has-ans');
   if (c && !c.contains(e.relatedTarget) && !tip.contains(e.relatedTarget)) hideT = setTimeout(hideTip, 250);
 });
 // the popup stays open while the mouse is on it, so long answer lists can be scrolled
 tip.addEventListener('mouseenter', () => clearTimeout(hideT));
-tip.addEventListener('mouseleave', e => { if (!(tipFor && tipFor.contains(e.relatedTarget))) hideTip(); });
+tip.addEventListener('mouseleave', e => { if (lastPtr === 'touch' || PHONE()) return; if (!(tipFor && tipFor.contains(e.relatedTarget))) hideTip(); });
 vp.addEventListener('click', e => {
-  if (moved > 5) return;
+  if (moved > tapSlop()) return;
   const c = e.target.closest('.q.has-ans');
   if (c) { c === tipFor ? hideTip() : showTip(c); } else hideTip();
 });
-vp.addEventListener('pointerdown', hideTip);
-vp.addEventListener('wheel', () => { if (tipFor) requestAnimationFrame(() => tipFor && showTip(tipFor)); }, { passive: true });
+vp.addEventListener('pointerdown', () => { if (!PHONE()) hideTip(); });
+vp.addEventListener('wheel', () => { if (tipFor && !PHONE()) requestAnimationFrame(() => tipFor && showTip(tipFor)); }, { passive: true });
 
 function setThemeIcon(){ $('themeBtn').textContent = document.documentElement.dataset.theme === 'dark' ? '☀' : '☾'; }
 $('themeBtn').onclick = () => {
