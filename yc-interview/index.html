@@ -5,29 +5,39 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>YC Question Map + Perfect Answers</title>
+<script>
+(function(){var t=null;try{t=localStorage.getItem('ycmap-theme')}catch(e){}
+if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+document.documentElement.setAttribute('data-theme',t)})();
+</script>
 <style>
-:root{--bg:#f6f5f1;--panel:#ffffff;--ink:#1b1b1b;--muted:#6b6b6b;--line:#e2dfd8;--accent:#f26522;--hit:#ffb800}
+:root{color-scheme:light;--bg:#f6f5f1;--panel:#ffffff;--panel2:#faf9f6;--hover:#f1efea;--ink:#1b1b1b;--muted:#6b6b6b;--line:#e2dfd8;--accent:#f26522;--hit:#ffb800;
+  --dots:#d9d5cc;--qbg:#ffffff;--qink:#555;--essink:#1b1b1b;--glass:rgba(255,255,255,.96);--legink:#333;--keyink:#555;
+  --badge:#1b1b1b;--badgeink:#fff;--tipbg:#1b1b1b;--tipline:#333;--tipsec:#3a3a3a;--shadow:rgba(0,0,0,.08)}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#111315;--panel:#1b1e22;--panel2:#22262b;--hover:#262a30;--ink:#ececec;--muted:#9aa0a6;--line:#30353c;
+  --dots:#2a2e34;--qbg:#1b1e22;--qink:#c4c7cc;--essink:#f2f2f2;--glass:rgba(27,30,34,.96);--legink:#d6d8db;--keyink:#b5b9be;
+  --badge:#ececec;--badgeink:#111;--tipbg:#202429;--tipline:#353a41;--tipsec:#41474f;--shadow:rgba(0,0,0,.45)}
 *{box-sizing:border-box}
 html,body{margin:0;height:100%;overflow:hidden}
 body{background:var(--bg);color:var(--ink);font:14px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 #viewport{position:fixed;inset:0;cursor:grab;touch-action:none;
-  background-image:radial-gradient(#d9d5cc 1px,transparent 1px);background-size:24px 24px}
+  background-image:radial-gradient(var(--dots) 1px,transparent 1px);background-size:24px 24px}
 #viewport.dragging{cursor:grabbing}
 #world{position:absolute;left:0;top:0;transform-origin:0 0}
 #links{position:absolute;left:0;top:0;overflow:visible;pointer-events:none}
 .node{position:absolute;border-radius:12px;user-select:none}
 .root{background:var(--accent);color:#fff;font-weight:800;font-size:22px;letter-spacing:-.01em;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 20px}
 .area{background:var(--panel);box-shadow:0 2px 6px rgba(0,0,0,.06);border:2px solid var(--c);color:var(--ink);padding:10px 14px;cursor:pointer;display:flex;align-items:center;gap:10px}
-.area:hover{background:#faf9f6}
+.area:hover{background:var(--panel2)}
 .area .dot{width:12px;height:12px;border-radius:50%;background:var(--c);flex:none}
 .area .name{font-weight:750;font-size:17px;flex:1}
 .area .cnt{color:var(--muted);font-size:12.5px;text-align:right;line-height:1.25}
 .area .chev{color:var(--c);font-size:14px;width:12px}
 .area .hits{background:var(--hit);color:#111;border-radius:999px;font-size:11px;font-weight:700;padding:1px 7px}
-.q{background:#ffffff;border:1px solid #e2dfd8;color:#555;padding:9px 12px;font-size:14px}
-.q.ess{background:color-mix(in srgb,var(--c) 12%,#ffffff);border:2px solid var(--c);color:#1b1b1b;font-weight:600;padding:9px 12px 9px 12px}
+.q{background:var(--qbg);border:1px solid var(--line);color:var(--qink);padding:9px 12px;font-size:14px}
+.q.ess{background:color-mix(in srgb,var(--c) 14%,var(--qbg));border:2px solid var(--c);color:var(--essink);font-weight:600;padding:9px 12px 9px 12px}
 .q .num{display:inline-flex;align-items:center;gap:3px;background:var(--c);color:#111;font-weight:800;font-size:12px;border-radius:6px;padding:1px 6px;margin-right:8px;vertical-align:1px}
-.q.hit{outline:3px solid var(--hit);outline-offset:2px;color:#1b1b1b}
+.q.hit{outline:3px solid var(--hit);outline-offset:2px;color:var(--essink)}
 .dimmed .q:not(.hit){opacity:.22}
 .hidden{display:none!important}
 /* toolbar */
@@ -41,49 +51,64 @@ input[type=search]:focus{border-color:var(--accent)}
 .seg button,.btn{font:inherit;color:var(--ink);background:var(--panel);border:0;padding:8px 12px;cursor:pointer}
 .seg button.on{background:var(--accent);color:#fff;font-weight:700}
 .btn{border:1px solid var(--line);border-radius:10px}
-.btn:hover,.seg button:not(.on):hover{background:#f1efea}
+.btn:hover,.seg button:not(.on):hover{background:var(--hover)}
 #matchInfo{color:var(--muted);font-size:13px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 10px}
 /* legend */
-#legend{position:fixed;left:12px;bottom:12px;background:rgba(255,255,255,.96);box-shadow:0 4px 14px rgba(0,0,0,.08);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:12.5px;z-index:5;max-width:calc(100vw - 24px)}
+#legend{position:fixed;left:12px;bottom:12px;background:var(--glass);color:var(--ink);box-shadow:0 4px 14px var(--shadow);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:12.5px;z-index:5;max-width:calc(100vw - 24px)}
 #legend h4{margin:0 0 8px;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
 #legend .grid{display:grid;grid-template-columns:repeat(2,auto);gap:4px 16px}
-#legend .row{color:#333;display:flex;align-items:center;gap:7px;white-space:nowrap}
+#legend .row{color:var(--legink);display:flex;align-items:center;gap:7px;white-space:nowrap}
 #legend .sw{width:11px;height:11px;border-radius:3px;background:var(--c)}
-#legend .key{margin-top:10px;padding-top:8px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:5px;color:#555}
-#legend .k1{display:inline-block;border:2px solid var(--accent);border-radius:4px;padding:0 5px;color:#1b1b1b;font-weight:700;font-size:11px}
-#legend .k2{display:inline-block;border:1px solid #d6d2c9;border-radius:4px;padding:0 5px;color:#666;font-size:11px}
+#legend .key{margin-top:10px;padding-top:8px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:5px;color:var(--keyink)}
+#legend .k1{display:inline-block;border:2px solid var(--accent);border-radius:4px;padding:0 5px;color:var(--ink);font-weight:700;font-size:11px}
+#legend .k2{display:inline-block;border:1px solid var(--line);border-radius:4px;padding:0 5px;color:var(--qink);font-size:11px}
 #legend .tog{float:right;cursor:pointer;color:var(--muted);margin-left:10px}
 #legend.min .grid,#legend.min .key{display:none}
-#hint{position:fixed;right:12px;bottom:12px;color:var(--muted);font-size:12px;background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:10px;padding:7px 10px;z-index:5}
-@media (max-width:640px){#hint{display:none}input[type=search]{width:100%}#legend .grid{grid-template-columns:auto}}
+#hint{position:fixed;right:12px;bottom:12px;color:var(--muted);font-size:12px;background:var(--glass);border:1px solid var(--line);border-radius:10px;padding:7px 10px;z-index:5}
+#themeBtn{font-size:16px;line-height:1;padding:7px 10px}
+#tipClose{display:none}
+@media (max-width:640px){
+  #hint{display:none}
+  #bar{top:8px;left:8px;right:8px;gap:6px}
+  .title{font-size:14px;padding:7px 10px}
+  .title .long{display:none}
+  #search{order:10;flex:1 1 100%;width:100%;padding:9px 12px;font-size:16px}
+  .seg button,.btn{padding:7px 10px;font-size:13px}
+  #expandAll{display:none}
+  #matchInfo{order:11;font-size:12px;padding:6px 9px}
+  #legend{left:8px;bottom:8px;padding:10px 12px;font-size:12px;max-height:55vh;overflow:auto}
+  #legend .grid{grid-template-columns:auto auto}
+  #tip{left:8px!important;right:8px;top:auto!important;bottom:8px;width:auto;max-height:62vh!important;font-size:15px!important;padding:1em;border-radius:16px;box-shadow:0 -6px 30px rgba(0,0,0,.35)}
+  #tipClose{display:block;position:sticky;top:0;float:right;z-index:2;margin:-.3em -.3em .3em .5em;width:2.1em;height:2.1em;border-radius:50%;border:1px solid #555;background:#3a3f46;color:#fff;font-size:16px;cursor:pointer}
+}
 .q.has-ans{cursor:help}
-.q .ab{float:right;margin:0 0 4px 8px;background:#1b1b1b;color:#fff;font-size:10.5px;font-weight:800;border-radius:5px;padding:1px 6px;letter-spacing:.03em}
-.q.has-ans:hover{box-shadow:0 0 0 2px #1b1b1b inset}
-#tip{position:fixed;z-index:20;width:min(32em,calc(100vw - 24px));max-height:calc(100vh - 24px);overflow:auto;overscroll-behavior:contain;background:#1b1b1b;color:#f4f4f4;border-radius:12px;padding:1em 1.15em;font-size:15px;line-height:1.55;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.q .ab{float:right;margin:0 0 4px 8px;background:var(--badge);color:var(--badgeink);font-size:10.5px;font-weight:800;border-radius:5px;padding:1px 6px;letter-spacing:.03em}
+.q.has-ans:hover{box-shadow:0 0 0 2px var(--ink) inset}
+#tip{position:fixed;z-index:20;width:min(32em,calc(100vw - 24px));max-height:calc(100vh - 24px);overflow:auto;overscroll-behavior:contain;background:var(--tipbg);color:#f4f4f4;border:1px solid var(--tipline);border-radius:12px;padding:1em 1.15em;font-size:15px;line-height:1.55;box-shadow:0 10px 30px rgba(0,0,0,.25)}
 #tip h5{margin:0 0 .6em;font-size:.74em;text-transform:uppercase;letter-spacing:.08em;color:#9a9a9a}
-#tip .sec + .sec{margin-top:1em;padding-top:.85em;border-top:2px solid #3a3a3a}
+#tip .sec + .sec{margin-top:1em;padding-top:.85em;border-top:2px solid var(--tipsec)}
 #tip .rq{font-weight:700;color:#fff;margin-bottom:.15em;font-size:1.04em}
 #tip .sim{font-size:.96em;color:#d6d6d6}
 #tip .none{color:#bbb;font-style:italic;font-size:.92em}
-.q .ab.rel{background:#fff;color:#1b1b1b;border:1px solid #1b1b1b}
-#legend .k4{display:inline-block;background:#fff;color:#1b1b1b;border:1px solid #1b1b1b;border-radius:4px;padding:0 5px;font-weight:800;font-size:10.5px}
+.q .ab.rel{background:var(--qbg);color:var(--ink);border:1px solid var(--ink)}
+#legend .k4{display:inline-block;background:var(--qbg);color:var(--ink);border:1px solid var(--ink);border-radius:4px;padding:0 5px;font-weight:800;font-size:10.5px}
 #tip .src{font-size:.74em;text-transform:uppercase;letter-spacing:.07em;color:#ff9a5c;font-weight:700;margin-bottom:4px}
-#tip .note{margin-top:.55em;padding-top:.55em;border-top:1px solid #333;color:#ffd27a;font-size:.92em}
+#tip .note{margin-top:.55em;padding-top:.55em;border-top:1px solid var(--tipline);color:#ffd27a;font-size:.92em}
 #tip .best{background:#173a28;border:1px solid #2f7a52;border-radius:10px;padding:.8em .95em;margin-bottom:1em;color:#f2fff7;font-size:1.06em;line-height:1.6}
 #tip .best h5{color:#7fe0a8;margin-bottom:.45em}
 #tip .cf{background:#ffd27a;color:#1b1b1b;border-radius:4px;padding:0 .3em;font-size:.86em;font-weight:700}
 #tip .mock{color:#9a9a9a;font-size:.74em;text-transform:uppercase;letter-spacing:.08em;margin:.2em 0 .7em}
 .q .ab.pf{background:#1f8a54;color:#fff}
 #legend .k5{display:inline-block;background:#1f8a54;color:#fff;border-radius:4px;padding:0 5px;font-weight:800;font-size:10.5px}
-#tip .one + .one{margin-top:.85em;padding-top:.85em;border-top:1px solid #333}
-#legend .k3{display:inline-block;background:#1b1b1b;color:#fff;border-radius:4px;padding:0 5px;font-weight:800;font-size:10.5px}
+#tip .one + .one{margin-top:.85em;padding-top:.85em;border-top:1px solid var(--tipline)}
+#legend .k3{display:inline-block;background:var(--badge);color:var(--badgeink);border-radius:4px;padding:0 5px;font-weight:800;font-size:10.5px}
 </style>
 </head>
 <body>
 <div id="viewport"><div id="world"><svg id="links"></svg></div></div>
 
 <div id="bar">
-  <div class="title"><span>Y</span> Question Map · perfect answers</div>
+  <div class="title"><span>Y</span> Question Map<span class="long" style="color:inherit"> · perfect answers</span></div>
   <input type="search" id="search" placeholder="Search questions…  (Enter = jump)">
   <div class="seg" id="mode">
     <button data-m="ess">Essentials (39)</button>
@@ -93,6 +118,7 @@ input[type=search]:focus{border-color:var(--accent)}
   <button class="btn" id="zoomIn" title="Zoom in">+</button>
   <button class="btn" id="zoomOut" title="Zoom out">−</button>
   <button class="btn" id="expandAll">Expand all</button>
+  <button class="btn" id="themeBtn" title="Switch light / dark" aria-label="Switch light or dark mode">☾</button>
   <span id="matchInfo" class="hidden"></span>
 </div>
 
@@ -106,7 +132,7 @@ input[type=search]:focus{border-color:var(--accent)}
     <div>Hover or tap any question: <b>perfect answer</b> first, then what we said in mocks</div>
     <div><span class="k3">A</span> we answered this one · <span class="k4">≈</span> we answered similar ones · <span class="k5">P</span> perfect answer only</div>
     <div><span class="cf" style="background:#ffd27a;border-radius:4px;padding:0 4px;font-size:11px;font-weight:700">yellow</span> = fact to confirm before the interview</div>
-    <div id="ansCount" style="color:#888"></div>
+    <div id="ansCount" style="color:var(--muted)"></div>
     <div>Click an area to collapse or expand it</div>
   </div>
 </div>
@@ -163,7 +189,7 @@ const areas = AREAS.map(([name, color], i) => {
 // legend
 $('legGrid').innerHTML = areas.map(a => {
   const e = a.cards.filter(c => c.d.ess).length;
-  return `<div class="row" style="--c:${a.color}"><span class="sw"></span>${esc(a.name)} <span style="color:#888">${a.cards.length}${e ? ' · ★' + e : ''}</span></div>`;
+  return `<div class="row" style="--c:${a.color}"><span class="sw"></span>${esc(a.name)} <span style="color:var(--muted)">${a.cards.length}${e ? ' · ★' + e : ''}</span></div>`;
 }).join('');
 $('legTog').onclick = () => { $('legend').classList.toggle('min'); $('legTog').textContent = $('legend').classList.contains('min') ? 'show' : 'hide'; };
 
@@ -217,10 +243,10 @@ function zoomAt(px, py, factor){
   view.k = k; apply();
 }
 function fit(){
-  const pad = 40, top = 70, bottom = 20;
+  const small = innerWidth <= 640, pad = small ? 14 : 40, top = $('bar').getBoundingClientRect().bottom + (small ? 4 : 0), bottom = 20;
   const vw = Math.max(200, innerWidth - pad * 2), vh = Math.max(200, innerHeight - top - bottom - pad);
   const k = clampK(Math.min(vw / W, vh / H));
-  view = { k, x: (innerWidth - W * k) / 2, y: top + pad / 2 };
+  view = { k, x: (innerWidth - W * k) / 2, y: top + (small ? 6 : pad / 2) };
   apply();
 }
 function focusEl(el){
@@ -322,7 +348,14 @@ addEventListener('keydown', e => {
 // Keep the map fitted when the window resizes, until the user pans or zooms themselves
 let userMoved = false;
 ['wheel','pointerdown'].forEach(t => vp.addEventListener(t, () => userMoved = true));
-addEventListener('resize', () => { if (!userMoved) fit(); });
+function start(){
+  if (innerWidth > 640) return fit();
+  const top = $('bar').getBoundingClientRect().bottom + 10, a = areas[0];
+  const k = clampK(Math.min(1, (innerWidth - 20) / COL_W));
+  view = { k, x: 10 - a.x * k, y: top - (AREA_Y - 10) * k };
+  apply();
+}
+addEventListener('resize', () => { if (!userMoved) start(); });
 
 // ---- hidden answers: revealed on hover (or tap) ----
 const SRC = { V: 'Mock with Vignesh', B: 'Mock Q&A notes', P: 'Mock with role-play YC partner', F: 'Final mock interview', S: 'Swan & Bilal feedback' };
@@ -340,9 +373,10 @@ function showTip(card){
   if (d.rel) h += `<div class="sec"><h5>Similar answers we gave · ${esc(d.topics.join(', '))}</h5>` +
     d.rel.map(j => `<div class="one sim"><div class="rq">${esc(DATA[j].q)}</div>${DATA[j].ans.map(one).join('')}</div>`).join('') + '</div>';
   tip.style.fontSize = Math.round(Math.min(26, Math.max(15, 15 * view.k))) + 'px';
-  tip.innerHTML = h;
+  tip.innerHTML = '<button id="tipClose" aria-label="Close">✕</button>' + h;
   tip.scrollTop = 0;
   tip.classList.remove('hidden');
+  if (innerWidth <= 640) { tip.style.left = tip.style.top = ''; return; }
   const r = card.getBoundingClientRect(), t = tip.getBoundingClientRect(), m = 12;
   let x = r.right + m;
   if (x + t.width > innerWidth - m) x = r.left - t.width - m;
@@ -351,8 +385,11 @@ function showTip(card){
   tip.style.left = x + 'px'; tip.style.top = y + 'px';
 }
 function hideTip(){ tip.classList.add('hidden'); tipFor = null; }
+let lastPtr = 'mouse';
+addEventListener('pointerdown', e => lastPtr = e.pointerType, true);
+tip.addEventListener('click', e => { if (e.target.id === 'tipClose') hideTip(); });
 world.addEventListener('mouseover', e => {
-  if (ptrs.size) return;
+  if (ptrs.size || lastPtr === 'touch') return;
   const c = e.target.closest('.q.has-ans');
   if (c && c !== tipFor) showTip(c);
 });
@@ -371,7 +408,16 @@ vp.addEventListener('click', e => {
 vp.addEventListener('pointerdown', hideTip);
 vp.addEventListener('wheel', () => { if (tipFor) requestAnimationFrame(() => tipFor && showTip(tipFor)); }, { passive: true });
 
-layout(); fit();
+function setThemeIcon(){ $('themeBtn').textContent = document.documentElement.dataset.theme === 'dark' ? '☀' : '☾'; }
+$('themeBtn').onclick = () => {
+  const t = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = t;
+  try { localStorage.setItem('ycmap-theme', t); } catch(e){}
+  setThemeIcon();
+};
+setThemeIcon();
+if (innerWidth <= 640 && !$('legend').classList.contains('min')) $('legTog').click();
+layout(); start();
 </script>
 </body>
 </html>
