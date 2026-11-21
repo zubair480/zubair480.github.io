@@ -2577,6 +2577,10 @@ a:focus-visible {
   object-position: center 46%;
 }
 
+.hackathonWinCard:nth-child(10) .hackathonWinMedia > img {
+  object-position: center 6%;
+}
+
 .hackathonWinMedia--contain {
   background:
     radial-gradient(circle at 75% 35%, rgba(185, 221, 235, 0.2), transparent 31%),
