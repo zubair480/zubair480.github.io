@@ -104,7 +104,10 @@ test("server renders the complete project catalog", async () => {
   assert.match(html, /MongoMation/);
   assert.match(html, /ActorRelay/);
   assert.match(html, /YC Haunted Hacks/);
-  assert.match(html, /class="hackathonWinFallback"/);
+  assert.doesNotMatch(html, /class="hackathonWinFallback"/);
+  assert.match(html, /src="\/hackathons\/plantapi-team\.jpg"/);
+  assert.match(html, /src="\/hackathons\/mongomation-win\.jpg"/);
+  assert.match(html, /src="\/hackathons\/actorrelay-team\.jpg"/);
   assert.match(html, /src="\/hackathons\/thermal-crusoe-win\.jpg"/);
   assert.match(html, /src="\/hackathons\/recallradius-award\.jpg"/);
   assert.match(html, /src="\/hackathons\/refundguard-prize\.jpg"/);
