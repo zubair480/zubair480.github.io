@@ -102,6 +102,7 @@ test("server renders the complete project catalog", async () => {
   assert.match(html, /Thermal Crusoe/);
   assert.match(html, /PlantAPI/);
   assert.match(html, /MongoMation/);
+  assert.match(html, /\$10,000 first prize out of 92 projects/);
   assert.match(html, /ActorRelay/);
   assert.match(html, /YC Haunted Hacks/);
   assert.doesNotMatch(html, /class="hackathonWinFallback"/);

@@ -476,7 +476,7 @@ export const moreProjects: Project[] = [
     eyebrow: "First place · MongoDB Harness Engineering Hackathon",
     description:
       "Describe the machine and it engineers the control system. An agent writes IEC 61131-3 PLC code, deploys it to OpenPLC and tests it against a live Factory I/O plant while hidden tests drive a repair loop.",
-    proof: "8 of 8 requirements and 14 of 14 tests passed after one repair",
+    proof: "$10,000 first prize out of 92 projects · 14 of 14 tests passed after one repair",
     stack: ["MongoDB Atlas", "Claude", "OpenPLC", "TypeScript"],
     href: "https://github.com/zubair480/MongoMation",
     presentation: "concept",

@@ -138,7 +138,7 @@ const hackathonWins = [
     project: "MongoMation",
     description:
       "A self improving PLC engineer. It turns a plain English machine spec into a PLC program, deploys it to a real OpenPLC runtime and tests it against a live Factory I/O plant, with MongoDB Atlas as its memory.",
-    proof: "A repeat spec went from 290 s to 1 s by recalling a proven program",
+    proof: "$10,000 first prize out of 92 projects",
     href: "https://github.com/zubair480/MongoMation",
     image: "/hackathons/mongomation-win.jpg",
     imageAlt: "Zubair Zafar celebrating as MongoMation is announced the winner at the MongoDB Harness Engineering Hackathon",
