@@ -237,7 +237,7 @@ export default function ProjectsPage() {
                     <span>{win.placement}</span>
                   </div>
                   <div className={`hackathonWinMedia hackathonWinMedia--${win.imageFit}`}>
-                    {win.image ? (
+                    {(win.image as string | null) ? (
                       <img src={win.image} alt={win.imageAlt ?? ""} width="1200" height="675" loading="lazy" />
                     ) : (
                       <span
